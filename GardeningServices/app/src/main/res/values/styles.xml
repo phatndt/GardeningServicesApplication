@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="Theme.App" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        ...
+        <item name="colorPrimary">@color/Green1</item>
+        <item name="colorPrimaryDark">@color/Green1</item>
+        <item name="colorAccent">@color/Green1</item>
+
+    </style>
+    <style name="button" parent="Theme.MaterialComponents">
+        ...
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
+        <item name="colorPrimary">@color/Green1</item>
+        <item name="colorOnPrimary">@color/Green1</item>
+        <item name="backgroundTint">@color/Green1</item>
+        <item name="android:elevation">50dp</item>
+    </style>
+    <style name="category" parent="Widget.MaterialComponents.CardView">
+        ...
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:backgroundTint">@color/White2</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="specialOffer" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:backgroundTint">@color/White2</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="space">
+        <item name="android:layout_width">8dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+</resources>
