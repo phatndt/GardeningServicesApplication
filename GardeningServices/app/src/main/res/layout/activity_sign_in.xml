@@ -58,15 +58,17 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="@color/Green1"
+                app:hintTextColor="@color/Green1"
                 >
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_baseline_email_24"
                     android:drawableLeft="@drawable/ic_baseline_email_24"
                     android:inputType="textEmailAddress"
-                    android:background="@drawable/border"
                     android:drawablePadding="10dp"
                     android:hint="Your Email"
                     />
@@ -79,15 +81,17 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_below="@+id/idEmail"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTintMode="@color/NGreen1">
-                <EditText
+                app:boxStrokeColor="@color/Green1"
+                app:hintTextColor="@color/Green1"
+                app:endIconMode="password_toggle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edPassWord"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_baseline_lock_24"
                     android:drawableLeft="@drawable/ic_baseline_lock_24"
-                    android:background="@drawable/border"
                     android:drawablePadding="10dp"
                     android:hint="Password" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -131,7 +135,7 @@
                 android:drawableStart="@drawable/ic_google"
                 android:drawableLeft="@drawable/ic_google"
                 android:drawablePadding="10dp"
-                android:textColor="@color/NBlack3"
+                android:textColor="@color/Gray3"
                 android:textStyle="normal" />
             <Button
                 android:id="@+id/loginwithfacebook"
@@ -146,7 +150,7 @@
                 android:drawableLeft="@drawable/ic_facebook"
                 android:background="@drawable/borderbtlgwg"
                 android:drawablePadding="10dp"
-                android:textColor="@color/NBlack3"
+                android:textColor="@color/Gray3"
                 android:textStyle="normal" />
                 <TextView
                     android:id="@+id/fgpassword"
@@ -156,7 +160,7 @@
                     android:layout_marginTop="10dp"
                     android:text="Forgot Password ?"
                     android:textAlignment="center"
-                    android:textColor="@color/NGreen1"
+                    android:textColor="@color/Green1"
                     android:textSize="12dp"
                     android:textStyle="bold"
                     android:layout_below="@id/loginwithfacebook"
@@ -177,7 +181,7 @@
                     android:gravity="center_horizontal"
                     android:textAlignment="center"
                     android:text="Do you have a account? "
-                    android:textColor="@color/NBlack3"
+                    android:textColor="@color/Gray3"
                     android:textSize="12dp"
                     android:textStyle="bold"
                     android:layout_weight="0"
@@ -187,7 +191,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Register"
-                    android:textColor="@color/NGreen1"
+                    android:textColor="@color/Green1"
                     android:textSize="12dp"
                     android:textStyle="bold"
                     android:gravity="left"/>

@@ -3,11 +3,11 @@
     <style name="Theme.GardeningServices" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/NGreen1</item>
+        <item name="colorPrimaryVariant">@color/Green1</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/NGreen1</item>
-        <item name="colorSecondaryVariant">@color/NGreen2</item>
+        <item name="colorSecondary">@color/Green1</item>
+        <item name="colorSecondaryVariant">@color/Gray3</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
