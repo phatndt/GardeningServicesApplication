@@ -59,15 +59,17 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:hint="Full Name"
-
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                app:boxStrokeColor="@color/Green1"
+                app:hintTextColor="@color/Green1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border"
-                android:drawableStart="@drawable/ic_baseline_people_outline_24"
-                android:drawableLeft="@drawable/ic_baseline_people_outline_24"
+                android:drawableStart="@drawable/ic_baseline_person_24"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="10dp"
                  />
             </com.google.android.material.textfield.TextInputLayout>
@@ -79,14 +81,16 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
+                app:boxStrokeColor="@color/Green1"
+                app:hintTextColor="@color/Green1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 >
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_baseline_email_24"
                     android:drawableLeft="@drawable/ic_baseline_email_24"
-                    android:background="@drawable/border"
                     android:drawablePadding="10dp"
                     android:hint="Your Email"
                     />
@@ -99,15 +103,17 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_below="@+id/idEmail"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTintMode="@color/NGreen1">
+                app:endIconMode="password_toggle"
+                app:boxStrokeColor="@color/Green1"
+                app:hintTextColor="@color/Green1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
                 <EditText
                     android:id="@+id/edPassWord"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_baseline_lock_24"
                     android:drawableLeft="@drawable/ic_baseline_lock_24"
-                    android:background="@drawable/border"
                     android:drawablePadding="10dp"
                     android:hint="Password" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -119,15 +125,17 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_below="@+id/idPassWord"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTintMode="@color/NGreen1">
-                <EditText
+                app:endIconMode="password_toggle"
+                app:boxStrokeColor="@color/Green1"
+                app:hintTextColor="@color/Green1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edPassWordAgain"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_baseline_lock_24"
                     android:drawableLeft="@drawable/ic_baseline_lock_24"
-                    android:background="@drawable/border"
                     android:drawablePadding="10dp"
                     android:hint="Password Again" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -164,7 +172,7 @@
                     android:gravity="center_horizontal"
                     android:textAlignment="center"
                     android:text="Have a account "
-                    android:textColor="@color/NBlack3"
+                    android:textColor="@color/Gray3"
                     android:textSize="12dp"
                     android:textStyle="bold"
                     android:layout_weight="0"
@@ -174,7 +182,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sign In"
-                    android:textColor="@color/NGreen1"
+                    android:textColor="@color/Green1"
                     android:textSize="12dp"
                     android:textStyle="bold"
                     android:gravity="left"/>
