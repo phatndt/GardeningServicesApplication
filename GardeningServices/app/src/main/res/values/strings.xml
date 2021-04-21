@@ -28,4 +28,12 @@
     <string name="Login_with_Facebook">Login with Facebook</string>
     <string name="Password_Again">Password Again</string>
     <string name="Create_an_new_account">Create an new account</string>
+
+<!--    category-->
+    <string name="flower">Flower</string>
+    <string name="harvest">Fruit</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="herbal">Herbal</string>
+
+
 </resources>
