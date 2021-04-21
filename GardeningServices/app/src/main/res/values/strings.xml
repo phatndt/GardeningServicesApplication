@@ -12,6 +12,17 @@
     <string name="Let_get_started">Lets get started</string>
     <string name="getDiscountUntil">Get discount until</string>
     <string name="Services">Services</string>
+    <!--Descriptions-->
+    <string name="first_slide_desc">We wil help you to grow and organize
+your garden. </string>
+    <string name="second_slide_desc">Get your desired plants, tools, and services for
+gardening by staying home. </string>
+    <string name="third_slide_desc">The augmented reality feature will help you
+to see how a plant looks in your house. </string>
+    <!--Buttons-->
+    <string name="skip_btn"> Skip </string>
+    <string name="next_btn"> Next </string>
+    <string name="get_started"> Get started </string>
     <string name="Full_Name">Full Name</string>
     <string name="Your_Email">Your Email</string>
     <string name="Password">Password</string>
@@ -28,12 +39,9 @@
     <string name="Login_with_Facebook">Login with Facebook</string>
     <string name="Password_Again">Password Again</string>
     <string name="Create_an_new_account">Create an new account</string>
-
 <!--    category-->
     <string name="flower">Flower</string>
     <string name="harvest">Fruit</string>
     <string name="vegetables">Vegetables</string>
     <string name="herbal">Herbal</string>
-
-
 </resources>
