@@ -1,13 +1,14 @@
 package com.example.gardeningservices
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.gardeningservices.fragment.FavoriteFragment
 import com.example.gardeningservices.fragment.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,4 +47,5 @@ class MainActivity : AppCompatActivity() {
 //            commit()
 //        }
     }
+
 }
