@@ -10,11 +10,17 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.gardeningservices.R
+import com.example.gardeningservices.databinding.FragmentHomeBinding
 import kotlinx.android.synthetic.main.fragment_home.*
 
 public class HomeFragment: Fragment(){
+
     val TAG = "HomeFragment"
+
     private var string: String? = null
+
+    private lateinit var binding: FragmentHomeBinding
+
     override fun onAttach(context: Context) {
         Log.d(TAG, "onAttach")
         super.onAttach(context)
@@ -27,22 +33,19 @@ public class HomeFragment: Fragment(){
 
 
     }
-    private val listener= View.OnClickListener { view ->
-        when (view.getId()) {
-            R.id.c1 -> {
-                Toast.makeText(activity,"clickfdsfdsfdsfdsfdsfdsfdsfdsfds", Toast.LENGTH_LONG).show()
-            }
-        }
-    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.d(TAG, "onCreateView")
         return  inflater.inflate(R.layout.fragment_home, container, false)
-        c1.setOnClickListener { view ->
-            Log.d("btnSetup", "Selected")
-        }
-
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentHomeBinding.bind(view)
+        binding.c1.setOnClickListener {
+            Toast.makeText(activity, "Đã click card1",Toast.LENGTH_LONG).show()
+        }
+    }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         Log.d(TAG, "onActivityCreated")
         super.onActivityCreated(savedInstanceState)
