@@ -17,6 +17,10 @@ class SignIn : AppCompatActivity() {
             startActivity(intent)
         }
         val edMail :EditText=findViewById(R.id.edt_email)
-
+        btSignIn.setOnClickListener {
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            Toast.makeText(this,"Sign In", Toast.LENGTH_LONG).show()
+        }
     }
 }
