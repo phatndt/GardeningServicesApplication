@@ -33,6 +33,21 @@
         <item name="android:backgroundTint">@color/White2</item>
         <item name="android:clickable">true</item>
     </style>
+    <style name="service" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:backgroundTint">@color/White2</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="categoryTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textColor">@color/Green1</item>
+    </style>
     <style name="space">
         <item name="android:layout_width">8dp</item>
         <item name="android:layout_height">match_parent</item>

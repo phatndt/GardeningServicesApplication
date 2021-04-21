@@ -7,6 +7,8 @@ import android.text.Editable
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_sign_in.*
 import java.util.*
 
 class SignIn : AppCompatActivity() {
@@ -19,5 +21,10 @@ class SignIn : AppCompatActivity() {
             startActivity(intent)
         }
         val edMail :EditText=findViewById(R.id.edEmail)
+        btSignIn.setOnClickListener {
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            Toast.makeText(this,"Sign In", Toast.LENGTH_LONG).show()
+        }
     }
 }

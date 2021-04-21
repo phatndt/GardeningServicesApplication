@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GardeningServices">
         <activity android:name=".Register"></activity>
-        <!-- <activity android:name=".SignIn"></activity> -->
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".SignIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

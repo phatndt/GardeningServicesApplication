@@ -12,4 +12,12 @@
     <string name="discount">Discount</string>
     <string name="getDiscountUntil">Get discount until</string>
     <string name="Services">Services</string>
+
+<!--    category-->
+    <string name="flower">Flower</string>
+    <string name="harvest">Fruit</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="herbal">Herbal</string>
+
+
 </resources>
