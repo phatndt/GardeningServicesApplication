@@ -149,6 +149,7 @@
                 android:text="@string/Sign_Up"
                 android:textColor="@color/white"
                 android:fontFamily="@font/open_sans"
+                android:textAllCaps="false"
                 android:textStyle="bold"
                 android:layout_below="@id/til_password_again"
                 />
