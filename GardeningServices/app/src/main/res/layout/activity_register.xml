@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    tools:context=".`Register Activity`">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_parent"
         android:layout_width="match_parent"
@@ -69,8 +69,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_full_name"
                 android:layout_width="match_parent"
+                android:lines="1"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_baseline_person_24"
+                android:drawableStart="@drawable/selector_person_icon"
                 android:drawablePadding="10sp"
                  />
             </com.google.android.material.textfield.TextInputLayout>
@@ -90,8 +91,9 @@
                     android:id="@+id/edt_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_baseline_email_24"
+                    android:drawableStart="@drawable/selector_email_icon"
                     android:drawablePadding="10sp"
+                    android:lines="1"
                     android:fontFamily="@font/open_sans"
                     android:hint="@string/Your_Email"
                     />
@@ -113,8 +115,9 @@
                     android:id="@+id/edt_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_baseline_lock_24"
+                    android:drawableStart="@drawable/selector_lock_icon"
                     android:drawablePadding="10sp"
+                    android:lines="1"
                     android:fontFamily="@font/open_sans"
                     android:hint="@string/Password" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -135,8 +138,9 @@
                     android:id="@+id/edt_password_again"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_baseline_lock_24"
+                    android:drawableStart="@drawable/selector_lock_icon"
                     android:drawablePadding="10sp"
+                    android:lines="1"
                     android:fontFamily="@font/open_sans"
                     android:hint="@string/Password_Again" />
             </com.google.android.material.textfield.TextInputLayout>
