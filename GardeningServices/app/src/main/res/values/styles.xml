@@ -25,16 +25,8 @@
         <item name="android:backgroundTint">@color/White2</item>
         <item name="android:clickable">true</item>
     </style>
-    <style name="specialOffer" parent="Widget.MaterialComponents.CardView">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">2dp</item>
-        <item name="android:layout_columnWeight">1</item>
-        <item name="android:backgroundTint">@color/White2</item>
-        <item name="android:clickable">true</item>
-    </style>
-    <style name="service" parent="Widget.MaterialComponents.CardView">
-        <item name="android:layout_width">wrap_content</item>
+    <style name="specialOfferCard" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">2dp</item>
         <item name="android:layout_columnWeight">1</item>
@@ -48,8 +40,33 @@
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:textColor">@color/Green1</item>
     </style>
-    <style name="space">
-        <item name="android:layout_width">8dp</item>
+
+    <style name="serviceCard" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:backgroundTint">@color/White2</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="serviceTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/open_sans_bold</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+    <style name="servicePriceTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">13sp</item>
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+    <style name="seeAll" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
+        <item name="android:textAlignment">center</item>
     </style>
 </resources>
