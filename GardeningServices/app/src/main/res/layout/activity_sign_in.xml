@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn">
+    tools:context=".`Sign In Activity`">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_parent"
         android:layout_width="match_parent"
@@ -68,7 +68,8 @@
                     android:id="@+id/edt_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_baseline_email_24"
+                    android:lines="1"
+                    android:drawableStart="@drawable/selector_email_icon"
                     android:fontFamily="@font/open_sans"
                     android:inputType="textEmailAddress"
                     android:drawablePadding="10dp"
@@ -92,7 +93,8 @@
                     android:id="@+id/edt_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_baseline_lock_24"
+                    android:lines="1"
+                    android:drawableStart="@drawable/selector_lock_icon"
                     android:fontFamily="@font/open_sans"
                     android:drawablePadding="10sp"
                     android:hint="@string/Password" />
