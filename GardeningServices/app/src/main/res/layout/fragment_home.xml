@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/TitleWelcome1"
                 android:textSize="20sp"
-                app:fontFamily="@font/open_sans_semibold"
+                app:fontFamily="@font/open_sans_semi_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +73,8 @@
                         android:paddingStart="15dp"
                         android:paddingEnd="10dp"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:lines="1"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:layout_width="40dp"
@@ -85,9 +87,6 @@
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_categories"
             android:layout_width="match_parent"
@@ -110,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/Category"
                     android:textSize="20sp"
-                    app:fontFamily="@font/open_sans_bold" />
+                    app:fontFamily="@font/open_sans_bold"/>
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tx_see_all_categories"
@@ -120,8 +119,10 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="5dp"
                     android:text="@string/SeeAll"
-                    android:textSize="14sp"
-                    app:fontFamily="@font/open_sans" />
+                    android:textSize="16sp"
+                    app:fontFamily="@font/open_sans"
+                    android:textColor="@color/selector_see_all"
+                    android:clickable="true"/>
             </RelativeLayout>
 
             <GridLayout
@@ -146,8 +147,7 @@
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_category_flowers_24"
-                            android:backgroundTint="@color/Green1"
+                            android:src="@drawable/ic_category_flower_24"
                             />
 
                         <com.google.android.material.textview.MaterialTextView
@@ -169,7 +169,7 @@
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_category_harvest_24" />
+                            android:src="@drawable/ic_category_fruit_24" />
 
                         <com.google.android.material.textview.MaterialTextView
                             style="@style/categoryTextView"
@@ -190,7 +190,7 @@
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_category_vegetable_24"/>
+                            android:src="@drawable/ic_category_vegetables_24"/>
 
                         <com.google.android.material.textview.MaterialTextView
                             style="@style/categoryTextView"
@@ -253,8 +253,10 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="5dp"
                     android:text="@string/SeeAll"
-                    android:textSize="14sp"
-                    app:fontFamily="@font/open_sans" />
+                    android:textSize="16sp"
+                    android:textColor="@color/selector_see_all"
+                    app:fontFamily="@font/open_sans"
+                    android:clickable="true"/>
             </RelativeLayout>
 
             <GridLayout
@@ -264,21 +266,17 @@
                 android:layout_marginEnd="15dp"
                 android:columnCount="2"
                 app:layout_constraintTop_toBottomOf="@id/relativeLayout_special_offers">
-
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cV_special_offer_1"
-                    style="@style/specialOffer"
+                    style="@style/specialOfferCard"
                     android:layout_column="0">
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="130dp">
-
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
                         <LinearLayout
                             android:id="@+id/view1"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            android:layout_height="match_parent">
 
                             <com.google.android.material.imageview.ShapeableImageView
 
@@ -287,17 +285,14 @@
                                 android:layout_gravity="center"
                                 android:layout_marginHorizontal="10dp"
                                 android:layout_marginVertical="10dp"
-                                android:background="@color/Green1"
                                 android:src="@drawable/ic_outline_person_24" />
                         </LinearLayout>
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="130dp"
                             android:layout_gravity="center_vertical|center_horizontal"
                             android:gravity="center"
-                            android:orientation="vertical"
-                            app:layout_constraintStart_toEndOf="@+id/view1"
-                            app:layout_constraintTop_toTopOf="parent">
+                            android:orientation="vertical">
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -318,42 +313,33 @@
                                 android:text="21st September"
                                 android:textAlignment="center" />
                         </LinearLayout>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cV_special_offer_2"
-                    style="@style/specialOffer"
+                    style="@style/specialOfferCard"
                     android:layout_column="1">
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="130dp">
-
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
                         <LinearLayout
                             android:id="@+id/view2"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
+                            android:layout_height="match_parent">
                             <com.google.android.material.imageview.ShapeableImageView
-
                                 android:layout_width="50dp"
                                 android:layout_height="100dp"
                                 android:layout_gravity="center"
                                 android:layout_marginHorizontal="10dp"
                                 android:layout_marginVertical="10dp"
-                                android:background="@color/Green1"
                                 android:src="@drawable/ic_outline_person_24" />
                         </LinearLayout>
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
                             android:layout_gravity="center_vertical|center_horizontal"
                             android:gravity="center"
-                            android:orientation="vertical"
-                            app:layout_constraintStart_toEndOf="@+id/view2"
-                            app:layout_constraintTop_toTopOf="parent">
+                            android:orientation="vertical">
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -374,108 +360,118 @@
                                 android:text="21st September"
                                 android:textAlignment="center" />
                         </LinearLayout>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-                <!--            <com.google.android.material.card.MaterialCardView-->
-                <!--                android:id="@+id/cV_special_offer_1"-->
-                <!--                style="@style/specialOffer"-->
-                <!--                android:layout_column="0">-->
+<!--                <com.google.android.material.card.MaterialCardView-->
+<!--                    android:id="@+id/cV_special_offer_1"-->
+<!--                    style="@style/specialOfferCard"-->
+<!--                    android:layout_column="0">-->
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="130dp">-->
 
-                <!--                <LinearLayout-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="100dp">-->
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/view1"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent">-->
 
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="wrap_content"-->
-                <!--                        android:layout_height="wrap_content">-->
+<!--                            <com.google.android.material.imageview.ShapeableImageView-->
 
-                <!--                        <com.google.android.material.imageview.ShapeableImageView-->
+<!--                                android:layout_width="50dp"-->
+<!--                                android:layout_height="100dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginHorizontal="10dp"-->
+<!--                                android:layout_marginVertical="10dp"-->
+<!--                                android:src="@drawable/ic_outline_person_24" />-->
+<!--                        </LinearLayout>-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="130dp"-->
+<!--                            android:layout_gravity="center_vertical|center_horizontal"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical"-->
+<!--                            app:layout_constraintStart_toEndOf="@+id/view1"-->
+<!--                            app:layout_constraintTop_toTopOf="parent">-->
+<!--                            <com.google.android.material.textview.MaterialTextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="50%"/>-->
+<!--                            <com.google.android.material.textview.MaterialTextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="@string/discount"/>-->
+<!--                            <com.google.android.material.textview.MaterialTextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginTop="5dp"-->
+<!--                                android:text="@string/getDiscountUntil"-->
+<!--                                android:textAlignment="center" />-->
+<!--                            <com.google.android.material.textview.MaterialTextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="21st September"-->
+<!--                                android:textAlignment="center" />-->
+<!--                        </LinearLayout>-->
 
-                <!--                            android:layout_width="50dp"-->
-                <!--                            android:layout_height="80dp"-->
-                <!--                            android:layout_marginHorizontal="10dp"-->
-                <!--                            android:layout_marginVertical="10dp"-->
-                <!--                            android:background="@color/Green1"-->
-                <!--                            android:src="@drawable/ic_outline_person_24" />-->
-                <!--                    </LinearLayout>-->
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="wrap_content"-->
-                <!--                        android:layout_height="match_parent"-->
-                <!--                        android:orientation="vertical">-->
-                <!--                        <com.google.android.material.textview.MaterialTextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:layout_marginTop="10dp"-->
-                <!--                            android:text="50%"-->
-                <!--                            android:textAlignment="center" />-->
-                <!--                        <com.google.android.material.textview.MaterialTextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:text="@string/discount"-->
-                <!--                            android:textAlignment="center" />-->
-                <!--                        <com.google.android.material.textview.MaterialTextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:layout_marginTop="5dp"-->
-                <!--                            android:text="@string/getDiscountUntil"-->
-                <!--                            android:textAlignment="center" />-->
-                <!--                        <com.google.android.material.textview.MaterialTextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:text="21st September"-->
-                <!--                            android:textAlignment="center" />-->
-                <!--                    </LinearLayout>-->
-                <!--                </LinearLayout>-->
-                <!--            </com.google.android.material.card.MaterialCardView>-->
-                <!--            <com.google.android.material.card.MaterialCardView-->
-                <!--                android:id="@+id/cV_special_offer_2"-->
-                <!--                style="@style/specialOffer"-->
-                <!--                android:layout_column="1">-->
-                <!--                <LinearLayout-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="100dp">-->
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="wrap_content"-->
-                <!--                        android:layout_height="wrap_content">-->
-                <!--                        <com.google.android.material.imageview.ShapeableImageView-->
-                <!--                            android:layout_width="50dp"-->
-                <!--                            android:layout_height="80dp"-->
-                <!--                            android:layout_marginHorizontal="10dp"-->
-                <!--                            android:layout_marginVertical="10dp"-->
-                <!--                            android:background="@color/Green1"-->
-                <!--                            android:src="@drawable/ic_outline_person_24" />-->
-                <!--                    </LinearLayout>-->
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="wrap_content"-->
-                <!--                        android:layout_height="match_parent"-->
-                <!--                        android:orientation="vertical">-->
-                <!--                        <com.google.android.material.textview.MaterialTextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:layout_marginTop="10dp"-->
-                <!--                            android:text="50%"-->
-                <!--                            android:textAlignment="center" />-->
-                <!--                        <com.google.android.material.textview.MaterialTextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:text="@string/discount"-->
-                <!--                            android:textAlignment="center" />-->
-                <!--                        <com.google.android.material.textview.MaterialTextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:layout_marginTop="5dp"-->
-                <!--                            android:text="@string/getDiscountUntil"-->
-                <!--                            android:textAlignment="center" />-->
-                <!--                        <com.google.android.material.textview.MaterialTextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:text="21st September"-->
-                <!--                            android:textAlignment="center" />-->
-                <!--                    </LinearLayout>-->
-                <!--                </LinearLayout>-->
-                <!--            </com.google.android.material.card.MaterialCardView>-->
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--                </com.google.android.material.card.MaterialCardView>-->
+<!--                <com.google.android.material.card.MaterialCardView-->
+<!--                    android:id="@+id/cV_special_offer_2"-->
+<!--                    style="@style/specialOfferCard"-->
+<!--                    android:layout_column="1">-->
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="130dp">-->
 
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/view2"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--                            <com.google.android.material.imageview.ShapeableImageView-->
+
+<!--                                android:layout_width="50dp"-->
+<!--                                android:layout_height="100dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginHorizontal="10dp"-->
+<!--                                android:layout_marginVertical="10dp"-->
+<!--                                android:src="@drawable/ic_outline_person_24" />-->
+<!--                        </LinearLayout>-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_gravity="center_vertical|center_horizontal"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical"-->
+<!--                            app:layout_constraintStart_toEndOf="@+id/view2"-->
+<!--                            app:layout_constraintTop_toTopOf="parent">-->
+<!--                            <com.google.android.material.textview.MaterialTextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="50%"/>-->
+<!--                            <com.google.android.material.textview.MaterialTextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="@string/discount"/>-->
+<!--                            <com.google.android.material.textview.MaterialTextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginTop="5dp"-->
+<!--                                android:text="@string/getDiscountUntil"-->
+<!--                                android:textAlignment="center" />-->
+<!--                            <com.google.android.material.textview.MaterialTextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="21st September"-->
+<!--                                android:textAlignment="center" />-->
+<!--                        </LinearLayout>-->
+
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--                </com.google.android.material.card.MaterialCardView>-->
             </GridLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -509,8 +505,10 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="5dp"
                     android:text="@string/SeeAll"
-                    android:textSize="14sp"
-                    app:fontFamily="@font/open_sans" />
+                    android:textSize="16sp"
+                    android:textColor="@color/selector_see_all"
+                    app:fontFamily="@font/open_sans"
+                    android:clickable="true"/>
             </RelativeLayout>
 
             <GridLayout
@@ -522,87 +520,74 @@
                 app:layout_constraintTop_toBottomOf="@id/relativeLayout_service">
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cV_Service1"
-                    style="@style/category"
+                    style="@style/serviceCard"
                     android:layout_column="0">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
+                        android:layout_height="150dp"
                         android:layout_gravity="center_vertical|center_horizontal"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/ic_outline_person_24" />
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/ic_service_monthly_care_24" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Flower"
-                            android:textAlignment="center" />
+                            style="@style/serviceTextView"
+                            android:text="@string/care" />
                         <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="15 BDT"
-                            android:textAlignment="center" />
+                            style="@style/servicePriceTextView"
+                            android:text="15 BDT"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cV_Service2"
-                    style="@style/category"
+                    style="@style/serviceCard"
                     android:layout_column="1">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
+                        android:layout_height="150dp"
                         android:layout_gravity="center_vertical|center_horizontal"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/ic_outline_person_24" />
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/ic_service_balcony_setup_24" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Flower"
-                            android:textAlignment="center" />
+                            style="@style/serviceTextView"
+                            android:text="@string/balcony" />
                         <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="15 BDT"
-                            android:textAlignment="center" />
+                            style="@style/servicePriceTextView"
+                            android:text="15 BDT" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cV_Service3"
-                    style="@style/category"
+                    style="@style/serviceCard"
                     android:layout_column="2">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
+                        android:layout_height="150dp"
                         android:layout_gravity="center_vertical|center_horizontal"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/ic_outline_person_24" />
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/ic_service_office_decor_24" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Flower"
-                            android:textAlignment="center" />
+                            style="@style/serviceTextView"
+                            android:text="@string/decor" />
                         <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="15 BDT"
-                            android:textAlignment="center" />
+                            style="@style/servicePriceTextView"
+                            android:text="15 BDT" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </GridLayout>
