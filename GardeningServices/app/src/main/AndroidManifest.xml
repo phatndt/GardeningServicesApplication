@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GardeningServices">
-        <activity android:name=".`Register Activity`"></activity>
+        <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".`Sign In Activity`">
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

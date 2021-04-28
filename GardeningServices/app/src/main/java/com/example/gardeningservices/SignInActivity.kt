@@ -8,13 +8,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-class `Sign In Activity` : AppCompatActivity() {
+class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
         val tv_register: TextView = findViewById(R.id.tv_register)
         tv_register.setOnClickListener {
-            val intent = Intent(this, `Register Activity`::class.java);
+            val intent = Intent(this, RegisterActivity::class.java);
             startActivity(intent)
         }
         val button_sign_in: Button = findViewById(R.id.button_sign_in)
