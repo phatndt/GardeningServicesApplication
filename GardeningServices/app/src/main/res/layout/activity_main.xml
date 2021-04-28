@@ -21,7 +21,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btm_navigation"
-        android:background="@drawable/rounder_navigation_background"
+        android:background="@drawable/boarder_navigation_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
