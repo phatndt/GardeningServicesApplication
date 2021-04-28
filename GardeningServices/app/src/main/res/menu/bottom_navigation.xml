@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/home"
         android:title="Home"
-        android:icon="@drawable/selector_home"
+        android:icon="@drawable/selector_navigation_home"
         />
     <item android:id="@+id/favorite"
         android:title="Favorite"
-        android:icon="@drawable/selector_favorite"/>
+        android:icon="@drawable/selector_navigation_favorite"/>
     <item android:id="@+id/shoppingCart"
         android:title="Cart"
-        android:icon="@drawable/selector_shoppingcart"/>
+        android:icon="@drawable/selector_navigation_shoppingcart"/>
     <item android:id="@+id/notification"
         android:title="Notification"
-        android:icon="@drawable/selector_notifications"/>
+        android:icon="@drawable/selector_navigation_notifications"/>
     <item android:id="@+id/person"
         android:title="Person"
-        android:icon="@drawable/selector_profile"/>
+        android:icon="@drawable/selector_navigation_profile"/>
 </menu>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_parent"
         android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:lines="1"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/selector_person_icon"
+                android:drawableStart="@drawable/selector_sign_person_icon"
                 android:drawablePadding="10sp"
                  />
             </com.google.android.material.textfield.TextInputLayout>
@@ -91,7 +91,7 @@
                     android:id="@+id/edt_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/selector_email_icon"
+                    android:drawableStart="@drawable/selector_sign_email_icon"
                     android:drawablePadding="10sp"
                     android:lines="1"
                     android:fontFamily="@font/open_sans"
@@ -115,7 +115,7 @@
                     android:id="@+id/edt_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/selector_lock_icon"
+                    android:drawableStart="@drawable/selector_sign_lock_icon"
                     android:drawablePadding="10sp"
                     android:lines="1"
                     android:fontFamily="@font/open_sans"
@@ -138,7 +138,7 @@
                     android:id="@+id/edt_password_again"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/selector_lock_icon"
+                    android:drawableStart="@drawable/selector_sign_lock_icon"
                     android:drawablePadding="10sp"
                     android:lines="1"
                     android:fontFamily="@font/open_sans"
