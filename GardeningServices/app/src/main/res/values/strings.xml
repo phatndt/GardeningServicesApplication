@@ -17,7 +17,7 @@
     <string name="first_slide_desc">We wil help you to grow and organize your garden. </string>
     <string name="second_slide_desc">Get your desired plants, tools, and services for gardening by staying home. </string>
     <string name="third_slide_desc">The augmented reality feature will help you to see how a plant looks in your house. </string>
-  
+
     <!--Buttons-->
     <string name="skip_btn"> Skip </string>
     <string name="next_btn"> Next </string>
@@ -38,17 +38,26 @@
     <string name="Login_with_Facebook">Login with Facebook</string>
     <string name="Password_Again">Password Again</string>
     <string name="Create_an_new_account">Create an new account</string>
-  
-<!--    category-->
+
+    <!--    category-->
     <string name="flower">Flower</string>
     <string name="harvest">Fruit</string>
     <string name="vegetables">Vegetables</string>
     <string name="herbal">Herbal</string>
-  
+
     <!--    service-->
     <string name="care">Monthly Care</string>
     <string name="balcony">Balcony Setup</string>
     <string name="decor">Office Decor</string>
     <string name="organize">Organize Garden</string>
+    <string name="title_activity_sell_all_category">SellAllCategoryActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>

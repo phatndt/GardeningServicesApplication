@@ -4,47 +4,45 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.gardeningservices.adapter.CategoryAdapter
 import com.example.gardeningservices.fragment.FavoriteFragment
 import com.example.gardeningservices.fragment.HomeFragment
+import com.example.gardeningservices.model.Category
+import com.example.gardeningservices.network.ServerRetrofit
+import com.example.gardeningservices.network.category.CategoryApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
 
     private val homeFragment = HomeFragment()
     private val favoriteFragment = FavoriteFragment()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
         makeCurrentFragment(homeFragment)
 
-
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.btm_navigation)
-
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.home -> {
-                    Toast.makeText(this@MainActivity,"clickfdsfdsfdsfdsfdsfdsfdsfdsfds", Toast.LENGTH_LONG).show()
-                    makeCurrentFragment(homeFragment)}
+                R.id.home -> makeCurrentFragment(homeFragment)
                 R.id.favorite -> makeCurrentFragment(favoriteFragment)
             }
             true
         }
 
-
     }
     private fun makeCurrentFragment(fragment: Fragment) {
-        if(fragment != null) {
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container,fragment)
-            transaction.commit()
-        }
-
-//        supportFragmentManager.beginTransaction().apply {
-//            replace(R.id.fragment_container,fragment)
-//            commit()
-//        }
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container,fragment)
+        transaction.commit()
     }
 
 }
