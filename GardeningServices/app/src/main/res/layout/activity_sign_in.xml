@@ -88,19 +88,18 @@
                 android:layout_marginRight="20sp"
                 app:boxStrokeColor="@color/Green1"
                 app:hintTextColor="@color/Green1"
-                app:passwordToggleEnabled="true">
+                app:passwordToggleEnabled="true"
+                app:passwordToggleDrawable="@drawable/selector_sign_visibility">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/selector_sign_lock_icon"
-                    android:fontFamily="@font/open_sans"
-                    android:inputType="textPassword"
                     android:drawablePadding="10sp"
                     android:fontFamily="@font/open_sans"
-                    android:inputType=""
                     android:hint="@string/Password"
+                    android:inputType="textPassword"
                     android:lines="1" />
             </com.google.android.material.textfield.TextInputLayout>
             <Button

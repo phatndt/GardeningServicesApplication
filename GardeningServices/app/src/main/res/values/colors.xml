@@ -13,6 +13,7 @@
     <color name="Gray4">#FFF7FAF8</color>
     <color name="White2">#FFF7FAF8</color>
     <color name="White3">#FFF7FAF8</color>
+    <color name="White1">#FFFFFFFF</color>
     <color name="Yellow">#FF4C4E4C</color>
     <color name="Green">#008000</color>
 </resources>
