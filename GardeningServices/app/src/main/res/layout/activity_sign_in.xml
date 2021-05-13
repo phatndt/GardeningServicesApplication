@@ -95,6 +95,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/selector_sign_lock_icon"
+                    android:fontFamily="@font/open_sans"
+                    android:inputType="textPassword"
                     android:drawablePadding="10sp"
                     android:fontFamily="@font/open_sans"
                     android:inputType=""
