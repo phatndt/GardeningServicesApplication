@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25d0995d-3c48-409f-a169-0047628500db" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/GardeningServicesApplication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GardeningServicesApplication.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/model/Users.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/network/CRUDresponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/network/category/CategoryResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/network/user/ApiUtils.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/network/user/UserApi.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/network/user/UserResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/viewmodel/SeeAllCategoryViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/activity/SeeAllCategoryActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/activity/SeeAllCategoryActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/network/ServerRetrofit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/network/ServerRetrofit.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/res/layout/item_category.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/layout/item_category.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +29,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/GardeningServices" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -36,9 +45,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1617357479926">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1620744574485">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617357479926" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620744574485" />
   </component>
 </project>

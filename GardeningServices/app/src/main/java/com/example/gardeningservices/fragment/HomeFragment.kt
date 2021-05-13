@@ -17,6 +17,7 @@ import com.example.gardeningservices.activity.SeeAllCategoryActivity
 import com.example.gardeningservices.adapter.CategoryAdapter
 import com.example.gardeningservices.databinding.FragmentHomeBinding
 import com.example.gardeningservices.model.Category
+import com.example.gardeningservices.network.ApiUtils
 import com.example.gardeningservices.network.ServerRetrofit
 import com.example.gardeningservices.network.category.CategoryApi
 import retrofit2.Call
@@ -59,7 +60,7 @@ public class HomeFragment: Fragment(){
         }
         val recyclerView: RecyclerView = view.findViewById(R.id.rcV_category_home)
         recyclerView.setHasFixedSize(true);
-        callAPI(recyclerView, this.contextFragment)
+        getCategory(recyclerView, this.contextFragment)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -101,20 +102,15 @@ public class HomeFragment: Fragment(){
         Log.d(TAG, "onDetach")
         super.onDetach()
     }
-    private fun callAPI(recyclerView: RecyclerView,context: Context ) {
+    private fun getCategory(recyclerView: RecyclerView,context: Context ) {
+
         var categoryAdapter: CategoryAdapter
 
         var listCategoryItem: List<Category>
 
-        var categoryApi: CategoryApi? = null
+        val categoryApi = ApiUtils.getCategoryApi()
 
-        val getRetrofit: ServerRetrofit = ServerRetrofit()
-
-        categoryApi= getRetrofit.getClient()!!.create(CategoryApi::class.java)
-
-        val call: Call<List<Category>> = categoryApi!!.getCategoryHome()
-
-        call.enqueue(object : Callback<List<Category>> {
+        categoryApi.getCategoryHome().enqueue(object : Callback<List<Category>> {
             override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
                 listCategoryItem = response.body()!!
                 categoryAdapter = CategoryAdapter(context,listCategoryItem )
