@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -132,7 +129,7 @@
                 android:layout_marginEnd="15dp"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 android:clipToPadding="false"
-                app:spanCount="3"
+                app:spanCount="4"
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout_categories"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 <!--            <GridLayout-->
@@ -485,6 +482,7 @@
             </GridLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_service"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/layout_special_offers">
@@ -520,8 +518,45 @@
                 app:fontFamily="@font/open_sans"
                 android:clickable="true"/>
         </RelativeLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcV_services_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_service"
+                app:layout_constraintVertical_bias="0.0"
+                app:spanCount="3"
+                tools:layout_editor_absoluteX="15dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_sale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layout_service">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_sale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tx_salse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sale"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/open_sans_bold"/>
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcV_sale"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
@@ -529,7 +564,7 @@
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 android:clipToPadding="false"
                 app:spanCount="3"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_service"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_sale"
                 app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GardeningServices"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.SeeAllGoodOfCategoryActivity"></activity>
         <activity android:name=".activity.SeeAllServicesActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
