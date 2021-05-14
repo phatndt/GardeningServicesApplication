@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.circularreveal.cardview.CircularRevealCardView
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cv_category"
     style="@style/category"
@@ -21,4 +21,4 @@
             android:id="@+id/tv_name"
             style="@style/categoryTextView"/>
     </LinearLayout>
-</com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+</com.google.android.material.card.MaterialCardView>

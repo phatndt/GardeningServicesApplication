@@ -76,28 +76,31 @@
                     android:hint="@string/Your_Email"
                     />
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_password"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/til_email"
+                android:layout_marginLeft="20sp"
                 android:layout_marginTop="5sp"
                 android:layout_marginRight="20sp"
-                android:layout_marginLeft="20sp"
-                android:layout_below="@+id/til_email"
                 app:boxStrokeColor="@color/Green1"
                 app:hintTextColor="@color/Green1"
-                app:endIconMode="password_toggle"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
+                app:passwordToggleEnabled="true"
+                app:passwordToggleDrawable="@drawable/selector_sign_visibility">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:lines="1"
                     android:drawableStart="@drawable/selector_sign_lock_icon"
-                    android:fontFamily="@font/open_sans"
                     android:drawablePadding="10sp"
-                    android:hint="@string/Password" />
+                    android:fontFamily="@font/open_sans"
+                    android:hint="@string/Password"
+                    android:inputType="textPassword"
+                    android:lines="1" />
             </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:id="@+id/button_sign_in"

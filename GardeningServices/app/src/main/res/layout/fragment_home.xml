@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@color/white">
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -500,117 +501,47 @@
             app:layout_constraintTop_toBottomOf="@+id/layout_special_offers">
 
             <RelativeLayout
-                android:id="@+id/relativeLayout_service"
-                android:layout_width="match_parent"
+            android:id="@+id/relativeLayout_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tx_service"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:text="@string/Services"
+                android:textSize="20sp"
+                app:fontFamily="@font/open_sans_bold" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tx_service"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Services"
-                    android:textSize="20sp"
-                    app:fontFamily="@font/open_sans_bold" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tx_see_all_service"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignBottom="@id/tx_service"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/SeeAll"
-                    android:textSize="16sp"
-                    android:textColor="@color/selector_see_all"
-                    app:fontFamily="@font/open_sans"
-                    android:clickable="true"/>
-            </RelativeLayout>
-
-            <GridLayout
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_see_all_service"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@id/tx_service"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/SeeAll"
+                android:textSize="16sp"
+                android:textColor="@color/selector_see_all"
+                app:fontFamily="@font/open_sans"
+                android:clickable="true"/>
+        </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcV_services_home"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
-                android:columnCount="3"
-                app:layout_constraintTop_toBottomOf="@id/relativeLayout_service">
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cV_Service1"
-                    style="@style/serviceCard"
-                    android:layout_column="0">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:src="@drawable/ic_service_monthly_care_24" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            style="@style/serviceTextView"
-                            android:text="@string/care" />
-                        <com.google.android.material.textview.MaterialTextView
-                            style="@style/servicePriceTextView"
-                            android:text="15 BDT"/>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cV_Service2"
-                    style="@style/serviceCard"
-                    android:layout_column="1">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:src="@drawable/ic_service_balcony_setup_24" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            style="@style/serviceTextView"
-                            android:text="@string/balcony" />
-                        <com.google.android.material.textview.MaterialTextView
-                            style="@style/servicePriceTextView"
-                            android:text="15 BDT" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cV_Service3"
-                    style="@style/serviceCard"
-                    android:layout_column="2">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:src="@drawable/ic_service_office_decor_24" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            style="@style/serviceTextView"
-                            android:text="@string/decor" />
-                        <com.google.android.material.textview.MaterialTextView
-                            style="@style/servicePriceTextView"
-                            android:text="15 BDT" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </GridLayout>
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                android:clipToPadding="false"
+                app:spanCount="3"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_service"
+                app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

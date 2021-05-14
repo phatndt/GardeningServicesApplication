@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".">
+    tools:context=".RegisterActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_parent"
         android:layout_width="match_parent"
@@ -106,7 +106,8 @@
                 android:layout_marginRight="20sp"
                 android:layout_marginLeft="20sp"
                 android:layout_below="@+id/til_email"
-                app:endIconMode="password_toggle"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleDrawable="@drawable/selector_sign_visibility"
                 app:boxStrokeColor="@color/Green1"
                 app:hintTextColor="@color/Green1"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -119,6 +120,7 @@
                     android:drawablePadding="10sp"
                     android:lines="1"
                     android:fontFamily="@font/open_sans"
+                    android:inputType="textPassword"
                     android:hint="@string/Password" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -129,7 +131,8 @@
                 android:layout_marginRight="20sp"
                 android:layout_marginLeft="20sp"
                 android:layout_below="@+id/til_password"
-                app:endIconMode="password_toggle"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleDrawable="@drawable/selector_sign_visibility"
                 app:boxStrokeColor="@color/Green1"
                 app:hintTextColor="@color/Green1"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -142,6 +145,7 @@
                     android:drawablePadding="10sp"
                     android:lines="1"
                     android:fontFamily="@font/open_sans"
+                    android:inputType="textPassword"
                     android:hint="@string/Password_Again" />
             </com.google.android.material.textfield.TextInputLayout>
             <Button
