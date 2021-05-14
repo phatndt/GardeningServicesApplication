@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@color/white">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -265,8 +266,18 @@
                     app:fontFamily="@font/open_sans"
                     android:clickable="true"/>
             </RelativeLayout>
-
-            <GridLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcV_package_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                android:clipToPadding="false"
+                app:spanCount="2"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_special_offers"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+<!--            <GridLayout2
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
@@ -317,7 +328,7 @@
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="21st September"
+                                android:text="21 Feburary"
                                 android:textAlignment="center" />
                         </LinearLayout>
                     </LinearLayout>
@@ -369,7 +380,7 @@
                         </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-<!--                <com.google.android.material.card.MaterialCardView-->
+<!                <com.google.android.material.card.MaterialCardView-->
 <!--                    android:id="@+id/cV_special_offer_1"-->
 <!--                    style="@style/specialOfferCard"-->
 <!--                    android:layout_column="0">-->
@@ -479,7 +490,7 @@
 
 <!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
 <!--                </com.google.android.material.card.MaterialCardView>-->
-            </GridLayout>
+<!--        </GridLayout> -->
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_service"
