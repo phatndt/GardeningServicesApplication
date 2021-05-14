@@ -19,9 +19,11 @@ import com.example.gardeningservices.model.SpecialPackage
 import com.example.gardeningservices.network.category.SpecialPackageApi
 import com.example.gardeningservices.activity.SeeAllServicesActivity
 import com.example.gardeningservices.adapter.CategoryAdapter
+import com.example.gardeningservices.adapter.ProductAdapter
 import com.example.gardeningservices.adapter.ServicesAdapter
 import com.example.gardeningservices.databinding.FragmentHomeBinding
 import com.example.gardeningservices.model.Category
+import com.example.gardeningservices.model.Products
 import com.example.gardeningservices.network.ApiUtils
 import com.example.gardeningservices.model.Services
 import com.example.gardeningservices.network.ServerRetrofit
@@ -77,6 +79,10 @@ public class HomeFragment: Fragment(){
         val recyclerView1: RecyclerView = view.findViewById(R.id.rcV_services_home)
         recyclerView1.setHasFixedSize(true);
         callAPISV(recyclerView1, this.contextFragment)
+
+        val recyclerViewSale: RecyclerView = view.findViewById((R.id.rcV_sale))
+        recyclerViewSale.setHasFixedSize(true)
+        getFlashSale(recyclerViewSale,this.contextFragment)
     }
 
         btnOpenSpecialPackage = view.findViewById(R.id.tx_see_all_special_offers)
@@ -197,6 +203,27 @@ public class HomeFragment: Fragment(){
             override fun onFailure(call: Call<List<Services>>, t: Throwable) {
                 Toast.makeText(activity,"Error " + t.toString() , Toast.LENGTH_SHORT).show()
             }
+        })
+    }
+    private fun getFlashSale(recyclerView: RecyclerView,context: Context ) {
+
+        var productAdapter: ProductAdapter
+
+        var listProduct: List<Products>
+
+        val productApi = ApiUtils.createProductApi()
+
+        productApi.getSaleHome().enqueue(object : Callback<List<Products>> {
+            override fun onFailure(call: Call<List<Products>>, t: Throwable) {
+                Toast.makeText(activity, "Error $t", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
+                listProduct = response.body()!!
+                productAdapter = ProductAdapter(context,listProduct)
+                recyclerView.adapter = productAdapter;
+            }
+
         })
     }
 }
