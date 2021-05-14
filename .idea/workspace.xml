@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="25d0995d-3c48-409f-a169-0047628500db" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/GardeningServicesApplication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GardeningServicesApplication.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/activity/SeeAllSpecialPackageActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/adapter/SpecialPackageAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/model/SpecialPackage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/network/category/SpecialPackageApi.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/layout/activity_see_all_specialpackage.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/layout/item_specialpackage.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GardeningServices/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GardeningServices/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/model/Category.kt" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/model/Category.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GardeningServices/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GardeningServices/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +38,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/GardeningServices" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -36,9 +55,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1617357479926">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="592" y="258" key="FileChooserDialogImpl" timestamp="1620907007598">
+      <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617357479926" />
+    <state x="592" y="258" key="FileChooserDialogImpl/0.40.1536.824@0.40.1536.824" timestamp="1620907007598" />
   </component>
 </project>
