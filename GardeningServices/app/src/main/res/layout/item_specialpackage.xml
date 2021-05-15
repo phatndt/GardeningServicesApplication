@@ -1,51 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
     android:id="@+id/cV_special_offer_1"
-    style="@style/specialOfferCard"
-    android:layout_column="0"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
+    style="@style/packageCard"
+    android:layout_margin="5dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
         android:id="@+id/view1"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
         android:gravity="center">
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/sp_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginVertical="10dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="100dp"
-        android:gravity="center"
-        android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="center" />
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/discountpercent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:fontFamily="@font/open_sans_bold"
-            android:textAlignment="center"/>
+            style="@style/packageTextView"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/discount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center" />
+            style="@style/packagePriceTextView"/>
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/getDiscountUntil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textAlignment="center"
-            android:textColor="@color/Green1"/>
+            style="@style/packageDiscountTextView"/>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

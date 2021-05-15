@@ -13,19 +13,19 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gardeningservices.R
 import com.example.gardeningservices.activity.SeeAllCategoryActivity
-import com.example.gardeningservices.adapter.SpecialPackageAdapter
-import com.example.gardeningservices.model.Category
-import com.example.gardeningservices.model.SpecialPackage
-import com.example.gardeningservices.network.category.SpecialPackageApi
 import com.example.gardeningservices.activity.SeeAllServicesActivity
+import com.example.gardeningservices.activity.SeeAllSpecialPackageActivity
+import com.example.gardeningservices.adapter.SpecialPackageAdapter
 import com.example.gardeningservices.adapter.CategoryAdapter
 import com.example.gardeningservices.adapter.ProductAdapter
 import com.example.gardeningservices.adapter.ServicesAdapter
 import com.example.gardeningservices.databinding.FragmentHomeBinding
+import com.example.gardeningservices.model.SpecialPackage
 import com.example.gardeningservices.model.Category
 import com.example.gardeningservices.model.Products
-import com.example.gardeningservices.network.ApiUtils
 import com.example.gardeningservices.model.Services
+import com.example.gardeningservices.network.category.SpecialPackageApi
+import com.example.gardeningservices.network.ApiUtils
 import com.example.gardeningservices.network.ServerRetrofit
 import com.example.gardeningservices.network.category.CategoryApi
 import com.example.gardeningservices.network.services.ServicesApi
@@ -34,12 +34,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 public class HomeFragment: Fragment(){
-
     val TAG = "HomeFragment"
     private lateinit var binding: FragmentHomeBinding
 
-    private lateinit var btnOpenCategory: TextView
-    private lateinit var btnOpenSpecialPackage: TextView
     public  lateinit var contextFragment: Context
 
     override fun onAttach(context: Context) {
@@ -62,20 +59,25 @@ public class HomeFragment: Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
-        btnOpenCategory = view.findViewById(R.id.tx_see_all_categories)
+        val btnOpenCategory: TextView = view.findViewById(R.id.tx_see_all_categories)
+        val btnOpenServices:TextView = view.findViewById(R.id.tv_see_all_service)
+        val btnOpenSpecialPackage: TextView = view.findViewById(R.id.tx_see_all_special_offers)
         btnOpenCategory.setOnClickListener {
             val intent = Intent(activity, SeeAllCategoryActivity::class.java)
             startActivity(intent)
         }
-        val recyclerView: RecyclerView = view.findViewById(R.id.rcV_category_home)
-        recyclerView.setHasFixedSize(true);
-        callAPI(recyclerView, this.contextFragment)
-        getCategory(recyclerView, this.contextFragment)
-        val btnOpenServices:TextView= view.findViewById(R.id.tv_see_all_service)
         btnOpenServices.setOnClickListener {
             val intent=Intent(activity,SeeAllServicesActivity::class.java)
             startActivity(intent)
         }
+        btnOpenSpecialPackage.setOnClickListener {
+            val intent = Intent(activity, SeeAllSpecialPackageActivity::class.java)
+            startActivity(intent)
+        }
+        val recyclerView: RecyclerView = view.findViewById(R.id.rcV_category_home)
+        recyclerView.setHasFixedSize(true);
+        getCategory(recyclerView, this.contextFragment)
+
         val recyclerView1: RecyclerView = view.findViewById(R.id.rcV_services_home)
         recyclerView1.setHasFixedSize(true);
         callAPISV(recyclerView1, this.contextFragment)
@@ -83,14 +85,8 @@ public class HomeFragment: Fragment(){
         val recyclerViewSale: RecyclerView = view.findViewById((R.id.rcV_sale))
         recyclerViewSale.setHasFixedSize(true)
         getFlashSale(recyclerViewSale,this.contextFragment)
-    }
 
-        btnOpenSpecialPackage = view.findViewById(R.id.tx_see_all_special_offers)
-        btnOpenSpecialPackage.setOnClickListener {
-            val intent = Intent(activity, SeeAllSpecialPackageActivity::class.java)
-            startActivity(intent)
-        }
-       val recyclerViewPackage: RecyclerView = view.findViewById(R.id.rcV_package_home)
+        val recyclerViewPackage: RecyclerView = view.findViewById(R.id.rcV_package_home)
         recyclerViewPackage.setHasFixedSize(true)
         callAPIPackage(recyclerViewPackage, this.contextFragment)
 
@@ -115,6 +111,7 @@ public class HomeFragment: Fragment(){
         Log.d(TAG, "onPause")
         super.onPause()
     }
+
     override fun onStop() {
         Log.d(TAG, "onStop")
         super.onStop()
@@ -150,7 +147,7 @@ public class HomeFragment: Fragment(){
             }
 
             override fun onFailure(call: Call<List<Category>>, t: Throwable?) {
-                Toast.makeText(activity,"Error " + t.toString() , Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Error " + t.toString() , Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -173,14 +170,15 @@ public class HomeFragment: Fragment(){
                 response: Response<List<SpecialPackage>>
             ) {
                 listSpecialPackageItem = response.body()!!
-                specialPackageAdapter = SpecialPackageAdapter(context,listSpecialPackageItem)
+                specialPackageAdapter = SpecialPackageAdapter(context, listSpecialPackageItem)
                 recyclerView.adapter = specialPackageAdapter
             }
 
             override fun onFailure(call: Call<List<SpecialPackage>>, t: Throwable) {
-                Toast.makeText(activity,"Error " + t.toString() , Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Error " + t.toString(), Toast.LENGTH_SHORT).show()
             }
-
+        })
+    }
     private fun callAPISV(recyclerView1: RecyclerView,context: Context) {
         var servicesAdapter: ServicesAdapter
 
@@ -201,7 +199,7 @@ public class HomeFragment: Fragment(){
                 recyclerView1.adapter = servicesAdapter
             }
             override fun onFailure(call: Call<List<Services>>, t: Throwable) {
-                Toast.makeText(activity,"Error " + t.toString() , Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Error " + t.toString() , Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -215,7 +213,7 @@ public class HomeFragment: Fragment(){
 
         productApi.getSaleHome().enqueue(object : Callback<List<Products>> {
             override fun onFailure(call: Call<List<Products>>, t: Throwable) {
-                Toast.makeText(activity, "Error $t", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Error $t", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {

@@ -12,6 +12,7 @@ import com.example.gardeningservices.model.CRUDresponse
 import com.example.gardeningservices.network.ApiUtils
 import com.example.gardeningservices.network.ServerRetrofit
 import com.example.gardeningservices.network.user.UserApi
+import com.example.gardeningservices.utilities.Converter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -45,9 +46,11 @@ class SignInActivity : AppCompatActivity() {
 
         if (loginMail.isNotEmpty() && loginPassword.isNotEmpty()) {
 
-            var userApi = ApiUtils.createLoginApi()
+            val userApi = ApiUtils.createLoginApi()
 
-            userApi.login(loginMail,loginPassword).enqueue(object: Callback<CRUDresponse>{
+            val convertPass =Converter(loginPassword).sha256()
+
+            userApi.login(loginMail,convertPass).enqueue(object: Callback<CRUDresponse>{
                 override fun onFailure(call: Call<CRUDresponse>, t: Throwable) {
                     Toast.makeText(this@SignInActivity, t.toString(),Toast.LENGTH_LONG).show()
                 }

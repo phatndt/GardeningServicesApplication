@@ -12,6 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <ImageView
+            android:id="@+id/tv_back_service"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/selector_back_activity"/>
+        <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerVertical="true"

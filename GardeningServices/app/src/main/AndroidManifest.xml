@@ -14,13 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GardeningServices"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.SeeAllGoodOfCategoryActivity"></activity>
-        <activity android:name=".activity.SeeAllSpecialPackageActivity"></activity>
+        <activity android:name=".activity.SeeAllGoodOfCategoryActivity" />
+        <activity android:name=".activity.SeeAllSpecialPackageActivity" />
         <activity android:name=".activity.SeeAllServicesActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".activity.SeeAllCategoryActivity" />
-        <activity android:name=".SignInActivity">
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".SignInActivity"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

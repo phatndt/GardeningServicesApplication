@@ -1,6 +1,7 @@
 package com.example.gardeningservices.activity
 
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gardeningservices.R
 import kotlinx.android.synthetic.*
@@ -26,6 +27,11 @@ class SeeAllServicesActivity : AppCompatActivity() {
         recycler_view.setHasFixedSize(true);
         recycler_view.layoutManager = GridLayoutManager(this,3, GridLayoutManager.VERTICAL, false )
         callAPI()
+
+        val imageback: ImageView = findViewById(R.id.tv_back_service)
+        imageback.setOnClickListener {
+            super.onBackPressed()
+        }
     }
 
     private fun callAPI() {

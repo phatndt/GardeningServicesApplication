@@ -2,6 +2,7 @@ package com.example.gardeningservices.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -20,8 +21,12 @@ class SeeAllCategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sell_all_category)
         recycler_view = findViewById(R.id.rcV_category)
-        Log.i("GameFragment", "Called ViewModelProviders.of")
         callAPI(recycler_view)
+
+        val imageback: ImageView = findViewById(R.id.tv_back_category)
+        imageback.setOnClickListener {
+            super.onBackPressed()
+        }
     }
     private  fun setUpCategoryHome(list: MutableList<Category>?) {
         recycler_view.setHasFixedSize(false)

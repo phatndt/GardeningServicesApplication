@@ -12,4 +12,10 @@ interface UserApi {
     fun login(
             @Field("username") username: String,
             @Field("password") password: String): Call<CRUDresponse>
+    @FormUrlEncoded
+    @POST("post_register.php")
+    fun signUp(
+        @Field("username") username: String,
+        @Field("password") password: String,
+        @Field("email") email: String): Call<CRUDresponse>
 }

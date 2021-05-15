@@ -2,6 +2,7 @@ package com.example.gardeningservices.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,11 @@ class SeeAllSpecialPackageActivity : AppCompatActivity() {
         recycler_view.setHasFixedSize(true);
         recycler_view.layoutManager = GridLayoutManager(this,2, GridLayoutManager.VERTICAL, false )
         callAPI(recycler_view)
+
+        val imageback: ImageView = findViewById(R.id.tv_back_package)
+        imageback.setOnClickListener {
+            super.onBackPressed()
+        }
     }
     private fun callAPI(recyclerView: RecyclerView) {
         var specialpackageAdapter: SpecialPackageAdapter

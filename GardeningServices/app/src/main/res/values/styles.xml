@@ -18,20 +18,43 @@
     </style>
     <style name="category" parent="Widget.MaterialComponents.CardView">
         ...
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_margin">5dp</item>
         <item name="android:layout_columnWeight">1</item>
         <item name="android:backgroundTint">@color/White2</item>
         <item name="android:clickable">true</item>
     </style>
-    <style name="specialOfferCard" parent="Widget.MaterialComponents.CardView">
-        <item name="android:layout_width">100dp</item>
+    <style name="packageCard" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_margin">5dp</item>
         <item name="android:layout_columnWeight">1</item>
         <item name="android:backgroundTint">@color/White2</item>
         <item name="android:clickable">true</item>
+    </style>
+    <style name="packageTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/open_sans_bold</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+    <style name="packagePriceTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">13sp</item>
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+    <style name="packageDiscountTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="android:textColor">@color/Green1</item>
     </style>
     <style name="categoryTextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:layout_width">match_parent</item>
@@ -42,9 +65,9 @@
     </style>
 
     <style name="serviceCard" parent="Widget.MaterialComponents.CardView">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_margin">5dp</item>
         <item name="android:layout_columnWeight">1</item>
         <item name="android:backgroundTint">@color/White2</item>
         <item name="android:clickable">true</item>
@@ -63,6 +86,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">13sp</item>
         <item name="fontFamily">@font/open_sans</item>
+        <item name="android:layout_marginBottom">5dp</item>
     </style>
     <style name="seeAll" parent="Widget.MaterialComponents.TextView">
         <item name="android:layout_width">wrap_content</item>
@@ -75,11 +99,11 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">16sp</item>
         <item name="fontFamily">@font/open_sans_bold</item>
-        <item name="android:layout_marginTop">5dp</item>
     </style>
     <style name="goodPriceTextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">13sp</item>
         <item name="fontFamily">@font/open_sans</item>
