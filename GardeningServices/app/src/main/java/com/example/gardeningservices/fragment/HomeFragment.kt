@@ -90,6 +90,7 @@ public class HomeFragment: Fragment(){
         recyclerViewPackage.setHasFixedSize(true)
         callAPIPackage(recyclerViewPackage, this.contextFragment)
 
+
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         Log.d(TAG, "onActivityCreated")

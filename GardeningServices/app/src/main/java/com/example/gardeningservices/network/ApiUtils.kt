@@ -6,7 +6,7 @@ import com.example.gardeningservices.network.user.UserApi
 
 class ApiUtils {
     companion object {
-        val IP  = "10.0.109.244"
+        val IP  = "10.0.110.96"
         private val URL = "http://"+ IP +":8080/serverTest/"
 
         fun getCategoryApi(): CategoryApi {

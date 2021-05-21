@@ -60,6 +60,7 @@ class SignInActivity : AppCompatActivity() {
                     if (response.body()!!.success == 1) {
                         startActivity(Intent( this@SignInActivity,MainActivity::class.java)
                         )
+                        this@SignInActivity.finish()
                     }
                 }
             })

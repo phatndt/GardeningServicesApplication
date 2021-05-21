@@ -20,14 +20,15 @@ class SeeAllGoodOfCategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_see_all_good_of_category)
 
-        var intent: Intent = intent
+        val intent: Intent = intent
+
         val id = intent.getStringExtra("idCategory")
 
         val name = intent.getStringExtra("nameCategory")
 
         val title: TextView = findViewById(R.id.tv_title_good)
-        title.text = name
 
+        title.text = name
         val recyclerView: RecyclerView = findViewById(R.id.rcV_product)
         recyclerView.setHasFixedSize(true)
         setProduct(recyclerView,id!!)
@@ -36,21 +37,6 @@ class SeeAllGoodOfCategoryActivity : AppCompatActivity() {
         imageback.setOnClickListener {
             super.onBackPressed()
         }
-    }
-    private fun setCategory(i: String): Int {
-        val id: String
-        if (i == "1")
-            return  i.toInt()
-        if (i == "6")
-            return  i.toInt()
-        if (i == "9")
-            return  i.toInt()
-        if (i == "11")
-            return  i.toInt()
-        if (i == "12")
-            return  i.toInt()
-        else
-            return -1
     }
     private fun setProduct(recyclerView: RecyclerView, id: String) {
 
