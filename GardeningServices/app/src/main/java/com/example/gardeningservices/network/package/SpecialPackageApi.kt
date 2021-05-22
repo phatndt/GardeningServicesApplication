@@ -1,4 +1,4 @@
-package com.example.gardeningservices.network.category
+package com.example.gardeningservices.network.`package`
 
 import com.example.gardeningservices.model.SpecialPackage
 import retrofit2.Call
