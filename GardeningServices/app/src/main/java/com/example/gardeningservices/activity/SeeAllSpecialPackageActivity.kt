@@ -10,9 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gardeningservices.R
-import com.example.gardeningservices.adapter.CategoryAdapter
 import com.example.gardeningservices.adapter.SpecialPackageAdapter
-import com.example.gardeningservices.model.Category
 import com.example.gardeningservices.model.SpecialPackage
 import com.example.gardeningservices.network.ServerRetrofit
 import com.example.gardeningservices.viewmodel.SpecialPackageViewModel
