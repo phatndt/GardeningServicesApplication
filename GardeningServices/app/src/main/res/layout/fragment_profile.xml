@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/tv_title_good"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textSize="20sp"
+            android:text="Profile"
+            app:fontFamily="@font/open_sans_bold"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/goodTextView"
+            android:layout_height="match_parent"
+            android:text="My garden"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/goodTextView"
+            android:layout_height="match_parent"
+            android:text="Calender"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/goodTextView"
+            android:layout_height="match_parent"
+            android:text="Order history"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/goodTextView"
+            android:layout_height="match_parent"
+            android:text="Favourite"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_edit_profile"
+            style="@style/goodTextView"
+            android:layout_height="match_parent"
+            android:text="Edit profle"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_log_out"
+            style="@style/goodTextView"
+            android:layout_height="match_parent"
+            android:text="Log out"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

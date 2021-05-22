@@ -18,4 +18,9 @@ interface UserApi {
         @Field("username") username: String,
         @Field("password") password: String,
         @Field("email") email: String): Call<CRUDresponse>
+    @FormUrlEncoded
+    @POST("get_user_byId.php")
+    fun getId(
+        @Field("username") username: String,
+        @Field("password") password: String) : Call<Int>
 }

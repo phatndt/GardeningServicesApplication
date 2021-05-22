@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gardeningservices.adapter.CategoryAdapter
 import com.example.gardeningservices.fragment.FavoriteFragment
 import com.example.gardeningservices.fragment.HomeFragment
+import com.example.gardeningservices.fragment.ProfileFragment
 import com.example.gardeningservices.model.Category
 import com.example.gardeningservices.network.ServerRetrofit
 import com.example.gardeningservices.network.category.CategoryApi
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     private val homeFragment = HomeFragment()
     private val favoriteFragment = FavoriteFragment()
-
+    private val profileFragment = ProfileFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,10 +35,10 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.home -> makeCurrentFragment(homeFragment)
                 R.id.favorite -> makeCurrentFragment(favoriteFragment)
+                R.id.person -> makeCurrentFragment(profileFragment)
             }
             true
         }
-
     }
     private fun makeCurrentFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
