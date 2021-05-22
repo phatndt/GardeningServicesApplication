@@ -24,10 +24,8 @@ import com.example.gardeningservices.model.SpecialPackage
 import com.example.gardeningservices.model.Category
 import com.example.gardeningservices.model.Products
 import com.example.gardeningservices.model.Services
-import com.example.gardeningservices.network.category.SpecialPackageApi
 import com.example.gardeningservices.network.ApiUtils
 import com.example.gardeningservices.network.ServerRetrofit
-import com.example.gardeningservices.network.category.CategoryApi
 import com.example.gardeningservices.network.services.ServicesApi
 import retrofit2.Call
 import retrofit2.Callback
@@ -88,7 +86,7 @@ public class HomeFragment: Fragment(){
 
         val recyclerViewPackage: RecyclerView = view.findViewById(R.id.rcV_package_home)
         recyclerViewPackage.setHasFixedSize(true)
-        callAPIPackage(recyclerViewPackage, this.contextFragment)
+        getSpecialPackage(recyclerViewPackage, this.contextFragment)
 
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -151,31 +149,23 @@ public class HomeFragment: Fragment(){
             }
         })
     }
-    private fun callAPIPackage(recyclerView: RecyclerView,context: Context ) {
+    private fun getSpecialPackage(recyclerView: RecyclerView,context: Context){
+
         var specialPackageAdapter: SpecialPackageAdapter
 
         var listSpecialPackageItem: List<SpecialPackage>
 
-        var specialPackageApi: SpecialPackageApi? = null
+        var specialPackageApi = ApiUtils.getPackageApi()
 
-        val getRetrofit: ServerRetrofit = ServerRetrofit()
-
-        specialPackageApi= getRetrofit.getClient()!!.create(SpecialPackageApi::class.java)
-
-        val call: Call<List<SpecialPackage>> = specialPackageApi!!.getSpecialPackageHome()
-
-        call.enqueue(object : Callback<List<SpecialPackage>> {
-            override fun onResponse(
-                call: Call<List<SpecialPackage>>,
-                response: Response<List<SpecialPackage>>
-            ) {
+        specialPackageApi.getSpecialPackageHome().enqueue(object :Callback<List<SpecialPackage>>{
+            override fun onResponse(call: Call<List<SpecialPackage>>, response: Response<List<SpecialPackage>>) {
                 listSpecialPackageItem = response.body()!!
-                specialPackageAdapter = SpecialPackageAdapter(context, listSpecialPackageItem)
+                specialPackageAdapter = SpecialPackageAdapter(context,listSpecialPackageItem)
                 recyclerView.adapter = specialPackageAdapter
             }
 
             override fun onFailure(call: Call<List<SpecialPackage>>, t: Throwable) {
-                Toast.makeText(context, "Error " + t.toString(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Error " + t.toString() , Toast.LENGTH_SHORT).show()
             }
         })
     }
