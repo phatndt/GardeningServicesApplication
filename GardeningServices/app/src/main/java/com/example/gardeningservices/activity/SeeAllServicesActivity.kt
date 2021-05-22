@@ -12,21 +12,29 @@ import com.example.gardeningservices.network.services.ServicesApi
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Toast
-import com.example.gardeningservices.model.Category
-import com.example.gardeningservices.network.category.CategoryApi
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import com.example.gardeningservices.adapter.CategoryAdapter
+import com.example.gardeningservices.viewmodel.ServicesViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class SeeAllServicesActivity : AppCompatActivity() {
     private lateinit var recycler_view : RecyclerView
+
+    private  val servicesViewModel by lazy {
+        return@lazy ViewModelProviders.of(this).get(ServicesViewModel::class.java)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_see_all_services)
         recycler_view =findViewById(R.id.rcV_services)
         recycler_view.setHasFixedSize(true);
         recycler_view.layoutManager = GridLayoutManager(this,3, GridLayoutManager.VERTICAL, false )
-        callAPI()
+
+        servicesViewModel.CallAllServicesApi()
+        observeResponseData()
 
         val imageback: ImageView = findViewById(R.id.tv_back_service)
         imageback.setOnClickListener {
@@ -34,29 +42,15 @@ class SeeAllServicesActivity : AppCompatActivity() {
         }
     }
 
-    private fun callAPI() {
-        var servicesAdapter: ServicesAdapter
-
-        var listServicesItem:List<Services>
-
-        var servicesApi: ServicesApi?=null
-
-        val getRetrofit: ServerRetrofit = ServerRetrofit()
-
-        servicesApi = getRetrofit.getClient()!!.create(ServicesApi::class.java)
-
-        val call: Call<List<Services>> = servicesApi!!.getAllServices()
-
-        call.enqueue(object : Callback<List<Services>>
-        {
-            override fun onResponse(call: Call<List<Services>>, response: Response<List<Services>>) {
-                listServicesItem= response.body()!!
-                servicesAdapter = ServicesAdapter(this@SeeAllServicesActivity, listServicesItem)
-                recycler_view.adapter = servicesAdapter
-            }
-            override fun onFailure(call: Call<List<Services>>, t: Throwable) {
-                Toast.makeText(this@SeeAllServicesActivity,"Error " + t.toString() , Toast.LENGTH_SHORT).show()
-            }
+    private fun observeResponseData() {
+        servicesViewModel.listServices.observe(this, Observer {
+            setUpServicesHome(it)
         })
+    }
+
+    private fun setUpServicesHome(list: List<Services>) {
+        val servicesAdapter = ServicesAdapter(this@SeeAllServicesActivity, list)
+        recycler_view.adapter = servicesAdapter
+
     }
 }

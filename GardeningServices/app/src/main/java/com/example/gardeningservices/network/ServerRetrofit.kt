@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 public class ServerRetrofit {
 
-    private val IP  = "10.0.110.96"
+    private val IP  = "192.168.0.118"
     private val URL = "http://"+IP+":8080/serverTest/"
 
     private var retrofit: Retrofit? = null
