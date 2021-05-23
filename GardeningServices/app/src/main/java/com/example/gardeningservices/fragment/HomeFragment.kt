@@ -76,9 +76,9 @@ public class HomeFragment: Fragment(){
         recyclerView.setHasFixedSize(true);
         getCategory(recyclerView, this.contextFragment)
 
-        val recyclerView1: RecyclerView = view.findViewById(R.id.rcV_services_home)
-        recyclerView1.setHasFixedSize(true);
-        callAPISV(recyclerView1, this.contextFragment)
+        val recyclerViewServices: RecyclerView = view.findViewById(R.id.rcV_services_home)
+        recyclerViewServices.setHasFixedSize(true);
+        callAPISV(recyclerViewServices, this.contextFragment)
 
         val recyclerViewSale: RecyclerView = view.findViewById((R.id.rcV_sale))
         recyclerViewSale.setHasFixedSize(true)
@@ -194,7 +194,7 @@ public class HomeFragment: Fragment(){
             }
         })
     }
-    private fun getFlashSale(recyclerView: RecyclerView,context: Context ) {
+    private fun getFlashSale(recyclerView_fs: RecyclerView,context: Context ) {
 
         var productAdapter: ProductAdapter
 
@@ -210,7 +210,7 @@ public class HomeFragment: Fragment(){
             override fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
                 listProduct = response.body()!!
                 productAdapter = ProductAdapter(context,listProduct)
-                recyclerView.adapter = productAdapter;
+                recyclerView_fs.adapter = productAdapter;
             }
 
         })
