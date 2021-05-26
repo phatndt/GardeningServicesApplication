@@ -15,11 +15,14 @@ import retrofit2.Response
 class CategoryViewModel: ViewModel() {
 
     var listCategory: MutableLiveData<List<Category>> = MutableLiveData()
+    var listCategoryHome: MutableLiveData<List<Category>> = MutableLiveData()
 
     private  var categoryRepository = CategoryRepository()
 
     fun CallAllCategoryApi() {
         categoryRepository.getListCategoryApi(listCategory)
     }
-
+    fun CallCategoryHome() {
+        categoryRepository.getCategoryHomeApi(listCategoryHome)
+    }
 }

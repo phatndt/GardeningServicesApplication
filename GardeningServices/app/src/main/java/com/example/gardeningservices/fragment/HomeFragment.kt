@@ -10,33 +10,40 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gardeningservices.R
 import com.example.gardeningservices.activity.SeeAllCategoryActivity
 import com.example.gardeningservices.activity.SeeAllServicesActivity
 import com.example.gardeningservices.activity.SeeAllSpecialPackageActivity
-import com.example.gardeningservices.adapter.SpecialPackageAdapter
 import com.example.gardeningservices.adapter.CategoryAdapter
 import com.example.gardeningservices.adapter.ProductAdapter
 import com.example.gardeningservices.adapter.ServicesAdapter
 import com.example.gardeningservices.databinding.FragmentHomeBinding
-import com.example.gardeningservices.model.SpecialPackage
 import com.example.gardeningservices.model.Category
 import com.example.gardeningservices.model.Products
 import com.example.gardeningservices.model.Services
 import com.example.gardeningservices.network.ApiUtils
-import com.example.gardeningservices.network.ServerRetrofit
-import com.example.gardeningservices.network.services.ServicesApi
+import com.example.gardeningservices.viewmodel.CategoryViewModel
+import com.example.gardeningservices.viewmodel.ServicesViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlinx.android.synthetic.main.fragment_home.*
 
 public class HomeFragment: Fragment(){
     val TAG = "HomeFragment"
-    private lateinit var binding: FragmentHomeBinding
-
     public  lateinit var contextFragment: Context
-
+    
+    private  val categoryViewModel by lazy {
+        return@lazy ViewModelProviders.of(this).get(CategoryViewModel::class.java)
+    }
+    private  val servicesViewModel by lazy {
+        return@lazy ViewModelProviders.of(this).get(ServicesViewModel::class.java)
+    }
+    
     override fun onAttach(context: Context) {
         Log.d(TAG, "onAttach")
         super.onAttach(context)
@@ -56,40 +63,52 @@ public class HomeFragment: Fragment(){
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentHomeBinding.bind(view)
-        val btnOpenCategory: TextView = view.findViewById(R.id.tx_see_all_categories)
-        val btnOpenServices:TextView = view.findViewById(R.id.tv_see_all_service)
-        val btnOpenSpecialPackage: TextView = view.findViewById(R.id.tx_see_all_special_offers)
-        btnOpenCategory.setOnClickListener {
+
+        tx_see_all_categories.setOnClickListener {
             val intent = Intent(activity, SeeAllCategoryActivity::class.java)
             startActivity(intent)
         }
-        btnOpenServices.setOnClickListener {
+        tv_see_all_service.setOnClickListener {
             val intent=Intent(activity,SeeAllServicesActivity::class.java)
             startActivity(intent)
         }
-        btnOpenSpecialPackage.setOnClickListener {
+        tx_see_all_special_offers.setOnClickListener {
             val intent = Intent(activity, SeeAllSpecialPackageActivity::class.java)
             startActivity(intent)
         }
-        val recyclerView: RecyclerView = view.findViewById(R.id.rcV_category_home)
-        recyclerView.setHasFixedSize(true);
-        getCategory(recyclerView, this.contextFragment)
+        rcV_category_home.layoutManager = GridLayoutManager(contextFragment,3,GridLayoutManager.VERTICAL,false)
+        categoryViewModel.CallCategoryHome()
+        observeResponseCategory()
 
-        val recyclerViewServices: RecyclerView = view.findViewById(R.id.rcV_services_home)
-        recyclerViewServices.setHasFixedSize(true);
-        callAPISV(recyclerViewServices, this.contextFragment)
+        rcV_services_home.layoutManager = GridLayoutManager(contextFragment,2,GridLayoutManager.VERTICAL,false)
+        servicesViewModel.CallServicesHome()
+        observeResponseServices()
 
-        val recyclerViewSale: RecyclerView = view.findViewById((R.id.rcV_sale))
-        recyclerViewSale.setHasFixedSize(true)
-        getFlashSale(recyclerViewSale,this.contextFragment)
-
-        val recyclerViewPackage: RecyclerView = view.findViewById(R.id.rcV_package_home)
-        recyclerViewPackage.setHasFixedSize(true)
-        getSpecialPackage(recyclerViewPackage, this.contextFragment)
-
-
+        getFlashSale(rcV_sale,this.contextFragment)
     }
+
+    private fun observeResponseServices() {
+        servicesViewModel.listServicesHome.observe(viewLifecycleOwner, Observer {
+            setUpServicesHome(it)
+        })
+    }
+
+    private fun setUpServicesHome(it: List<Services>) {
+        val servicesAdapter = ServicesAdapter(contextFragment,it)
+        rcV_services_home.adapter = servicesAdapter
+    }
+
+    private fun observeResponseCategory() {
+        categoryViewModel.listCategoryHome.observe(viewLifecycleOwner, Observer {
+            setUpCategoryHome(it)
+        })
+    }
+
+    private fun setUpCategoryHome(it: List<Category>) {
+        val categoryAdapter = CategoryAdapter(contextFragment,it)
+        rcV_category_home.adapter = categoryAdapter
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         Log.d(TAG, "onActivityCreated")
         super.onActivityCreated(savedInstanceState)
@@ -129,70 +148,6 @@ public class HomeFragment: Fragment(){
     override fun onDetach() {
         Log.d(TAG, "onDetach")
         super.onDetach()
-    }
-    private fun getCategory(recyclerView: RecyclerView,context: Context ) {
-
-        var categoryAdapter: CategoryAdapter
-
-        var listCategoryItem: List<Category>
-
-        val categoryApi = ApiUtils.getCategoryApi()
-
-        categoryApi.getCategoryHome().enqueue(object : Callback<List<Category>> {
-            override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
-                listCategoryItem = response.body()!!
-                categoryAdapter = CategoryAdapter(context,listCategoryItem )
-                recyclerView.adapter = categoryAdapter
-            }
-
-            override fun onFailure(call: Call<List<Category>>, t: Throwable?) {
-                Toast.makeText(context,"Error " + t.toString() , Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-    private fun getSpecialPackage(recyclerView: RecyclerView,context: Context){
-
-        var specialPackageAdapter: SpecialPackageAdapter
-
-        var listSpecialPackageItem: List<SpecialPackage>
-
-        var specialPackageApi = ApiUtils.getPackageApi()
-
-        specialPackageApi.getSpecialPackageHome().enqueue(object :Callback<List<SpecialPackage>>{
-            override fun onResponse(call: Call<List<SpecialPackage>>, response: Response<List<SpecialPackage>>) {
-                listSpecialPackageItem = response.body()!!
-                specialPackageAdapter = SpecialPackageAdapter(context,listSpecialPackageItem)
-                recyclerView.adapter = specialPackageAdapter
-            }
-
-            override fun onFailure(call: Call<List<SpecialPackage>>, t: Throwable) {
-                Toast.makeText(context,"Error " + t.toString() , Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-    private fun callAPISV(recyclerView1: RecyclerView,context: Context) {
-        var servicesAdapter: ServicesAdapter
-
-        var listServicesItem:List<Services>
-
-        var servicesApi: ServicesApi?=null
-
-        val getRetrofit: ServerRetrofit = ServerRetrofit()
-
-        servicesApi = getRetrofit.getClient()!!.create(ServicesApi::class.java)
-
-        val call: Call<List<Services>> = servicesApi!!.getServicesHome()
-        call.enqueue(object : Callback<List<Services>>
-        {
-            override fun onResponse(call: Call<List<Services>>, response: Response<List<Services>>) {
-                listServicesItem= response.body()!!
-                servicesAdapter = ServicesAdapter(context, listServicesItem)
-                recyclerView1.adapter = servicesAdapter
-            }
-            override fun onFailure(call: Call<List<Services>>, t: Throwable) {
-                Toast.makeText(context,"Error " + t.toString() , Toast.LENGTH_SHORT).show()
-            }
-        })
     }
     private fun getFlashSale(recyclerView_fs: RecyclerView,context: Context ) {
 

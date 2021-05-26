@@ -8,8 +8,9 @@
     android:background="@color/white">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="#FFFFFF"
         tools:context="com.example.gardeningservices.fragment.HomeFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -86,10 +87,46 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_categories"
+            android:id="@+id/layout_sale"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/layout_header">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_sale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tx_salse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sale"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/open_sans_bold"/>
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcV_sale"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                android:clipToPadding="false"
+                app:spanCount="1"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_sale"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_categories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layout_sale">
 
             <RelativeLayout
                 android:id="@+id/relativeLayout_categories"
@@ -128,22 +165,19 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                android:clipToPadding="false"
-                app:spanCount="4"
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout_categories"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 <!--            <GridLayout-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginStart="15dp"-->
-<!--                android:layout_marginEnd="15dp"-->
-<!--                android:columnCount="4"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:columnCount="3"-->
 <!--                app:layout_constraintTop_toBottomOf="@id/relativeLayout_categories">-->
 
 <!--                <com.google.android.material.card.MaterialCardView-->
-<!--                    android:id="@+id/c1"-->
-<!--                    style="@style/category"-->
+<!--                    android:id="@+id/category1"-->
+<!--                    style="@style/categoryCardHome"-->
 <!--                    android:layout_column="0">-->
 <!--                    <LinearLayout-->
 <!--                        android:layout_width="match_parent"-->
@@ -151,21 +185,27 @@
 <!--                        android:layout_gravity="center_vertical|center_horizontal"-->
 <!--                        android:gravity="center"-->
 <!--                        android:orientation="vertical">-->
-
-<!--                        <com.google.android.material.imageview.ShapeableImageView-->
-<!--                            android:layout_width="50dp"-->
-<!--                            android:layout_height="50dp"-->
-<!--                            android:src="@drawable/ic_category_flower_24"-->
-<!--                            />-->
-
+<!--                        <RelativeLayout-->
+<!--                            android:layout_width="60dp"-->
+<!--                            android:layout_height="60dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:background="@drawable/boarder_category">-->
+<!--                            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                android:layout_centerVertical="true"-->
+<!--                                android:layout_centerHorizontal="true"-->
+<!--                                android:id="@+id/iv_image"-->
+<!--                                android:layout_width="40dp"-->
+<!--                                android:layout_height="40dp"-->
+<!--                                android:src="@drawable/ic_category_flower_24"/>-->
+<!--                        </RelativeLayout>-->
 <!--                        <com.google.android.material.textview.MaterialTextView-->
-<!--                            style="@style/categoryTextView"-->
+<!--                            style="@style/categoryTextViewHome"-->
 <!--                            android:text="@string/flower"/>-->
 <!--                    </LinearLayout>-->
 <!--                </com.google.android.material.card.MaterialCardView>-->
 <!--                <com.google.android.material.card.MaterialCardView-->
-<!--                    android:id="@+id/c2"-->
-<!--                    style="@style/category"-->
+<!--                    android:id="@+id/category2"-->
+<!--                    style="@style/categoryCardHome"-->
 <!--                    android:layout_column="1">-->
 <!--                    <LinearLayout-->
 <!--                        android:layout_width="match_parent"-->
@@ -173,20 +213,27 @@
 <!--                        android:layout_gravity="center_vertical|center_horizontal"-->
 <!--                        android:gravity="center"-->
 <!--                        android:orientation="vertical">-->
-
-<!--                        <com.google.android.material.imageview.ShapeableImageView-->
-<!--                            android:layout_width="50dp"-->
-<!--                            android:layout_height="50dp"-->
-<!--                            android:src="@drawable/ic_category_fruit_24" />-->
-
+<!--                        <RelativeLayout-->
+<!--                            android:layout_width="60dp"-->
+<!--                            android:layout_height="60dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:background="@drawable/boarder_category">-->
+<!--                            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                android:layout_centerVertical="true"-->
+<!--                                android:layout_centerHorizontal="true"-->
+<!--                                android:id="@+id/iv_category_image_view_home"-->
+<!--                                android:layout_width="40dp"-->
+<!--                                android:layout_height="40dp"-->
+<!--                                android:src="@drawable/ic"/>-->
+<!--                        </RelativeLayout>-->
 <!--                        <com.google.android.material.textview.MaterialTextView-->
 <!--                            style="@style/categoryTextView"-->
 <!--                            android:text="@string/harvest"/>-->
 <!--                    </LinearLayout>-->
 <!--                </com.google.android.material.card.MaterialCardView>-->
 <!--                <com.google.android.material.card.MaterialCardView-->
-<!--                    android:id="@+id/c3"-->
-<!--                    style="@style/category"-->
+<!--                    android:id="@+id/category3"-->
+<!--                    style="@style/categoryCardHome"-->
 <!--                    android:layout_column="2">-->
 <!--                    <LinearLayout-->
 <!--                        android:layout_width="match_parent"-->
@@ -203,27 +250,6 @@
 <!--                        <com.google.android.material.textview.MaterialTextView-->
 <!--                            style="@style/categoryTextView"-->
 <!--                            android:text="@string/vegetables"/>-->
-<!--                    </LinearLayout>-->
-<!--                </com.google.android.material.card.MaterialCardView>-->
-<!--                <com.google.android.material.card.MaterialCardView-->
-<!--                    android:id="@+id/c4"-->
-<!--                    style="@style/category"-->
-<!--                    android:layout_column="3">-->
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="100dp"-->
-<!--                        android:layout_gravity="center_vertical|center_horizontal"-->
-<!--                        android:gravity="center"-->
-<!--                        android:orientation="vertical">-->
-
-<!--                        <com.google.android.material.imageview.ShapeableImageView-->
-<!--                            android:layout_width="50dp"-->
-<!--                            android:layout_height="50dp"-->
-<!--                            android:src="@drawable/ic_category_herbal_24" />-->
-
-<!--                        <com.google.android.material.textview.MaterialTextView-->
-<!--                            style="@style/categoryTextView"-->
-<!--                            android:text="@string/herbal"/>-->
 <!--                    </LinearLayout>-->
 <!--                </com.google.android.material.card.MaterialCardView>-->
 <!--            </GridLayout>-->
@@ -536,47 +562,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:clipToPadding="false"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_service"
-                app:spanCount="3"/>
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_service" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_sale"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/layout_service">
 
-            <RelativeLayout
-                android:id="@+id/relativeLayout_sale"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tx_salse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sale"
-                    android:textSize="20sp"
-                    app:fontFamily="@font/open_sans_bold"/>
-            </RelativeLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcV_sale"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                android:clipToPadding="false"
-                app:spanCount="3"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_sale"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

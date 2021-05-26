@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface ServicesApi {
-    @GET("getAllServices.php")
+    @GET("getServices.php")
     fun getAllServices(): Call<List<Services>>
 
     @GET("getServicesHome.php")

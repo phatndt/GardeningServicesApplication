@@ -7,10 +7,14 @@ import com.example.gardeningservices.network.services.ServicesRepository
 
 class ServicesViewModel: ViewModel() {
     var listServices: MutableLiveData<List<Services>> = MutableLiveData()
+    var listServicesHome: MutableLiveData<List<Services>> = MutableLiveData()
 
     private  var servicesRepository = ServicesRepository()
 
     fun CallAllServicesApi() {
         servicesRepository.getListServicesApi(listServices)
+    }
+    fun CallServicesHome() {
+        servicesRepository.getServicesHome(listServicesHome)
     }
 }

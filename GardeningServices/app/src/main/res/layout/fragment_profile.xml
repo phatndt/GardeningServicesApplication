@@ -37,7 +37,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp">
         <androidx.appcompat.widget.AppCompatTextView
-            style="@style/goodTextView"
+            style="@style/productNameTextView"
             android:layout_height="match_parent"
             android:text="My garden"
             android:textAlignment="center"
@@ -51,7 +51,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp">
         <androidx.appcompat.widget.AppCompatTextView
-            style="@style/goodTextView"
+            style="@style/productNameTextView"
             android:layout_height="match_parent"
             android:text="Calender"
             android:textAlignment="center"
@@ -65,7 +65,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp">
         <androidx.appcompat.widget.AppCompatTextView
-            style="@style/goodTextView"
+            style="@style/productNameTextView"
             android:layout_height="match_parent"
             android:text="Order history"
             android:textAlignment="center"
@@ -79,7 +79,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp">
         <androidx.appcompat.widget.AppCompatTextView
-            style="@style/goodTextView"
+            style="@style/productNameTextView"
             android:layout_height="match_parent"
             android:text="Favourite"
             android:textAlignment="center"
@@ -94,7 +94,7 @@
         android:layout_marginBottom="5dp">
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_edit_profile"
-            style="@style/goodTextView"
+            style="@style/productNameTextView"
             android:layout_height="match_parent"
             android:text="Edit profle"
             android:textAlignment="center"
@@ -109,7 +109,7 @@
         android:layout_marginBottom="5dp">
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_log_out"
-            style="@style/goodTextView"
+            style="@style/productNameTextView"
             android:layout_height="match_parent"
             android:text="Log out"
             android:textAlignment="center"

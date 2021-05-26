@@ -1,11 +1,8 @@
 package com.example.gardeningservices.network.`package`
 
-import android.content.Context
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.example.gardeningservices.model.SpecialPackage
 import com.example.gardeningservices.network.ApiUtils
-import com.example.gardeningservices.network.ServerRetrofit
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

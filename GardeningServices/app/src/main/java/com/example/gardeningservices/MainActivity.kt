@@ -1,28 +1,18 @@
 package com.example.gardeningservices
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.gardeningservices.adapter.CategoryAdapter
-import com.example.gardeningservices.fragment.FavoriteFragment
-import com.example.gardeningservices.fragment.HomeFragment
-import com.example.gardeningservices.fragment.ProfileFragment
-import com.example.gardeningservices.model.Category
-import com.example.gardeningservices.network.ServerRetrofit
-import com.example.gardeningservices.network.category.CategoryApi
+import com.example.gardeningservices.fragment.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
 
     private val homeFragment = HomeFragment()
     private val favoriteFragment = FavoriteFragment()
+    private val cartFragment = CartFragment()
+    private val notificationFragment = NotificationFragment()
     private val profileFragment = ProfileFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +25,8 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.home -> makeCurrentFragment(homeFragment)
                 R.id.favorite -> makeCurrentFragment(favoriteFragment)
+                R.id.shoppingCart -> makeCurrentFragment(cartFragment)
+                R.id.notification -> makeCurrentFragment(notificationFragment)
                 R.id.person -> makeCurrentFragment(profileFragment)
             }
             true

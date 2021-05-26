@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface SpecialPackageApi {
-    @GET("getAllSpecialPackage.php")
+    @GET("getSpecialPackage.php")
     fun getAllSpecialPackage(): Call<List<SpecialPackage>>
 
     @GET("getSpecialPackageHome.php")

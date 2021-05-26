@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 public interface CategoryApi {
-    @GET("getAllCategory.php")
+    @GET("getCategory.php")
     fun getAllCategory(): Call<List<Category>>
 
     @GET("getCategoryHome.php")
