@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GardeningServices"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.EditProfileActivity"></activity>
+        <activity android:name=".activity.PlantDetailActivity"></activity>
+        <activity android:name=".activity.EditProfileActivity" />
         <activity android:name=".activity.ProductDetailActivity" />
         <activity android:name=".activity.SeeAllGoodOfCategoryActivity" />
         <activity android:name=".activity.SeeAllSpecialPackageActivity" />
