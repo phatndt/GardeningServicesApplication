@@ -3,10 +3,10 @@ package com.example.gardeningservices.model
 import com.google.gson.annotations.SerializedName
 
 class Products(
-    @SerializedName("idProduct")
-    val idProduct: String,
+    @SerializedName("id")
+    val id: Int,
     @SerializedName("idCategory")
-    val idCategory: String,
+    val idCategory: Int,
     @SerializedName("name")
     val name: String,
     @SerializedName("price")
@@ -16,7 +16,7 @@ class Products(
     @SerializedName("image")
     val image: String,
     @SerializedName("quantity")
-    val quantity: String,
+    val quantity: Int,
     @SerializedName("rating")
     val rating: String,
     @SerializedName("note")

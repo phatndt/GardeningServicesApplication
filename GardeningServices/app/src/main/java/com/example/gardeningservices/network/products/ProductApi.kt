@@ -12,6 +12,12 @@ interface ProductApi {
     @POST("getProduct.php")
     fun getProduct(
         @Field("id") id: String): Call<List<Products>>
+
     @GET("getProductSaleHome.php")
     fun getSaleHome(): Call<List<Products>>
+
+    @POST("getProductById.php")
+    @FormUrlEncoded
+    suspend fun getProductById(
+        @Field("idProduct") idProduct: Int): Products
 }
