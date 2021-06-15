@@ -7,13 +7,19 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gardeningservices.R
 import com.example.gardeningservices.model.CartDetail
 import com.example.gardeningservices.model.Products
 import com.example.gardeningservices.utilities.Converter
+import com.example.gardeningservices.viewmodel.CartViewModel
 
-class CartAdapter(private val mContext: Context, private val mList:List<CartDetail>, private  val mListProduct:List<Products>): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private val mContext: Context, private val mList:ArrayList<CartDetail>, private  val mListProduct:ArrayList<Products>, private  val cartInterface: CartInterface): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+
 
     class CartViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.item_cart_image)
@@ -45,7 +51,15 @@ class CartAdapter(private val mContext: Context, private val mList:List<CartDeta
     }
     private fun setUp(holder: CartViewHolder, position: Int) {
         holder.imageVDelete.setOnClickListener {
-
+            cartInterface.deleteItem(position)
+//            cartViewModel.postDeleteCartDetail(mListProduct[position].id)
+//            mListProduct.removeAt(mListProduct[position].id)
+//            mList.removeAt(mList[position].id)
+//            notifyDataSetChanged()
         }
+    }
+    public interface CartInterface {
+        fun deleteItem(position: Int)
+
     }
 }

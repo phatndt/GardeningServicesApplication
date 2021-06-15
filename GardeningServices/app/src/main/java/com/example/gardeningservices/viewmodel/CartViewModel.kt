@@ -33,4 +33,7 @@ class CartViewModel: ViewModel() {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }
     }
+    fun postDeleteCartDetail(idCartDetail: Int) {
+        cartResponse.postDeleteCartDetail(idCartDetail)
+    }
 }

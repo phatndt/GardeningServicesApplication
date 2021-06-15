@@ -33,16 +33,17 @@ import com.example.gardeningservices.utilities.Status.LOADING
 import com.example.gardeningservices.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class CartFragment: Fragment() {
+class CartFragment: Fragment(), CartAdapter.CartInterface  {
     val TAG = "HomeFragment"
     private  lateinit var contextFragment: Context
     private lateinit var cartViewModel: CartViewModel
     private  lateinit var productViewModel: ProductViewModel
     private var idCart: Int = 0
     private lateinit var recyclerView: RecyclerView
-    private var listProduct: MutableList<Products> = mutableListOf()
-    private  var listCartDetail: MutableList<CartDetail> = mutableListOf()
+    private var listProduct: ArrayList<Products> = arrayListOf()
+    private  var listCartDetail: ArrayList<CartDetail> = arrayListOf()
     private lateinit  var cartAdapter: CartAdapter
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         this.contextFragment = context;
@@ -79,7 +80,7 @@ class CartFragment: Fragment() {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        idCart = it?.data!!.idUser
+                        idCart = it.data!!.idUser
                         resource.data?.let { idc -> getCartDetail(idc) }
                     }
                     Status.ERROR -> {
@@ -91,7 +92,7 @@ class CartFragment: Fragment() {
         })
     }
     private fun getCartDetail(cart: Cart) {
-        this.cartViewModel.getCartDetailByCart(cart.idUser).observe(viewLifecycleOwner, Observer {
+        this.cartViewModel.getCartDetailByCart(cart.id).observe(viewLifecycleOwner, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
@@ -106,7 +107,6 @@ class CartFragment: Fragment() {
         })
     }
     private  fun addListProduct(list: List<CartDetail>) {
-        val idProductList = arrayListOf<Int>()
         for (n in list) {
             this.listCartDetail.add(n)
             getProduct(n.idProduct)
@@ -130,7 +130,7 @@ class CartFragment: Fragment() {
         setUp()
     }
     private fun setUp() {
-        cartAdapter = CartAdapter(this.contextFragment,this.listCartDetail,this.listProduct)
+        cartAdapter = CartAdapter(this.contextFragment,this.listCartDetail,this.listProduct,this)
         recyclerView.adapter = cartAdapter
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -165,5 +165,12 @@ class CartFragment: Fragment() {
     override fun onDetach() {
         Log.d(TAG, "onDetach")
         super.onDetach()
+    }
+
+    override fun deleteItem(position : Int) {
+        cartViewModel.postDeleteCartDetail(position)
+        listCartDetail.removeAt(position)
+        listProduct.removeAt(position)
+        cartAdapter.notifyDataSetChanged()
     }
 }
