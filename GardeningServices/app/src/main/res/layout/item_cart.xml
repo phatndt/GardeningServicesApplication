@@ -76,35 +76,45 @@
                     android:text="Price"
                     android:textSize="18sp"
                     android:fontFamily="@font/open_sans_semi_bold"/>
-                <LinearLayout
+                <Spinner
+                    android:id="@+id/quantitySpinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:background="@drawable/gradient_spinner"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true">
-                    <ImageView
-                        android:id="@+id/item_cart_increase"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border_cart_add"
-                        android:src="@drawable/ic_baseline_remove_24"
-                        android:textSize="30sp"
-                        android:textAlignment="center"/>
-                    <EditText
-                        android:id="@+id/item_cart_number"
-                        android:layout_width="30dp"
-                        android:layout_height="24dp"
-                        android:background="#D3C7C7"
-                        android:textAlignment="center"/>
-                    <ImageView
-                        android:id="@+id/item_cart_decrease"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border_cart_remove"
-                        android:src="@drawable/ic_add_24"
-                        android:textSize="30sp"
-                        android:textAlignment="center" />
-                </LinearLayout>
+                    android:entries="@array/quantity_string_array"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    />
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:layout_centerVertical="true">-->
+<!--                    <ImageView-->
+<!--                        android:id="@+id/item_cart_decrease"-->
+<!--                        android:layout_width="35dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@drawable/border_cart_add"-->
+<!--                        android:src="@drawable/ic_baseline_remove_24"-->
+<!--                        android:textSize="30sp"-->
+<!--                        android:textAlignment="center"/>-->
+<!--                    <EditText-->
+<!--                        android:id="@+id/item_cart_number"-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:background="#D3C7C7"-->
+<!--                        android:textAlignment="center"/>-->
+<!--                    <ImageView-->
+<!--                        android:id="@+id/item_cart_increase"-->
+<!--                        android:layout_width="35dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@drawable/border_cart_remove"-->
+<!--                        android:src="@drawable/ic_add_24"-->
+<!--                        android:textSize="30sp"-->
+<!--                        android:textAlignment="center" />-->
+<!--                </LinearLayout>-->
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

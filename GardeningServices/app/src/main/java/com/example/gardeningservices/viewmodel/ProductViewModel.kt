@@ -18,4 +18,7 @@ class ProductViewModel: ViewModel() {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }
     }
+    fun postUpdateQuantityProduct(quantity:Int,idProduct: Int) {
+        productRepository.postUpdateQuantityProduct(quantity,idProduct)
+    }
 }

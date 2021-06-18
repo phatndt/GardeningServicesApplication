@@ -6,14 +6,14 @@ import com.google.gson.annotations.SerializedName
 class Cart (
     @SerializedName("id")
     @Expose
-    val id: Int,
+    var id: Int,
     @SerializedName("idUser")
     @Expose
-    val idUser: Int,
+    var idUser: Int,
     @SerializedName("total")
     @Expose
-    val total: Int,
+    var total: Int,
     @SerializedName("state")
     @Expose
-    val state: Int
+    var state: Int
 )

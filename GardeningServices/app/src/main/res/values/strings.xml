@@ -64,4 +64,17 @@
     <string name="sale">Flash Sales</string>
 <!--    cart-->
     <string name="titleCart">Cart</string>
+    <string name="Items"> Items</string>
+    <string name="Shipping"> Shipping</string>
+    <string name="ImportCharges"> Import Charges (20%)</string>
+    <string name="Total"> Total</string>
+    <string name="Number"> 10000</string>
+    <string-array name="quantity_string_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5(Max)</item>
+    </string-array>
+
 </resources>

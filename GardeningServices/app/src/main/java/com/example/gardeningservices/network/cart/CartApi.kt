@@ -24,4 +24,10 @@ interface CartApi {
     @FormUrlEncoded
     fun postDeleteCartDetail(
         @Field("idCartDetail") id: Int): Call<CRUDresponse>
+
+    @POST("post_change_quantity_cart.php")
+    @FormUrlEncoded
+    fun postChangeQuantityItem(
+        @Field("idProduct") idProduct: Int,
+        @Field("quantity") quantity: Int): Call<CRUDresponse>
 }

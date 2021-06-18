@@ -4,22 +4,22 @@ import com.google.gson.annotations.SerializedName
 
 class Products(
     @SerializedName("id")
-    val id: Int,
+    var id: Int,
     @SerializedName("idCategory")
-    val idCategory: Int,
+    var idCategory: Int,
     @SerializedName("name")
-    val name: String,
+    var name: String,
     @SerializedName("price")
-    val price: String,
+    var price: String,
     @SerializedName("discount")
-    val discount: String,
+    var discount: String,
     @SerializedName("image")
-    val image: String,
+    var image: String,
     @SerializedName("quantity")
-    val quantity: Int,
+    var quantity: Int,
     @SerializedName("rating")
-    val rating: String,
+    var rating: String,
     @SerializedName("note")
-    val note: String
+    var note: String
 
 )

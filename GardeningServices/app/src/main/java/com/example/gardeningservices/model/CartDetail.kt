@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 class CartDetail (
     @SerializedName("id")
-    val id: Int,
+    var id: Int,
     @SerializedName("idCart")
-    val idCart: Int,
+    var idCart: Int,
     @SerializedName("idProduct")
-    val idProduct: Int,
+    var idProduct: Int,
     @SerializedName("quantity")
-    val quantity: Int
+    var quantity: Int
 )

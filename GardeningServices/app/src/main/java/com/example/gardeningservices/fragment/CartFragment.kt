@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -25,12 +26,14 @@ import com.example.gardeningservices.model.Cart
 import com.example.gardeningservices.model.CartDetail
 import com.example.gardeningservices.model.Products
 import com.example.gardeningservices.model.Users
+import com.example.gardeningservices.utilities.Converter
 import com.example.gardeningservices.utilities.Status
 import com.example.gardeningservices.viewmodel.CartViewModel
 import com.example.gardeningservices.utilities.Status.SUCCESS
 import com.example.gardeningservices.utilities.Status.ERROR
 import com.example.gardeningservices.utilities.Status.LOADING
 import com.example.gardeningservices.viewmodel.ProductViewModel
+import kotlinx.android.synthetic.main.fragment_cart.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class CartFragment: Fragment(), CartAdapter.CartInterface  {
@@ -39,7 +42,10 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
     private lateinit var cartViewModel: CartViewModel
     private  lateinit var productViewModel: ProductViewModel
     private var idCart: Int = 0
-    private lateinit var recyclerView: RecyclerView
+    private var mutableItemPrice: MutableLiveData<Int> = MutableLiveData()
+    private var mutableShippngPrice: MutableLiveData<Int> = MutableLiveData()
+    private var mutableChargePrice: MutableLiveData<Int> = MutableLiveData()
+    private var mutableTotalPrice: MutableLiveData<Int> = MutableLiveData()
     private var listProduct: ArrayList<Products> = arrayListOf()
     private  var listCartDetail: ArrayList<CartDetail> = arrayListOf()
     private lateinit  var cartAdapter: CartAdapter
@@ -61,21 +67,22 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
 
         val myValue = this.arguments?.getInt("id")
 
-        this.recyclerView = view.findViewById(R.id.rvC_list_cart)
-        this.recyclerView.layoutManager = GridLayoutManager(contextFragment,1, GridLayoutManager.VERTICAL,false)
+        rvC_list_cart.layoutManager = GridLayoutManager(contextFragment,1, GridLayoutManager.VERTICAL,false)
 
         this.cartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
         this.productViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
 
-        listProduct.clear()
-        listCartDetail.clear()
         getCart(myValue!!)
-        val a = view.findViewById<AppCompatButton>(R.id.cart_apply_discount)
-        a.setOnClickListener {
-            Toast.makeText(this.contextFragment,this.listProduct.size.toString(),Toast.LENGTH_LONG).show()
+        calculateCartTotal()
+        cart_apply_discount.setOnClickListener {
+            mutableItemPrice.value = mutableItemPrice.value?.plus(1)
+            Toast.makeText(this.contextFragment, listCartDetail.size.toString(),Toast.LENGTH_LONG).show()
         }
+        setUpObserver()
     }
     private fun getCart(myValue: Int) {
+        listProduct.clear()
+        listCartDetail.clear()
         this.cartViewModel.getCartByUser(myValue).observe(viewLifecycleOwner, Observer {
             it?.let { resource ->
                 when (resource.status) {
@@ -96,6 +103,7 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
+                        cartViewModel.setListCartDetail(it.data!!)
                         resource.data?.let { idc -> addListProduct(idc) }
                     }
                     Status.ERROR -> {
@@ -111,6 +119,7 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
             this.listCartDetail.add(n)
             getProduct(n.idProduct)
         }
+        cartViewModel.setListProduct(listProduct)
     }
     private fun getProduct(n: Int) {
         this.productViewModel.getProductById(n).observe(viewLifecycleOwner, Observer {
@@ -131,7 +140,53 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
     }
     private fun setUp() {
         cartAdapter = CartAdapter(this.contextFragment,this.listCartDetail,this.listProduct,this)
-        recyclerView.adapter = cartAdapter
+        rvC_list_cart.adapter = cartAdapter
+    }
+    private fun calculateCartTotal() {
+        if ( listProduct.isEmpty() && listCartDetail.isEmpty()) {
+            Log.d(TAG, "null")
+            return
+        }
+        var total = 0
+
+        for (a in listCartDetail.indices) {
+
+            val quantity = listCartDetail[a].quantity
+            val price = listProduct[a].price.toInt()
+
+            total += quantity * price
+
+            Log.d(TAG, "Change" + total.toString())
+        }
+        mutableItemPrice.value = total
+        val itemPrice = mutableItemPrice.value
+        mutableShippngPrice.value = itemPrice!! * 5 / 100
+        mutableChargePrice.value = itemPrice * 20 / 100
+
+        val shippingPrice = mutableShippngPrice.value
+        val chargePrice = mutableChargePrice.value
+        mutableTotalPrice.value = itemPrice + shippingPrice!! + chargePrice!!
+    }
+    private fun setUpObserver() {
+        val nameObserver = Observer<Int> { newName ->
+            cart_item_price.text = Converter.convertMoney(newName)
+        }
+        mutableItemPrice.observe(viewLifecycleOwner,nameObserver)
+
+        val shippingObserver = Observer<Int> { price ->
+            cart_shipping_price.text = Converter.convertMoney(price)
+        }
+        mutableShippngPrice.observe(viewLifecycleOwner,shippingObserver)
+
+        val chargeObserver = Observer<Int> { price ->
+            cart_import_charges_price.text = Converter.convertMoney(price)
+        }
+        mutableChargePrice.observe(viewLifecycleOwner,chargeObserver)
+
+        val totalObserver = Observer<Int> { price ->
+            cart_total_price.text = Converter.convertMoney(price)
+        }
+        mutableTotalPrice.observe(viewLifecycleOwner,totalObserver)
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         Log.d(TAG, "onActivityCreated")
@@ -167,10 +222,13 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
         super.onDetach()
     }
 
-    override fun deleteItem(position : Int) {
-        cartViewModel.postDeleteCartDetail(position)
-        listCartDetail.removeAt(position)
-        listProduct.removeAt(position)
-        cartAdapter.notifyDataSetChanged()
+    override fun deleteItem(idCartDetail: Int) {
+        cartViewModel.postDeleteCartDetail(idCartDetail)
+        calculateCartTotal()
+    }
+
+    override fun changeQuantity(position: Int, quantity: Int, positionList: Int) {
+        cartViewModel.postChangeQuantityItem(position, quantity)
+        calculateCartTotal()
     }
 }
