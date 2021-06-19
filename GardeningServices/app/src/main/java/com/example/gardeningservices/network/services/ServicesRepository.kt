@@ -34,4 +34,13 @@ class ServicesRepository {
             }
         })
     }
+    fun getServiceDetail(liveData: MutableLiveData<Services>){
+        servicesApi.getServiceDetail().enqueue(object :Callback<Services>{
+            override fun onFailure(call: Call<Services>, t: Throwable) {
+            }
+            override fun onResponse(call: Call<Services>, response: Response<Services>) {
+                liveData.value= response.body()
+            }
+        })
+    }
 }

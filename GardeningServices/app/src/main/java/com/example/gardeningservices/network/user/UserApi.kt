@@ -29,4 +29,12 @@ interface UserApi {
     fun getIdByUser(
         @Field("username") username: String,
         @Field("password") password: String) : Call<Int>
+    @FormUrlEncoded
+    @POST("update_profile.php")
+    fun updateProfile(
+        @Field("name") name: String,
+        @Field("date") password: String,
+        @Field("sex") gender: String,
+        @Field("telephone") phoneNumber : String,
+        @Field("email") email: String):Call<CRUDresponse>
 }
