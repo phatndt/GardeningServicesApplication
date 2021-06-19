@@ -29,5 +29,9 @@ class ApiUtils {
         fun createServicesApi(): ServicesApi {
             return Retrofit.getClient(URL).create(ServicesApi::class.java)
         }
+
+        fun createUpdateProfileApi():UserApi{
+            return Retrofit.getClient(URL).create(UserApi::class.java)
+        }
     }
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
@@ -30,7 +31,6 @@ class ServicesAdapter(private val mContext: Context, private val mList:List<Serv
     class ServicesViewHolder(view: View):RecyclerView.ViewHolder(view) {
         val servicesName: TextView = view.findViewById(R.id.tv_name_sv)
         val servicesPicture: ImageView = view.findViewById(R.id.iv_im_sv)
-        val servicesCard: CardView = view.findViewById(R.id.cv_services)
         val servicesPrice: TextView=view.findViewById(R.id.tv_price_sv)
     }
 

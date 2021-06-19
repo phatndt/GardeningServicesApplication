@@ -36,8 +36,9 @@ class SignInActivity : AppCompatActivity() {
 
         button_sign_in.setOnClickListener {
             login()
+            startActivity(Intent(this@SignInActivity,MainActivity::class.java))
+            this@SignInActivity.finish()
         }
-
     }
     private fun login() {
 
