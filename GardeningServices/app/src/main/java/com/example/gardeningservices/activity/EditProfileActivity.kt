@@ -31,6 +31,11 @@ class EditProfileActivity : AppCompatActivity() {
         change.setOnClickListener {
             changeProfile()
         }
+        name = findViewById(R.id.edit_profile_name)
+        email= findViewById(R.id.edt_profile_email)
+        gender= findViewById(R.id.edit_profile_sex)
+        phonenumber= findViewById(R.id.edt_profile_telephone)
+        date= findViewById(R.id.edt_profile_date)
 
         val back: ImageView = findViewById(R.id.tv_back_edit_profile)
         back.setOnClickListener {
