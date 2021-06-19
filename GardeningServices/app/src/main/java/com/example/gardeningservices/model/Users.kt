@@ -1,10 +1,11 @@
 package com.example.gardeningservices.model
 
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 class Users (
     @SerializedName("id")
-    val id: String,
+    val id: Int,
     @SerializedName("username")
     val username: String,
     @SerializedName("password")

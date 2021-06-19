@@ -3,8 +3,10 @@ package com.example.gardeningservices.utilities
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Base64
-import java.math.BigInteger
 import java.security.MessageDigest
+import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.util.*
 
 public class Converter(private val base64String: String) {
     public fun DecodeToImage(): Bitmap {
@@ -25,4 +27,12 @@ public class Converter(private val base64String: String) {
             .digest(input.toByteArray())
             .fold("", { str, it -> str + "%02x".format(it) })
     }
+    companion object {
+        public fun convertMoney(number: Int): String{
+            val format: NumberFormat = DecimalFormat("###,###,###")
+            val s = format.format(number)
+            return "$s VNĐ"
+        }
+    }
+
 }

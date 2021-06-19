@@ -14,7 +14,7 @@
     $db = new db_connect();
     
     // get all products from products table
-    $result = mysqli_query($db->connect(),"SELECT *  from products ORDER BY discount DESC LIMIT 1") or die(mysqli_error());
+    $result = mysqli_query($db->connect(),"SELECT *  from product ORDER BY discount DESC LIMIT 1") or die(mysqli_error());
     
     // check for empty result
     if (mysqli_num_rows($result) > 0) {
@@ -25,7 +25,7 @@
         while ($row = mysqli_fetch_array($result)) {
             // temp user array
             $product = array();
-            $product["idProduct"] = $row["idProduct"];
+            $product["id"] = $row["id"];
             $product["idCategory"] = $row["idCategory"];
             $product["name"] = $row["name"];
             $product["price"]=$row["price"];

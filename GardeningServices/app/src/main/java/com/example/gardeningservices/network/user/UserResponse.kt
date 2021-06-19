@@ -8,17 +8,10 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class UserResponse {
+
     private val loginApi = ApiUtils.createLoginApi()
 
-    fun getStateLogin(liveData: MutableLiveData<CRUDresponse>,username: String, password: String) {
-        loginApi.login(username, password).enqueue(object : Callback<CRUDresponse> {
-            override fun onFailure(call: Call<CRUDresponse>, t: Throwable) {
+    suspend fun login(username: String, password: String) = loginApi.dologin(username, password)
 
-            }
-
-            override fun onResponse(call: Call<CRUDresponse>, response: Response<CRUDresponse>) {
-                liveData.value == response.body()
-            }
-        })
-    }
+    suspend fun getIdUser(username: String, password: String) = loginApi.getIdByUser(username, password)
 }
