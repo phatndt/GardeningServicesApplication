@@ -38,7 +38,6 @@ class SignInActivity : AppCompatActivity() {
         button_sign_in.setOnClickListener {
             login()
         }
-
     }
     private fun login() {
 

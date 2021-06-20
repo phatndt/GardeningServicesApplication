@@ -21,17 +21,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
-        makeCurrentFragment(homeFragment)
 
         val intent: Intent = intent
         val id1 = intent.getIntExtra("idUser",-1)
         this.id = intent.getIntExtra("idUser",-1)
+
+        makeCurrentFragment(homeFragment)
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.btm_navigation)
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> makeCurrentFragment(homeFragment)
                 R.id.favorite -> makeCurrentFragment(favoriteFragment)
-                R.id.shoppingCart -> makeCurrent(cartFragment,id1)
+                R.id.shoppingCart -> makeCurrentFragment(cartFragment)
                 R.id.notification -> makeCurrentFragment(notificationFragment)
                 R.id.person -> makeCurrentFragment(profileFragment)
             }
@@ -39,11 +40,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun makeCurrentFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container,fragment)
-        transaction.commit()
-    }
-    private fun makeCurrent(fragment: Fragment,id: Int) {
         val transaction = supportFragmentManager.beginTransaction()
         val bundle = Bundle()
         bundle.putInt("id", this.id!!)
