@@ -9,7 +9,7 @@ import com.example.gardeningservices.network.user.UserApi
 
 class ApiUtils {
     companion object {
-        val IP = "192.168.1.3"
+        val IP = "192.168.1.4"
 
         private val URL = "http://" + IP + ":8080/serverTest/"
 

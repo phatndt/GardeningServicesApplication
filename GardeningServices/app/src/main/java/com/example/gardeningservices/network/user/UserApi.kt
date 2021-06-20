@@ -33,8 +33,9 @@ interface UserApi {
     @POST("update_profile.php")
     fun updateProfile(
         @Field("name") name: String,
-        @Field("date") password: String,
-        @Field("sex") gender: String,
+        @Field("date") date: String,
+        @Field("gender") gender: String,
         @Field("telephone") phoneNumber : String,
-        @Field("email") email: String):Call<CRUDresponse>
+        @Field("email") email: String):List<Users>
+
 }

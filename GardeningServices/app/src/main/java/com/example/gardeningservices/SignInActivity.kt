@@ -2,6 +2,7 @@ package com.example.gardeningservices
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -37,8 +38,6 @@ class SignInActivity : AppCompatActivity() {
         //userViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
         button_sign_in.setOnClickListener {
             login()
-            startActivity(Intent(this@SignInActivity,MainActivity::class.java))
-            this@SignInActivity.finish()
         }
     }
     private fun login() {

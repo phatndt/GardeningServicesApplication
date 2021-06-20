@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private val cartFragment = CartFragment()
     private val notificationFragment = NotificationFragment()
     private val profileFragment = ProfileFragment()
+
     private var  id: Int? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
