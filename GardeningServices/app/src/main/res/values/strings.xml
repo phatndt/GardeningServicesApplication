@@ -68,7 +68,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="profile"> Profile </string>
     <string name="sale">Flash Sales</string>
-<!--    cart-->
+    <!--    cart-->
     <string name="titleCart">Cart</string>
     <string name="Items"> Items</string>
     <string name="Shipping"> Shipping</string>
@@ -82,5 +82,6 @@
         <item>4</item>
         <item>5(Max)</item>
     </string-array>
-
+    <!--    check out shipment-->
+    <string name="titleCheckOutShipment">Ship to</string>
 </resources>

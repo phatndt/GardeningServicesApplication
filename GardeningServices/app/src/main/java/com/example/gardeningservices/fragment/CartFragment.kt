@@ -74,9 +74,12 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
 
         getCart(myValue!!)
         calculateCartTotal()
-        cart_apply_discount.setOnClickListener {
-            mutableItemPrice.value = mutableItemPrice.value?.plus(1)
-            Toast.makeText(this.contextFragment, listCartDetail.size.toString(),Toast.LENGTH_LONG).show()
+//        cart_apply_discount.setOnClickListener {
+//            mutableItemPrice.value = mutableItemPrice.value?.plus(1)
+//            Toast.makeText(this.contextFragment, listCartDetail.size.toString(),Toast.LENGTH_LONG).show()
+//        }
+        cart_btn_checkout.setOnClickListener {
+            
         }
         setUpObserver()
     }
