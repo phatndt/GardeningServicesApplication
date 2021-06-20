@@ -40,13 +40,15 @@
     <string name="Login_with_Facebook">Login with Facebook</string>
     <string name="Password_Again">Password Again</string>
     <string name="Create_an_new_account">Create an new account</string>
+    <string name="Add_to_cart">Add To Cart</string>
+    <string name="Buy_now">Buy Now</string>
 
     <!--    category-->
     <string name="flower">Flower</string>
     <string name="harvest">Fruit</string>
     <string name="vegetables">Vegetables</string>
     <string name="herbal">Herbal</string>
-
+    <string name="product">Products</string>
     <!--    service-->
     <string name="care">Monthly Care</string>
     <string name="balcony">Balcony Setup</string>
@@ -63,4 +65,11 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="sale">Flash Sales</string>
+    <string-array name="quantity_string_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5(Max)</item>
+    </string-array>
 </resources>

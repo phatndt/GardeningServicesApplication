@@ -1,11 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    tools:context=".activity.ProductDetailActivity">
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/tv_back_service"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/selector_back_activity"/>
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/product"
+            android:textSize="20sp"
+            app:fontFamily="@font/open_sans_bold"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/shopcart"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/ic_navigation_outline_shopping_cart_24" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcV_product_detail"
+        android:layout_width="match_parent"
+        android:layout_height="526dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="78dp">
+
+        <TextView
+            android:id="@+id/addtoCart"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:text="@string/Add_to_cart"
+            style="@style/buttonAddToCart"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/Green1"
+
+            />
+
+        <Button
+            android:id="@+id/buynow"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:text="@string/Buy_now"
+            android:textColor="@color/white"
+            android:background="@color/Green"/>
+    </RelativeLayout>
 
 </LinearLayout>

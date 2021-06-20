@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.gardeningservices"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -67,5 +67,6 @@ dependencies {
     //ViewModel
     //LiveData
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation("androidx.cardview:cardview:1.0.0")
 
 }

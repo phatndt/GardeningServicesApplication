@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.gardeningservices.R
+import com.example.gardeningservices.adapter.ViewPagerAdapter
 import com.example.gardeningservices.fragment.screen.OnboardingScreen1Fragment
 import com.example.gardeningservices.fragment.screen.OnboardingScreen2Fragment
 import com.example.gardeningservices.fragment.screen.OnboardingScreen3Fragment

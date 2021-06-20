@@ -27,6 +27,7 @@ class ProductAdapter(private val mContext: Context, private val mList:List<Produ
         if(mList[position].image != ""){
             holder.productNamePicture.setImageBitmap(Converter(mList[position].image).DecodeToImage())
         }
+
     }
 
     class ProductViewHolder(view: View): RecyclerView.ViewHolder(view) {

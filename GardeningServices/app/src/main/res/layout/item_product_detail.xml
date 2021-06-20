@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cV_product_detail"
+    style="@style/productCard">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="529dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_image_pd"
+            android:layout_width="match_parent"
+            android:layout_height="232dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_name_pd"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:textAlignment="textStart" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="90dp"
+                android:rating="3.5" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rating"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="3.5"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_price_pd"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:textAlignment="textStart" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pd_discount"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pd_quantity"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="120dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/pd_note"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
