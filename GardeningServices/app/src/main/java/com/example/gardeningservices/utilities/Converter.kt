@@ -1,12 +1,13 @@
 package com.example.gardeningservices.utilities
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Base64
 import java.security.MessageDigest
 import java.text.DecimalFormat
 import java.text.NumberFormat
-import java.util.*
+import java.text.SimpleDateFormat
 
 public class Converter(private val base64String: String) {
     public fun DecodeToImage(): Bitmap {
@@ -32,6 +33,18 @@ public class Converter(private val base64String: String) {
             val format: NumberFormat = DecimalFormat("###,###,###")
             val s = format.format(number)
             return "$s VNĐ"
+        }
+        @SuppressLint("SimpleDateFormat")
+        public fun convertDate(text : String): String {
+            val parser =  SimpleDateFormat("yyyy-MM-dd")
+            val formatter = SimpleDateFormat("dd-MM-yyyy")
+            return formatter.format(parser.parse(text))
+        }
+        @SuppressLint("SimpleDateFormat")
+        public fun convertYMD(text : String): String {
+            val parser =  SimpleDateFormat("dd-MM-yyyy")
+            val formatter = SimpleDateFormat("yyyy-MM-dd")
+            return formatter.format(parser.parse(text))
         }
     }
 
