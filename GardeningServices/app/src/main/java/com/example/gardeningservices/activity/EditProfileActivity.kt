@@ -1,28 +1,34 @@
 package com.example.gardeningservices.activity
 
+import android.app.DatePickerDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.provider.ContactsContract
+import android.view.View
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.databinding.BindingAdapter
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.gardeningservices.MainActivity
 import com.example.gardeningservices.R
-import com.example.gardeningservices.SignInActivity
-import com.example.gardeningservices.model.CRUDresponse
-import com.example.gardeningservices.network.ApiUtils
-import com.example.gardeningservices.network.user.UserApi
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.gardeningservices.fragment.ProfileFragment
+import com.example.gardeningservices.model.Users
+import com.example.gardeningservices.utilities.Status
+import com.example.gardeningservices.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.activity_edit_profile.*
+import java.util.*
+
 
 class EditProfileActivity : AppCompatActivity() {
     private  lateinit var name: TextView
     private  lateinit var gender: TextView
     private  lateinit var date: TextView
     private  lateinit var email: TextView
-    private  lateinit var phonenumber:TextView
-
+    private  lateinit var telephone:TextView
+    private lateinit var userViewModel: UserViewModel
+    private var  id: Int? = null
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -31,45 +37,82 @@ class EditProfileActivity : AppCompatActivity() {
         change.setOnClickListener {
             changeProfile()
         }
-        name = findViewById(R.id.edit_profile_name)
-        email= findViewById(R.id.edt_profile_email)
-        gender= findViewById(R.id.edit_profile_sex)
-        phonenumber= findViewById(R.id.edt_profile_telephone)
-        date= findViewById(R.id.edt_profile_date)
+        userViewModel = ViewModelProvider(this@EditProfileActivity).get(UserViewModel::class.java)
 
+        name = findViewById(R.id.edit_profile_name)
+        name.text=intent.getStringExtra("name")
+        email= findViewById(R.id.edt_profile_email)
+        email.text=intent.getStringExtra("email")
+        gender= findViewById(R.id.auto_tv_gender)
+        gender.text=intent.getStringExtra("gender")
+        telephone= findViewById(R.id.edt_profile_telephone)
+        telephone.text=intent.getStringExtra("telephone")
+        date= findViewById(R.id.edt_profile_date)
+        date.text=intent.getStringExtra("date")
         val back: ImageView = findViewById(R.id.tv_back_edit_profile)
         back.setOnClickListener {
             super.onBackPressed()
         }
-    }
 
+        val itemGender = resources.getStringArray(R.array.listGender)
+        val arrayGenderAdapter = ArrayAdapter<String>(this,R.layout.item_gender,itemGender)
+        auto_tv_gender.threshold=0
+        auto_tv_gender.setAdapter(arrayGenderAdapter)
+        auto_tv_gender.setOnFocusChangeListener( { v, hasFocus -> if(hasFocus) auto_tv_gender.showDropDown()  })
+
+        val calendar : Calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        date.setOnClickListener {
+            val  datePicker = DatePickerDialog(this,DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth -> date.setText(" "+dayOfMonth+"-"
+                    +(month+1)+"-"+ year)},day,month,year)
+            datePicker.show()
+        }
+    }
     private fun changeProfile() {
         val profileFullName = name.text.toString().trim()
         val profileGender = gender.text.toString().trim()
         val profileMail = email.text.toString().trim()
         val profileDate = date.text.toString().trim()
-        val profilePhoneNumber = phonenumber.text.toString().trim()
-        if (profileFullName.isNotEmpty() && profileGender.isNotEmpty() && profileMail.isNotEmpty() && profileDate.isNotEmpty() && profilePhoneNumber.isNotEmpty())
+        val profileTelephone = telephone.text.toString().trim()
+        val intent: Intent = intent
+        val id1 = intent.getIntExtra("idUser",-1)
+        this.id = intent.getIntExtra("idUser",-1)
+
+        if (profileFullName.isNotEmpty() && profileGender.isNotEmpty() && profileMail.isNotEmpty() && profileDate.isNotEmpty() && profileTelephone.isNotEmpty())
         {
-            val userApi = ApiUtils.createUpdateProfileApi()
-                userApi.updateProfile(profileFullName,profileDate,profileGender,profilePhoneNumber,profileMail).enqueue(object : Callback<CRUDresponse> {
-                        override fun onResponse(
-                            call: Call<CRUDresponse>, response: Response<CRUDresponse>) {
-                            if (response.body()!!.success == 2)
-                                Toast.makeText(
-                                    this@EditProfileActivity,
-                                    response.body()!!.message,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            if (response.body()!!.success == 1) {
-                                startActivity(
-                                    Intent(this@EditProfileActivity, SignInActivity::class.java)
-                                )}
+            var list: List<Users>? = null
+            userViewModel.updateProfile(
+                id1.toString(),
+                profileFullName,
+                profileDate,
+                profileGender,
+                profileTelephone,
+                profileMail
+            ).observe(this, Observer {
+                it?.let { resource ->
+                    when (resource.status) {
+                        Status.SUCCESS -> {
+                            list = it.data
+                            resource.data?.let { users -> retrieveList(users) }
                         }
-                        override fun onFailure(call: Call<CRUDresponse>, t: Throwable) {
-                            Toast.makeText(this@EditProfileActivity, t.toString(), Toast.LENGTH_LONG).show()
+                        Status.ERROR -> {
+                            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
                         }
-                })
+                        Status.LOADING -> {
+                        }
+                    }
+                }
+            })
+        }
+    }
+    private fun retrieveList(users: List<Users>) {
+        if (users.isNotEmpty()) {
+            val intent = Intent(this@EditProfileActivity,MainActivity::class.java)
+            startActivity(intent)
+            this@EditProfileActivity.finish()
         }
     }
 }

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.ProductDetailActivity"
+    android:id="@+id/id_activity_profile"
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,6 +35,7 @@
         android:layout_marginTop="20sp"
         android:layout_marginRight="20sp"
         android:layout_marginLeft="20sp"
+        app:endIconMode="clear_text"
         android:layout_marginBottom="10sp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeColor="@color/Green1"
@@ -63,15 +65,16 @@
         app:boxStrokeColor="@color/Green1"
         app:hintTextColor="@color/Green1"
         >
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_profile_sex"
+        <AutoCompleteTextView
+            android:id="@+id/auto_tv_gender"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:lines="1"
             android:drawableTint="@color/Gray3"
             android:drawableStart="@drawable/ic_gender"
             android:fontFamily="@font/open_sans"
-            android:inputType="textEmailAddress"
+            android:inputType="none"
+            android:paddingLeft="15dp"
             android:drawablePadding="10dp"
             android:hint="Gender"
             />
@@ -81,6 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp"
+        app:endIconMode="clear_text"
         android:layout_marginRight="20sp"
         android:layout_marginLeft="20sp"
         android:layout_marginBottom="10sp"
@@ -88,17 +92,18 @@
         app:boxStrokeColor="@color/Green1"
         app:hintTextColor="@color/Green1"
         >
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_profile_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_birthday"
+            android:drawableStart="@drawable/ic_cake"
+            android:drawableTint="@color/Gray3"
+            android:inputType="date"
             android:drawablePadding="10dp"
             android:fontFamily="@font/open_sans"
             android:hint="Date"
-            android:inputType="textEmailAddress"
-            android:lines="1" />
+            android:lines="1" >
+        </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_edit_profile_telelphone"
@@ -107,10 +112,13 @@
         android:layout_marginTop="20sp"
         android:layout_marginRight="20sp"
         android:layout_marginLeft="20sp"
-        android:layout_marginBottom="10sp"
+        android:layout_marginBottom="5sp"
+        app:endIconMode="clear_text"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeColor="@color/Green1"
         app:hintTextColor="@color/Green1"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_profile_telephone"
@@ -119,7 +127,7 @@
             android:lines="1"
             android:drawableStart="@drawable/ic_baseline_call_24"
             android:fontFamily="@font/open_sans"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
             android:drawablePadding="10dp"
             android:hint="Telephone"
             />
@@ -128,9 +136,10 @@
         android:id="@+id/til_edit_profile_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="5sp"
         android:layout_marginRight="20sp"
         android:layout_marginLeft="20sp"
+        app:endIconMode="clear_text"
         android:layout_marginBottom="10sp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeColor="@color/Green1"
@@ -155,7 +164,6 @@
         android:layout_margin="20sp"
         android:background="@drawable/border_button_sign_in_sign_up"
         android:text="Change"
-
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:fontFamily="@font/open_sans"
