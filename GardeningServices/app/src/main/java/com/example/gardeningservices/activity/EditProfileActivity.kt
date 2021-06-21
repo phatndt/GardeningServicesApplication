@@ -15,9 +15,13 @@ import com.example.gardeningservices.MainActivity
 import com.example.gardeningservices.R
 import com.example.gardeningservices.fragment.ProfileFragment
 import com.example.gardeningservices.model.Users
+import com.example.gardeningservices.utilities.Converter
 import com.example.gardeningservices.utilities.Status
 import com.example.gardeningservices.viewmodel.UserViewModel
+import com.tsongkha.spinnerdatepicker.DateUtils.formatDate
+import com.tsongkha.spinnerdatepicker.SpinnerDatePickerDialogBuilder
 import kotlinx.android.synthetic.main.activity_edit_profile.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -48,7 +52,7 @@ class EditProfileActivity : AppCompatActivity() {
         telephone= findViewById(R.id.edt_profile_telephone)
         telephone.text=intent.getStringExtra("telephone")
         date= findViewById(R.id.edt_profile_date)
-        date.text=intent.getStringExtra("date")
+        date.text= intent.getStringExtra("date")?.let { Converter.convertDate(it) }
         val back: ImageView = findViewById(R.id.tv_back_edit_profile)
         back.setOnClickListener {
             super.onBackPressed()
@@ -66,24 +70,39 @@ class EditProfileActivity : AppCompatActivity() {
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         date.setOnClickListener {
-            val  datePicker = DatePickerDialog(this,DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth -> date.setText(" "+dayOfMonth+"-"
-                    +(month+1)+"-"+ year)},day,month,year)
-            datePicker.show()
+//            val  datePicker = DatePickerDialog(this,DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth -> date.setText(" "+dayOfMonth+"-"
+//                    +(month+1)+"-"+ year)},day,month,year)
+//            datePicker.show()
+            openSpinnerBirthdayDialog()
         }
+    }
+    private fun openSpinnerBirthdayDialog() {
+        val calendar = Calendar.getInstance().apply {
+            add(Calendar.YEAR, -18)
+        }
+
+        DatePickerDialog(this, R.style.SpinnerDatePickerDialog, { _, year, month, dayOfMonth ->
+            val s = "$dayOfMonth-$month-$year"
+            date.text = s
+        },
+            calendar[Calendar.YEAR],
+            calendar[Calendar.MONTH],
+            calendar[Calendar.DAY_OF_MONTH]
+        ).apply {
+            datePicker.maxDate = Date().time
+        }.show()
     }
     private fun changeProfile() {
         val profileFullName = name.text.toString().trim()
         val profileGender = gender.text.toString().trim()
         val profileMail = email.text.toString().trim()
-        val profileDate = date.text.toString().trim()
+        val profileDate = Converter.convertYMD(date.text.toString().trim())
         val profileTelephone = telephone.text.toString().trim()
         val intent: Intent = intent
         val id1 = intent.getIntExtra("idUser",-1)
         this.id = intent.getIntExtra("idUser",-1)
-
         if (profileFullName.isNotEmpty() && profileGender.isNotEmpty() && profileMail.isNotEmpty() && profileDate.isNotEmpty() && profileTelephone.isNotEmpty())
         {
-            var list: List<Users>? = null
             userViewModel.updateProfile(
                 id1.toString(),
                 profileFullName,
@@ -95,8 +114,7 @@ class EditProfileActivity : AppCompatActivity() {
                 it?.let { resource ->
                     when (resource.status) {
                         Status.SUCCESS -> {
-                            list = it.data
-                            resource.data?.let { users -> retrieveList(users) }
+
                         }
                         Status.ERROR -> {
                             Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
@@ -106,13 +124,6 @@ class EditProfileActivity : AppCompatActivity() {
                     }
                 }
             })
-        }
-    }
-    private fun retrieveList(users: List<Users>) {
-        if (users.isNotEmpty()) {
-            val intent = Intent(this@EditProfileActivity,MainActivity::class.java)
-            startActivity(intent)
-            this@EditProfileActivity.finish()
         }
     }
 }

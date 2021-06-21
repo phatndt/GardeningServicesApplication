@@ -13,22 +13,26 @@ interface UserApi {
     fun login(
         @Field("username") username: String,
         @Field("password") password: String): Call<CRUDresponse>
+
     @FormUrlEncoded
     @POST("post_login.php")
     suspend fun dologin(
         @Field("username") username: String,
         @Field("password") password: String): List<Users>
+
     @FormUrlEncoded
     @POST("post_register.php")
     fun signUp(
         @Field("username") username: String,
         @Field("password") password: String,
         @Field("email") email: String): Call<CRUDresponse>
+
     @FormUrlEncoded
     @POST("getUserById.php")
     suspend fun getIdByUser(
         @Field("username") username: String,
         @Field("password") password: String) : Call<Int>
+
     @FormUrlEncoded
     @POST("post_update_edit_profile.php")
     suspend fun updateProfile(
@@ -37,6 +41,6 @@ interface UserApi {
         @Field("date") date: String,
         @Field("gender") gender: String,
         @Field("telephone") phoneNumber : String,
-        @Field("email") email: String):List<Users>
+        @Field("email") email: String):     CRUDresponse
 
 }

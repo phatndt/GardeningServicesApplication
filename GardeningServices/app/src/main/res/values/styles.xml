@@ -144,4 +144,13 @@
         <item name="colorOnPrimary">@color/Pink1</item>
         <item name="android:clickable">true</item>
     </style>
+
+    <style name="SpinnerDatePickerDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:datePickerStyle">@style/SpinnerDatePicker</item>
+        <item name="android:background">?attr/colorBackgroundFloating</item>
+    </style>
+    <style name="SpinnerDatePicker" parent="@android:style/Widget.DatePicker">
+        <item name="android:calendarViewShown">false</item>
+        <item name="android:datePickerMode">spinner</item>
+    </style>
 </resources>
