@@ -11,8 +11,4 @@ interface ServicesApi {
 
     @GET("getServicesHome.php")
     fun getServicesHome(): Call<List<Services>>
-
-    @GET("getServiceDetail.php")
-    fun getServiceDetail():Call<Services>
-
 }

@@ -26,6 +26,7 @@ class SeeAllCategoryActivity : AppCompatActivity() {
         rcV_category.layoutManager = GridLayoutManager(this,3,GridLayoutManager.VERTICAL,false)
         categoryViewModel.CallAllCategoryApi()
         observeResponseData()
+
         tv_back_category.setOnClickListener {
             super.onBackPressed()
         }

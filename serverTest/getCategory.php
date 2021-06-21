@@ -25,7 +25,7 @@
         while ($row = mysqli_fetch_array($result)) {
             // temp user array
             $product = array();
-            $product["id"] = $row["id"];
+            $product["idCategory"] = $row["idCategory"];
             $product["name"] = $row["name"];
             $product["image"] = $row["image"];
             // push single product into final response array

@@ -15,7 +15,6 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.gardeningservices.R
 import com.example.gardeningservices.activity.SeeAllGoodOfCategoryActivity
 import com.example.gardeningservices.model.Category

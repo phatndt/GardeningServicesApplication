@@ -14,7 +14,7 @@
 
     $idCategory = $_POST['id'];
     // get all products from products table
-    $result = mysqli_query($db->connect(),"SELECT * FROM product WHERE idCategory = '$idCategory'") or die(mysqli_error());
+    $result = mysqli_query($db->connect(),"SELECT * FROM products WHERE idCategory = '$idCategory'") or die(mysqli_error());
     
     // check for empty result
     if (mysqli_num_rows($result) > 0) {
@@ -25,7 +25,7 @@
         while ($row = mysqli_fetch_array($result)) {
             // temp user array
             $product = array();
-            $product["id"] = $row["id"];
+            $product["idProduct"] = $row["idProduct"];
             $product["idCategory"] = $row["idCategory"];
             $product["name"] = $row["name"];
             $product["price"]=$row["price"];

@@ -10,9 +10,5 @@ class Services (
     @SerializedName("price")
     val price:String,
     @SerializedName("image")
-    val image: String,
-    @SerializedName("stock_in")
-    val stock_in:String,
-    @SerializedName("rating")
-    val rating: String
+    val image: String
 )

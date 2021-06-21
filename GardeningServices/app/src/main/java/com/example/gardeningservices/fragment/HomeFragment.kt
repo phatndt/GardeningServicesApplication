@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -20,16 +21,17 @@ import com.example.gardeningservices.activity.SeeAllSpecialPackageActivity
 import com.example.gardeningservices.adapter.CategoryAdapter
 import com.example.gardeningservices.adapter.ProductAdapter
 import com.example.gardeningservices.adapter.ServicesAdapter
+import com.example.gardeningservices.databinding.FragmentHomeBinding
 import com.example.gardeningservices.model.Category
 import com.example.gardeningservices.model.Products
 import com.example.gardeningservices.model.Services
 import com.example.gardeningservices.network.ApiUtils
 import com.example.gardeningservices.viewmodel.CategoryViewModel
 import com.example.gardeningservices.viewmodel.ServicesViewModel
-import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlinx.android.synthetic.main.fragment_home.*
 
 public class HomeFragment: Fragment(){
     val TAG = "HomeFragment"
@@ -58,7 +60,6 @@ public class HomeFragment: Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.d(TAG, "onCreateView")
         return  inflater.inflate(R.layout.fragment_home, container, false)
-
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

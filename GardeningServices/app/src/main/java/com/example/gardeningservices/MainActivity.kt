@@ -1,8 +1,6 @@
 package com.example.gardeningservices
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.gardeningservices.fragment.*
@@ -18,16 +16,13 @@ class MainActivity : AppCompatActivity() {
     private val profileFragment = ProfileFragment()
 
     private var  id: Int? = null
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
-
-        val intent: Intent = intent
-        val id1 = intent.getIntExtra("idUser",-1)
-        this.id = intent.getIntExtra("idUser",-1)
-
         makeCurrentFragment(homeFragment)
+
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.btm_navigation)
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -42,10 +37,8 @@ class MainActivity : AppCompatActivity() {
     }
     private fun makeCurrentFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        val bundle = Bundle()
-        bundle.putInt("id", this.id!!)
-        fragment.arguments = bundle
         transaction.replace(R.id.fragment_container,fragment)
         transaction.commit()
     }
+
 }

@@ -1,6 +1,5 @@
 package com.example.gardeningservices.activity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -31,12 +30,10 @@ class EditProfileActivity : AppCompatActivity() {
     private lateinit var userViewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
         val change: Button = findViewById(R.id.btn_edit_profile)
         change.setOnClickListener {
-            changeProfile()
         }
 
         userViewModel = ViewModelProvider(this@EditProfileActivity).get(UserViewModel::class.java)
@@ -93,8 +90,4 @@ class EditProfileActivity : AppCompatActivity() {
         }
     }
 }
-
-
-
-
 
