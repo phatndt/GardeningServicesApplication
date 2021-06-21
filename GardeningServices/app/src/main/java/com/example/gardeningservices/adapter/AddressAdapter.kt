@@ -14,12 +14,12 @@ import com.example.gardeningservices.model.Address
 class AddressAdapter(private val mContext: Context, private val mList : List<Address>) : RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
     class AddressViewHolder(view: View) : RecyclerView.ViewHolder (view){
         val name : TextView = view.findViewById(R.id.address_name)
-        val number : TextView = view.findViewById(R.id.address_name)
-        val address : TextView = view.findViewById(R.id.address_name)
-        val province : TextView = view.findViewById(R.id.address_name)
-        val district : TextView = view.findViewById(R.id.address_name)
-        val ward : TextView = view.findViewById(R.id.address_name)
-        val btnEdit : AppCompatButton = view.findViewById(R.id.address_btn_delete)
+        val number : TextView = view.findViewById(R.id.address_phone)
+        val address : TextView = view.findViewById(R.id.address_add)
+        val province : TextView = view.findViewById(R.id.address_province)
+        val district : TextView = view.findViewById(R.id.address_district)
+        val ward : TextView = view.findViewById(R.id.address_ward)
+        val btnEdit : AppCompatButton = view.findViewById(R.id.address_btn_edit)
         val btnDelete : ImageView = view.findViewById(R.id.address_btn_delete)
     }
 

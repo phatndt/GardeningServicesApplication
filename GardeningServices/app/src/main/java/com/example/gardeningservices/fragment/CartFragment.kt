@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gardeningservices.MainActivity
 import com.example.gardeningservices.R
 import com.example.gardeningservices.SignInActivity
+import com.example.gardeningservices.activity.CheckOutShipmentActivity
 import com.example.gardeningservices.activity.EditProfileActivity
 import com.example.gardeningservices.adapter.CartAdapter
 import com.example.gardeningservices.model.Cart
@@ -79,7 +80,8 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
 //            Toast.makeText(this.contextFragment, listCartDetail.size.toString(),Toast.LENGTH_LONG).show()
 //        }
         cart_btn_checkout.setOnClickListener {
-            
+            val intent = Intent(activity, CheckOutShipmentActivity::class.java)
+            startActivity(intent)
         }
         setUpObserver()
     }

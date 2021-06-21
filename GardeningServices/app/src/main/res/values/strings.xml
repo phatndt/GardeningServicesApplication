@@ -84,4 +84,6 @@
     </string-array>
     <!--    check out shipment-->
     <string name="titleCheckOutShipment">Ship to</string>
+
+    <string name="product">Products</string>
 </resources>

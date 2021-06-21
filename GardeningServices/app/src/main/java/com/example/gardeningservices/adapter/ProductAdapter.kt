@@ -1,6 +1,7 @@
 package com.example.gardeningservices.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gardeningservices.R
+import com.example.gardeningservices.activity.ProductDetailActivity
 import com.example.gardeningservices.model.Products
 import com.example.gardeningservices.utilities.Converter
 
@@ -26,6 +28,19 @@ class ProductAdapter(private val mContext: Context, private val mList:List<Produ
         holder.productPrice.text = mList[position].price
         if(mList[position].image != ""){
             holder.productNamePicture.setImageBitmap(Converter(mList[position].image).DecodeToImage())
+        }
+        holder.productCard.setOnClickListener {
+            val intent = Intent(mContext, ProductDetailActivity::class.java)
+            intent.putExtra("id",mList[position].id)
+            intent.putExtra("idCategory",mList[position].idCategory)
+            intent.putExtra("name",mList[position].name)
+            intent.putExtra("price",mList[position].price)
+            intent.putExtra("discount",mList[position].discount)
+            intent.putExtra("image",mList[position].image)
+            intent.putExtra("quantity",mList[position].quantity)
+            intent.putExtra("rating",mList[position].rating)
+            intent.putExtra("note",mList[position].note)
+            mContext.startActivity(intent)
         }
     }
     class ProductViewHolder(view: View): RecyclerView.ViewHolder(view) {

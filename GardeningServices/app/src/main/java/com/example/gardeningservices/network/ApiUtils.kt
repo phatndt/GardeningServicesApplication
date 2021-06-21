@@ -1,6 +1,7 @@
 package com.example.gardeningservices.network
 
 import com.example.gardeningservices.network.`package`.SpecialPackageApi
+import com.example.gardeningservices.network.address.AddressApi
 import com.example.gardeningservices.network.cart.CartApi
 import com.example.gardeningservices.network.category.CategoryApi
 import com.example.gardeningservices.network.products.ProductApi
@@ -38,6 +39,9 @@ class ApiUtils {
         fun createCartApi(): CartApi {
             return Retrofit.getClient(URL).create(CartApi::class.java)
 
+        }
+        fun createAddressApi(): AddressApi {
+            return Retrofit.getClient(URL).create(AddressApi::class.java)
         }
     }
 }
