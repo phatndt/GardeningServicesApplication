@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import com.example.gardeningservices.R
 import com.example.gardeningservices.SignInActivity
 import com.example.gardeningservices.activity.EditProfileActivity
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment: Fragment() {
     val TAG = "HomeFragment"
@@ -33,13 +34,12 @@ class ProfileFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val cvEditProfile: TextView = view.findViewById(R.id.tv_edit_profile)
-        cvEditProfile.setOnClickListener {
+        tv_edit_profile.setOnClickListener {
             val intent = Intent(activity,EditProfileActivity::class.java)
             startActivity(intent)
         }
-        val cvlogout: TextView = view.findViewById(R.id.tv_log_out)
-        cvlogout.setOnClickListener {
+        
+        tv_log_out.setOnClickListener {
             val intent = Intent(activity,SignInActivity::class.java)
             startActivity(intent)
             activity?.finish()
