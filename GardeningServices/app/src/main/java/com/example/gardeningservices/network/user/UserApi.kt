@@ -29,9 +29,8 @@ interface UserApi {
 
     @FormUrlEncoded
     @POST("getUserById.php")
-    suspend fun getIdByUser(
-        @Field("username") username: String,
-        @Field("password") password: String) : Call<Int>
+    suspend fun getUserById(
+        @Field("idUser") idUser: Int) : Users
 
     @FormUrlEncoded
     @POST("post_update_edit_profile.php")

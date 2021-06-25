@@ -23,10 +23,10 @@ interface ProductApi {
     suspend fun getProductById(
         @Field("idProduct") idProduct: Int): Products
 
-    @POST("getProductById.php")
+    @POST("get_product_list_by_cart_detail.php")
     @FormUrlEncoded
-    suspend fun getQuantityProductById(
-        @Field("idProduct") idProduct: Int): Products
+    suspend fun getProductListByCartDetail(
+        @Field("idProduct") idProduct: String): List<Products>
 
     @POST("post_update_quantity_product.php")
     @FormUrlEncoded

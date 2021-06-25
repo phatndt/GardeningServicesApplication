@@ -18,16 +18,13 @@ import com.example.gardeningservices.SignInActivity
 import com.example.gardeningservices.activity.EditProfileActivity
 import com.example.gardeningservices.viewmodel.CartViewModel
 import com.example.gardeningservices.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment: Fragment() {
     val TAG = "HomeFragment"
-    public  lateinit var contextFragment: Context
+    private  lateinit var contextFragment: Context
     private lateinit var userViewModel: UserViewModel
-    private  lateinit var name: TextView
-    private  lateinit var gender: TextView
-    private  lateinit var date: TextView
-    private  lateinit var email: TextView
-    private  lateinit var telephone:TextView
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         this.contextFragment = context;
@@ -41,26 +38,15 @@ class ProfileFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val mid = this.arguments?.getInt("id")
-        val mName=this.arguments?.getString("Name")
-        val mDate=this.arguments?.getString("Date")
-        val mGender=this.arguments?.getString("Gender")
-        val mTelephone=this.arguments?.getString("Telephone")
-        val mEmail=this.arguments?.getString("Email")
-        val cvEditProfile: TextView = view.findViewById(R.id.tv_edit_profile)
-        cvEditProfile.setOnClickListener {
+
+        val id = this.arguments?.getInt("id")
+
+        tv_edit_profile.setOnClickListener {
             val intent = Intent(activity,EditProfileActivity::class.java)
-            intent.putExtra("idUser",mid)
-            intent.putExtra("name",mName)
-            intent.putExtra("date",mDate)
-            intent.putExtra("gender",mGender)
-            intent.putExtra("telephone",mTelephone)
-            intent.putExtra("email",mEmail)
-            this.userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+            intent.putExtra("idUser",id)
             startActivity(intent)
         }
-        val cvlogout: TextView = view.findViewById(R.id.tv_log_out)
-        cvlogout.setOnClickListener {
+        tv_log_out.setOnClickListener {
             val intent = Intent(activity,SignInActivity::class.java)
             startActivity(intent)
             activity?.finish()

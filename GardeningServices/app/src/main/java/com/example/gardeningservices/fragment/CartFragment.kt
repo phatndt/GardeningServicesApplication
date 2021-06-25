@@ -108,7 +108,7 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
                 when (resource.status) {
                     Status.SUCCESS -> {
                         cartViewModel.setListCartDetail(it.data!!)
-                        resource.data?.let { idc -> addListProduct(idc) }
+                        resource.data?.let { idc -> addListCartDetail(idc) }
                     }
                     Status.ERROR -> {
                         Toast.makeText(this.contextFragment, it.message, Toast.LENGTH_LONG).show()
@@ -119,27 +119,40 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
             }
         })
     }
-    private  fun addListProduct(list: List<CartDetail>) {
+    private  fun addListCartDetail(list: List<CartDetail>) {
         for (n in list) {
             this.listCartDetail.add(n)
-            getProduct(n.idProduct)
+        }
+        val listIdProduct: ArrayList<String> = arrayListOf()
+        for (n in list) {
+            listIdProduct.add(n.idProduct.toString())
+        }
+        if (listIdProduct.isEmpty()) {
+            return
+        } else {
+            getProduct(listIdProduct)
         }
     }
-    private fun getProduct(n: Int) {
-        this.productViewModel.getProductById(n).observe(viewLifecycleOwner, Observer {
+    private fun getProduct(idProduct: List<String>) {
+        this.productViewModel.getProductListByCartDetail(idProduct).observe(viewLifecycleOwner, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        listProduct.add(it.data!!)
-                        setUp()
+                        resource.data?.let { idc -> setListProduct(idc) }
                     }
                     Status.ERROR -> {
                         Toast.makeText(this.contextFragment, it.message, Toast.LENGTH_LONG).show()
                     }
                     Status.LOADING -> {
                     }
-                } }
+                }
+            }
         })
+    }
+    private  fun setListProduct(products: List<Products>) {
+        for (product in products) {
+            this.listProduct.add(product)
+        }
         setUp()
     }
     private fun setUp() {
