@@ -1,28 +1,30 @@
-package com.example.gardeningservices.network.products
-
+package com.example.gardeningservices.network.product
 import androidx.lifecycle.MutableLiveData
 import com.example.gardeningservices.model.Products
+import com.example.gardeningservices.model.CRUDresponse
 import com.example.gardeningservices.network.ApiUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ProductRepository {
-    private val productApi = ApiUtils.createProductApi()
 
-    fun getListPackageApi(liveData: MutableLiveData<List<Products>>) {
-        // Your Api Call with response callback
-        productApi.getSaleHome().enqueue(object: Callback<List<Products>> {
-            override fun onFailure(call: Call<List<Products>>, t: Throwable) {
+    private  val productApi = ApiUtils.createProductApi()
+
+    suspend fun getProductById(idProduct: Int) = productApi.getProductById(idProduct)
+
+    fun postUpdateQuantityProduct(quantity:Int,idProduct: Int) {
+        productApi.postUpdateQuantityProduct(quantity,idProduct).enqueue(object : Callback<CRUDresponse>{
+            override fun onFailure(call: Call<CRUDresponse>, t: Throwable) {
 
             }
 
-            override fun onResponse(
-                call: Call<List<Products>>,
-                response: Response<List<Products>>
-            ) {
-                liveData.value = response.body()
+            override fun onResponse(call: Call<CRUDresponse>, response: Response<CRUDresponse>) {
+
             }
+
         })
     }
+
+
 }

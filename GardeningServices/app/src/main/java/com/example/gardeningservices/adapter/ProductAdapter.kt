@@ -29,7 +29,6 @@ class ProductAdapter(private val mContext: Context, private val mList:List<Produ
         }
 
     }
-
     class ProductViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val productNamePicture: ImageView = view.findViewById(R.id.tv_image_good)
         val productName: TextView = view.findViewById(R.id.tv_name_good)

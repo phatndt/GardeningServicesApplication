@@ -1,12 +1,20 @@
 package com.example.gardeningservices.model
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
+
 class Cart (
-    @SerializedName("idCart")
-    val idCart: String,
-    @SerializedName("idProduct")
-    val idProduct: String,
-    @SerializedName("quantity")
-    val quantity: String
-    )
+    @SerializedName("id")
+    @Expose
+    var id: Int,
+    @SerializedName("idUser")
+    @Expose
+    var idUser: Int,
+    @SerializedName("total")
+    @Expose
+    var total: Int,
+    @SerializedName("state")
+    @Expose
+    var state: Int
+)

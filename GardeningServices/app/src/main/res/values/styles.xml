@@ -6,15 +6,12 @@
         <item name="colorPrimary">@color/Green1</item>
         <item name="colorPrimaryDark">@color/Green1</item>
         <item name="colorAccent">@color/Green1</item>
-
     </style>
     <style name="button" parent="Theme.MaterialComponents">
         ...
-        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
         <item name="colorPrimary">@color/Green1</item>
         <item name="colorOnPrimary">@color/Green1</item>
         <item name="backgroundTint">@color/Green1</item>
-        <item name="android:elevation">50dp</item>
     </style>
 
     <style name="categoryCardHome" parent="Widget.MaterialComponents.CardView">
@@ -139,5 +136,12 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:clickable">true</item>
         <item name="colorPrimary">@color/Green1</item>
+    </style>
+    <style name="Tb" parent="Theme.MaterialComponents">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="colorPrimary">@color/Green1</item>
+        <item name="colorOnPrimary">@color/Pink1</item>
+        <item name="android:clickable">true</item>
     </style>
 </resources>

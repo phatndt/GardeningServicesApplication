@@ -13,7 +13,7 @@
     <string name="getDiscountUntil">Get discount until</string>
     <string name="Services">Services</string>
     <string name="Package">Package</string>
-    <string name="Plant_Detail">Plant Details</string>
+    <string name="ProductDetails">Product Details</string>
 
     <!--Descriptions-->
     <string name="first_slide_desc">We wil help you to grow and organize your garden. </string>
@@ -49,22 +49,38 @@
     <string name="vegetables">Vegetables</string>
     <string name="herbal">Herbal</string>
     <string name="product">Products</string>
+    <string name="price_product">Price</string>
+    <string name="name_product">Product name</string>
+    <string name="quantity_product">Quantity</string>
     <!--    service-->
+    <string name="Detail_services">Service Detail</string>
     <string name="care">Monthly Care</string>
     <string name="balcony">Balcony Setup</string>
     <string name="decor">Office Decor</string>
+    <string name="Stock_in">Stock in</string>
+    <string name="name_service">Service Name</string>
+    <string name="price_service">Price </string>
     <string name="organize">Organize Garden</string>
     <string name="title_activity_sell_all_category">SellAllCategoryActivity</string>
     <!-- Strings used for fragments for navigation -->
+    <string name="buy_now">Buy now </string>
+    <string name="add_to_cart">Add to cart </string>
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-
+    <string name="profile"> Profile </string>
     <string name="sale">Flash Sales</string>
+
+    <!--    cart-->
+    <string name="titleCart">Cart</string>
+    <string name="Items"> Items</string>
+    <string name="Shipping"> Shipping</string>
+    <string name="ImportCharges"> Import Charges (20%)</string>
+    <string name="Total"> Total</string>
+    <string name="Number"> 10000</string>
     <string-array name="quantity_string_array">
         <item>1</item>
         <item>2</item>
@@ -72,4 +88,6 @@
         <item>4</item>
         <item>5(Max)</item>
     </string-array>
+    <!--    check out shipment-->
+    <string name="titleCheckOutShipment">Ship to</string>
 </resources>
