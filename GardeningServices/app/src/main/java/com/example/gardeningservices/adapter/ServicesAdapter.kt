@@ -17,7 +17,7 @@ import com.example.gardeningservices.utilities.Converter
 class ServicesAdapter(private val mContext: Context, private val mList:List<Services>):RecyclerView.Adapter<ServicesAdapter.ServicesViewHolder>() {
     private var selectedItem = 0
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServicesViewHolder {
-        return ServicesViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_services,parent,false))
+        return ServicesViewHolder(mContext,LayoutInflater.from(mContext).inflate(R.layout.item_services,parent,false))
     }
     override fun getItemCount(): Int {
         return mList.size
@@ -27,11 +27,25 @@ class ServicesAdapter(private val mContext: Context, private val mList:List<Serv
         holder.servicesPrice.text=mList[position].price
         holder.servicesPicture.setImageBitmap(Converter(mList[position].image).DecodeToImage())
         holder.servicesPicture.setColorFilter(ContextCompat.getColor(mContext,R.color.Green1))
+//         holder.initialize(mList[position],clickListener)
+
     }
-    class ServicesViewHolder(view: View):RecyclerView.ViewHolder(view) {
+    class ServicesViewHolder(val mContext: Context,view: View):RecyclerView.ViewHolder(view) {
         val servicesName: TextView = view.findViewById(R.id.tv_name_sv)
         val servicesPicture: ImageView = view.findViewById(R.id.iv_im_sv)
         val servicesPrice: TextView=view.findViewById(R.id.tv_price_sv)
+//        fun initialize(item:Services, action:OnServiceDetailItemClick){
+//            servicesName.text =item.name
+//            servicesPrice.text=item.price
+//            servicesPicture.setImageResource(item.image.toInt())
+//            servicesPicture.setColorFilter(ContextCompat.getColor(mContext,R.color.Green1))
+//            itemView.setOnClickListener{
+//                action.onItemClick(item,absoluteAdapterPosition)
+//            }
+//        }
     }
+//    interface OnServiceDetailItemClick {
+//        fun onItemClick(item: Services,position: Int)
+//    }
 
 }

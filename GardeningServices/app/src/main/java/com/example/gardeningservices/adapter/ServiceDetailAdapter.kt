@@ -16,17 +16,17 @@ import com.example.gardeningservices.utilities.Converter
 
 class ServiceDetailAdapter (private val mContext: Context, private val information: Services):RecyclerView.Adapter<ServiceDetailAdapter.ServiceDetailViewHolder>()
 {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceDetailAdapter.ServiceDetailViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ServiceDetailViewHolder {
         return ServiceDetailAdapter.ServiceDetailViewHolder(
-            LayoutInflater.from(mContext).inflate(R.layout.activity_click_item_services, parent, false) as CardView
+            LayoutInflater.from(mContext).inflate(R.layout.item_services, parent, false) as CardView
         )
     }
 
-    override fun onBindViewHolder(holder: ServiceDetailAdapter.ServiceDetailViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ServiceDetailViewHolder, position: Int) {
         holder.servicesName.text=information.name
         holder.servicesPrice.text=information.price
         holder.servicesRating.numStars= information.rating.toInt()
-        holder.servicesStockIn.text=information.stock_in
+        holder.servicesStockIn.text=information.stockIn
         holder.servicesPicture.setImageBitmap(Converter(information.image).DecodeToImage())
         holder.servicesPicture.setColorFilter(ContextCompat.getColor(mContext,R.color.Green1))
     }
@@ -38,7 +38,7 @@ class ServiceDetailAdapter (private val mContext: Context, private val informati
         val servicesStockIn: TextView =view.findViewById(R.id.id_tc_stock_in_SD)
     }
     override fun getItemCount(): Int {
-        return 1;
+        return 0;
     }
 
 }

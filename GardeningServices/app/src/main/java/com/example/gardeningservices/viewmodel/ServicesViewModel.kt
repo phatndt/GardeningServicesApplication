@@ -18,7 +18,5 @@ class ServicesViewModel: ViewModel() {
     fun CallServicesHome() {
         servicesRepository.getServicesHome(listServicesHome)
     }
-    fun CallServicesDetail(){
-        servicesRepository.getServiceDetail(ServicesDetail)
-    }
+
 }

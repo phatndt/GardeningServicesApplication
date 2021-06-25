@@ -24,8 +24,8 @@ class SeeAllSpecialPackageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_see_all_specialpackage)
         recycler_view = findViewById(R.id.rcV_special_package)
 
-        val imageback: ImageView = findViewById(R.id.tv_back_package)
-        imageback.setOnClickListener {
+        val imageBack: ImageView = findViewById(R.id.tv_back_package)
+        imageBack.setOnClickListener {
             super.onBackPressed()
         }
 

@@ -31,7 +31,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-public class HomeFragment: Fragment(){
+public class HomeFragment: Fragment() {
     val TAG = "HomeFragment"
     public  lateinit var contextFragment: Context
     
@@ -95,6 +95,7 @@ public class HomeFragment: Fragment(){
     private fun setUpServicesHome(it: List<Services>) {
         val servicesAdapter = ServicesAdapter(contextFragment,it)
         rcV_services_home.adapter = servicesAdapter
+
     }
 
     private fun observeResponseCategory() {
@@ -169,4 +170,5 @@ public class HomeFragment: Fragment(){
 
         })
     }
+
 }
