@@ -12,7 +12,9 @@ class ApiUtils {
     companion object {
         val IP = "192.168.1.5"
 
-        private val URL = "http://" + IP + ":8080/serverTest/"
+        //private val URL = "http://" + IP + ":8080/serverTest/"
+
+        private val URL = "https://gardenserviceapp.000webhostapp.com/"
 
         fun getCategoryApi(): CategoryApi {
             return Retrofit.getClient(URL).create(CategoryApi::class.java)

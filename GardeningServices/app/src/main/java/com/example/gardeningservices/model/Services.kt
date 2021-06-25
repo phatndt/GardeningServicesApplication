@@ -4,15 +4,21 @@ import com.google.gson.annotations.SerializedName
 
 class Services (
     @SerializedName("id")
-    val id: String,
+    var id: Int,
+    @SerializedName("idCategory")
+    var idCategory: Int,
     @SerializedName("name")
-    val name: String,
+    var name: String,
     @SerializedName("price")
-    val price:String,
+    var price: String,
+    @SerializedName("discount")
+    var discount: String,
     @SerializedName("image")
-    val image: String,
-    @SerializedName("stock_in")
-    val stock_in:String,
+    var image: String,
+    @SerializedName("quantity")
+    var quantity: Int,
     @SerializedName("rating")
-    val rating: String
+    var rating: String,
+    @SerializedName("note")
+    var note: String
 )

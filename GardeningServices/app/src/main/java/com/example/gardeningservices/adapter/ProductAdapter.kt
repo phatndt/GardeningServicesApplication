@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.gardeningservices.R
 import com.example.gardeningservices.activity.ProductDetailActivity
 import com.example.gardeningservices.model.Products
@@ -26,9 +27,7 @@ class ProductAdapter(private val mContext: Context, private val mList:List<Produ
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         holder.productName.text = mList[position].name
         holder.productPrice.text = mList[position].price
-        if(mList[position].image != ""){
-            holder.productNamePicture.setImageBitmap(Converter(mList[position].image).DecodeToImage())
-        }
+        Glide.with(mContext).load(mList[position].image).into(holder.productNamePicture)
         holder.productCard.setOnClickListener {
             val intent = Intent(mContext, ProductDetailActivity::class.java)
             intent.putExtra("id",mList[position].id)

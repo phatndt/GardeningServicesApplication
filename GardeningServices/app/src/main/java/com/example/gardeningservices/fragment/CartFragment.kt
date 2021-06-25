@@ -74,7 +74,6 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
         this.productViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
 
         getCart(myValue!!)
-        calculateCartTotal()
 //        cart_apply_discount.setOnClickListener {
 //            mutableItemPrice.value = mutableItemPrice.value?.plus(1)
 //            Toast.makeText(this.contextFragment, listCartDetail.size.toString(),Toast.LENGTH_LONG).show()
@@ -92,7 +91,7 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        idCart = it.data!!.idUser
+                        idCart = it.data!!.id
                         resource.data?.let { idc -> getCartDetail(idc) }
                     }
                     Status.ERROR -> {
@@ -116,7 +115,8 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
                     }
                     Status.LOADING -> {
                     }
-                } }
+                }
+            }
         })
     }
     private  fun addListProduct(list: List<CartDetail>) {
@@ -124,7 +124,6 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
             this.listCartDetail.add(n)
             getProduct(n.idProduct)
         }
-        cartViewModel.setListProduct(listProduct)
     }
     private fun getProduct(n: Int) {
         this.productViewModel.getProductById(n).observe(viewLifecycleOwner, Observer {
@@ -146,12 +145,15 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
     private fun setUp() {
         cartAdapter = CartAdapter(this.contextFragment,this.listCartDetail,this.listProduct,this)
         rvC_list_cart.adapter = cartAdapter
+        calculateCartTotal()
     }
     private fun calculateCartTotal() {
         if ( listProduct.isEmpty() && listCartDetail.isEmpty()) {
             Log.d(TAG, "null")
             return
         }
+        Log.d(TAG, listCartDetail.size.toString() + listProduct.size.toString())
+
         var total = 0
 
         for (a in listCartDetail.indices) {
@@ -232,8 +234,12 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
         calculateCartTotal()
     }
 
-    override fun changeQuantity(position: Int, quantity: Int, positionList: Int) {
-        cartViewModel.postChangeQuantityItem(position, quantity)
+    override fun changeQuantity(position: Int, quantity: Int, quantityUpdate: Int) {
+        cartViewModel.postChangeQuantityItem(position, quantity, quantityUpdate)
         calculateCartTotal()
+    }
+
+    override fun updateQuantityProductDeleteItem(idProduct: Int, quantity: Int) {
+        cartViewModel.postUpdateQuantityProductDeleteItem(idProduct, quantity)
     }
 }

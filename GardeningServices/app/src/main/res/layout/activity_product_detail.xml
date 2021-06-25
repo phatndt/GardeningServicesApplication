@@ -187,6 +187,5 @@
         android:backgroundTint="@color/Green1"
         android:layout_margin="10dp"
         android:text="Add to cart"
-        android:textSize="18sp"
         android:textColor="@color/white"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
