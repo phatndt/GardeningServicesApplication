@@ -69,6 +69,11 @@
     <string name="profile"> Profile </string>
     <string name="sale">Flash Sales</string>
     <!--    cart-->
+    <string-array name="listGender">
+        <item>Female</item>
+        <item>Male</item>
+        <item>Other</item>
+    </string-array>
     <string name="titleCart">Cart</string>
     <string name="Items"> Items</string>
     <string name="Shipping"> Shipping</string>

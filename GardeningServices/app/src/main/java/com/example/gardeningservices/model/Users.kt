@@ -14,8 +14,8 @@ class Users (
     val name: String,
     @SerializedName("date")
     val date: String,
-    @SerializedName("sex")
-    val sex: String,
+    @SerializedName("gender")
+    val gender: String,
     @SerializedName("telephone")
     val telephone: String,
     @SerializedName("email")

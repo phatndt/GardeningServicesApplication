@@ -11,30 +11,36 @@ interface UserApi {
     @FormUrlEncoded
     @POST("post_login.php")
     fun login(
-            @Field("username") username: String,
-            @Field("password") password: String): Call<CRUDresponse>
+        @Field("username") username: String,
+        @Field("password") password: String): Call<CRUDresponse>
+
     @FormUrlEncoded
     @POST("post_login.php")
     suspend fun dologin(
         @Field("username") username: String,
         @Field("password") password: String): List<Users>
+
     @FormUrlEncoded
     @POST("post_register.php")
     fun signUp(
         @Field("username") username: String,
         @Field("password") password: String,
         @Field("email") email: String): Call<CRUDresponse>
+
     @FormUrlEncoded
     @POST("getUserById.php")
-    fun getIdByUser(
+    suspend fun getIdByUser(
         @Field("username") username: String,
         @Field("password") password: String) : Call<Int>
+
     @FormUrlEncoded
-    @POST("update_profile.php")
-    fun updateProfile(
+    @POST("post_update_edit_profile.php")
+    suspend fun updateProfile(
+        @Field("idUser") idUser: String,
         @Field("name") name: String,
-        @Field("date") password: String,
-        @Field("sex") gender: String,
+        @Field("date") date: String,
+        @Field("gender") gender: String,
         @Field("telephone") phoneNumber : String,
-        @Field("email") email: String):Call<CRUDresponse>
+        @Field("email") email: String):     CRUDresponse
+
 }

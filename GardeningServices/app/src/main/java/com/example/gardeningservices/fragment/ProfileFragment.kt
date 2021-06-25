@@ -12,18 +12,26 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.gardeningservices.R
 import com.example.gardeningservices.SignInActivity
 import com.example.gardeningservices.activity.EditProfileActivity
+import com.example.gardeningservices.viewmodel.CartViewModel
+import com.example.gardeningservices.viewmodel.UserViewModel
 
 class ProfileFragment: Fragment() {
     val TAG = "HomeFragment"
     public  lateinit var contextFragment: Context
+    private lateinit var userViewModel: UserViewModel
+    private  lateinit var name: TextView
+    private  lateinit var gender: TextView
+    private  lateinit var date: TextView
+    private  lateinit var email: TextView
+    private  lateinit var telephone:TextView
     override fun onAttach(context: Context) {
         super.onAttach(context)
         this.contextFragment = context;
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -33,9 +41,22 @@ class ProfileFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val mid = this.arguments?.getInt("id")
+        val mName=this.arguments?.getString("Name")
+        val mDate=this.arguments?.getString("Date")
+        val mGender=this.arguments?.getString("Gender")
+        val mTelephone=this.arguments?.getString("Telephone")
+        val mEmail=this.arguments?.getString("Email")
         val cvEditProfile: TextView = view.findViewById(R.id.tv_edit_profile)
         cvEditProfile.setOnClickListener {
             val intent = Intent(activity,EditProfileActivity::class.java)
+            intent.putExtra("idUser",mid)
+            intent.putExtra("name",mName)
+            intent.putExtra("date",mDate)
+            intent.putExtra("gender",mGender)
+            intent.putExtra("telephone",mTelephone)
+            intent.putExtra("email",mEmail)
+            this.userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
             startActivity(intent)
         }
         val cvlogout: TextView = view.findViewById(R.id.tv_log_out)
@@ -45,6 +66,7 @@ class ProfileFragment: Fragment() {
             activity?.finish()
         }
     }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         Log.d(TAG, "onActivityCreated")
         super.onActivityCreated(savedInstanceState)

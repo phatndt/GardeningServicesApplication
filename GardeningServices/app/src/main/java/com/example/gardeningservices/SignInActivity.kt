@@ -3,6 +3,7 @@ package com.example.gardeningservices
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -78,6 +79,11 @@ class SignInActivity : AppCompatActivity() {
             edit.putInt("id", users.first().id)
             edit.apply()
             intent.putExtra("idUser",users.first().id)
+            intent.putExtra("name",users.first().name)
+            intent.putExtra("date",users.first().date)
+            intent.putExtra("gender",users.first().gender)
+            intent.putExtra("telephone",users.first().telephone)
+            intent.putExtra("email",users.first().email)
             startActivity(intent)
             this@SignInActivity.finish()
         }

@@ -38,6 +38,9 @@ class ApiUtils {
         fun createUpdateProfileApi():UserApi{
             return Retrofit.getClient(URL).create(UserApi::class.java)
         }
+        fun getProfileApi():UserApi{
+            return Retrofit.getClient(URL).create(UserApi::class.java)
+        }
         fun createCartApi(): CartApi {
             return Retrofit.getClient(URL).create(CartApi::class.java)
 
