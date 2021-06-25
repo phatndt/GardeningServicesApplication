@@ -33,7 +33,7 @@ class CategoryAdapter(private val mContext: Context, private val mList:List<Cate
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.categoryName.text = mList[position].name
-        holder.categoryPicture.setImageBitmap(Converter(mList[position].image).DecodeToImage())
+        Glide.with(mContext).load(mList[position].image).into(holder.categoryPicture)
         holder.categoryPicture.setColorFilter(ContextCompat.getColor(mContext,R.color.Green1))
         holder.categoryCard.setOnClickListener {
             val intent = Intent(mContext,SeeAllGoodOfCategoryActivity::class.java)

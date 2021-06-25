@@ -17,6 +17,22 @@ class CartRepository {
 
     suspend fun getCartDetailByCart(idCart: Int) = cartApi.getCartDetail(idCart)
 
+    fun postUpdateQuantityProductDeleteItem(idProduct: Int, quantity: Int) {
+        cartApi.postUpdateQuantityProductDeleteItem(idProduct, quantity)
+            .enqueue(object : Callback<CRUDresponse> {
+                override fun onFailure(call: Call<CRUDresponse>, t: Throwable) {
+
+                }
+
+                override fun onResponse(
+                    call: Call<CRUDresponse>,
+                    response: Response<CRUDresponse>
+                ) {
+
+                }
+
+            })
+    }
     fun postDeleteCartDetail(idCartDetail: Int) {
         cartApi.postDeleteCartDetail(idCartDetail).enqueue(object : Callback<CRUDresponse>{
             override fun onFailure(call: Call<CRUDresponse>, t: Throwable) {
@@ -29,8 +45,8 @@ class CartRepository {
 
         })
     }
-    fun postChangeQuantityItem(idProduct:Int,quantity: Int) {
-        cartApi.postChangeQuantityItem(idProduct,quantity).enqueue(object : Callback<CRUDresponse>{
+    fun postChangeQuantityItem(idProduct:Int,quantity: Int, quantityUpdate: Int) {
+        cartApi.postChangeQuantityItem(idProduct, quantity, quantityUpdate).enqueue(object : Callback<CRUDresponse>{
             override fun onFailure(call: Call<CRUDresponse>, t: Throwable) {
 
             }
@@ -41,4 +57,6 @@ class CartRepository {
 
         })
     }
+
+    suspend fun postAddProductToCart(idCart: Int, idProduct: Int) = cartApi.postAddProductToCart(idCart, idProduct)
 }

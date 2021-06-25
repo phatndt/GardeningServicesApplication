@@ -1,5 +1,6 @@
 package com.example.gardeningservices
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -72,6 +73,11 @@ class SignInActivity : AppCompatActivity() {
     private fun retrieveList(users: List<Users>) {
         if (users.isNotEmpty()) {
             val intent = Intent(this@SignInActivity, MainActivity::class.java)
+
+            val user = getSharedPreferences("Login", Context.MODE_PRIVATE)
+            val edit = user.edit()
+            edit.putInt("id", users.first().id)
+            edit.apply()
             intent.putExtra("idUser",users.first().id)
             intent.putExtra("name",users.first().name)
             intent.putExtra("date",users.first().date)

@@ -1,6 +1,7 @@
 package com.example.gardeningservices.network.products
 
 import com.example.gardeningservices.model.CRUDresponse
+import com.example.gardeningservices.model.ProductDetail
 import com.example.gardeningservices.model.Products
 import retrofit2.Call
 import retrofit2.http.Field
@@ -33,4 +34,8 @@ interface ProductApi {
         @Field("quantity") quantity: Int,
         @Field("idProduct") idProduct: Int): Call<CRUDresponse>
 
+    @POST("get_product_detail.php")
+    @FormUrlEncoded
+    suspend fun getProductDetail(
+        @Field("idProduct") idProduct: Int): ProductDetail
 }

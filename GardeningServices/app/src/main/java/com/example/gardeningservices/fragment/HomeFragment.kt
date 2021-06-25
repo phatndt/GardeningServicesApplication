@@ -63,6 +63,8 @@ public class HomeFragment: Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val myValue = this.arguments?.getInt("id")
+
         tx_see_all_categories.setOnClickListener {
             val intent = Intent(activity, SeeAllCategoryActivity::class.java)
             startActivity(intent)
