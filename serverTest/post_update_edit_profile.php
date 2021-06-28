@@ -12,7 +12,7 @@
     $userGender = $_POST['gender'];
     $userTelephone = $_POST['telephone'];
     $userMail= $_POST['email'];
-
+    
     $sql= "UPDATE users SET name = '$userFullName' , date='$userDate'  ,
      gender='$userGender' ,telephone='$userTelephone', email ='$userMail'  WHERE id='$userId'"; 
     $control = mysqli_query($db->connect(),$sql) or die(mysqli_error());

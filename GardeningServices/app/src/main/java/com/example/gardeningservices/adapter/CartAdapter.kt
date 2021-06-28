@@ -22,6 +22,7 @@ import com.example.gardeningservices.model.Products
 import com.example.gardeningservices.utilities.Converter
 import com.example.gardeningservices.utilities.Resource
 import com.example.gardeningservices.viewmodel.CartViewModel
+import es.dmoral.toasty.Toasty
 import kotlinx.coroutines.Dispatchers
 
 class CartAdapter(private val mContext: Context, private val mList:ArrayList<CartDetail>, private  val mListProduct:ArrayList<Products>, private  val cartInterface: CartInterface): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
@@ -73,6 +74,7 @@ class CartAdapter(private val mContext: Context, private val mList:ArrayList<Car
             ) {
                 val quantity = position + 1
                 if ( quantity >= mListProduct[positionList].quantity) {
+                    Toasty.info(mContext,"Out of Stock").show()
                     return
                 }
                 mList[positionList].quantity = quantity

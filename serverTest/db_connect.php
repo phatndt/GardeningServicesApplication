@@ -18,10 +18,12 @@
          */
         function connect() {
             // import database connection variables
-            include_once dirname(__FILE__) . './db_config.php';
+            include_once(dirname(__FILE__) . '/db_config.php');
      
             // Connecting to mysql database
             $this->conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysqli_error());
+            mysqli_query($this->conn, "SET NAMES 'utf8'");
+
             // Selecing database
             mysqli_select_db($this->conn,DB_DATABASE) or die(mysql_error());
      

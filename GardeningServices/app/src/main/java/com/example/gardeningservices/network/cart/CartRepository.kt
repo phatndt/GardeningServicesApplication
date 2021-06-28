@@ -59,4 +59,8 @@ class CartRepository {
     }
 
     suspend fun postAddProductToCart(idCart: Int, idProduct: Int) = cartApi.postAddProductToCart(idCart, idProduct)
+
+    suspend fun postUpdateTotalCart(total: Int, idCart: Int) = cartApi.postUpdateTotalCart(total, idCart)
+
+    suspend fun postUpdateStateCart(idCart: Int) = cartApi.postUpdateStateCart(idCart)
 }

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp"
     android:orientation="horizontal"
-    android:background="@drawable/corner_edt"
+    android:background="@drawable/corner_cart_green"
     >
     <LinearLayout
         android:layout_width="0dp"
@@ -16,8 +16,7 @@
             android:id="@+id/item_cart_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/corner_edt"/>
+            android:layout_margin="10dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_weight="7"
