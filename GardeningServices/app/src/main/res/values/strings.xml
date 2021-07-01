@@ -89,6 +89,15 @@
     </string-array>
     <!--    check out shipment-->
     <string name="titleCheckOutShipment">Ship to</string>
-
+    <string name="add_address">Add New Address</string>
+    <string name="fullName">Full Name</string>
+    <string name="Province">Province</string>
+    <string name="District">District</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="ward">Ward</string>
     <string name="product">Products</string>
+    <string name="save_new_address">Save New Address</string>
+    <string name="detailAddress">Address Details</string>
+    <string name="editAddress">Edit Address</string>
+    <string name="saveAddress">Save Address</string>
 </resources>

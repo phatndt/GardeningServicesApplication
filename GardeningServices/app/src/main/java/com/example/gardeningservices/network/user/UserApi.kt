@@ -41,6 +41,6 @@ interface UserApi {
         @Field("date") date: String,
         @Field("gender") gender: String,
         @Field("telephone") phoneNumber : String,
-        @Field("email") email: String):     CRUDresponse
+        @Field("email") email: String):Call<CRUDresponse>
 
 }

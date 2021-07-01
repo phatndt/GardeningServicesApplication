@@ -80,6 +80,7 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
 //        }
         cart_btn_checkout.setOnClickListener {
             val intent = Intent(activity, CheckOutShipmentActivity::class.java)
+            intent.putExtra("idUser",myValue)
             startActivity(intent)
         }
         setUpObserver()

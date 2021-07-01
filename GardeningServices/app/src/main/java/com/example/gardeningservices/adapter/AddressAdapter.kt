@@ -1,17 +1,23 @@
 package com.example.gardeningservices.adapter
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gardeningservices.R
+import com.example.gardeningservices.activity.AddNewAddress
+import com.example.gardeningservices.activity.CheckOutShipmentActivity
+import com.example.gardeningservices.activity.EditAddressActivity
 import com.example.gardeningservices.model.Address
 
-class AddressAdapter(private val mContext: Context, private val mList : List<Address>) : RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
+class AddressAdapter(private val mContext: Context, private val mList : ArrayList<Address>) : RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
     class AddressViewHolder(view: View) : RecyclerView.ViewHolder (view){
         val name : TextView = view.findViewById(R.id.address_name)
         val number : TextView = view.findViewById(R.id.address_phone)
@@ -22,7 +28,6 @@ class AddressAdapter(private val mContext: Context, private val mList : List<Add
         val btnEdit : AppCompatButton = view.findViewById(R.id.address_btn_edit)
         val btnDelete : ImageView = view.findViewById(R.id.address_btn_delete)
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
         return AddressViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_address, parent, false))
     }
@@ -46,10 +51,20 @@ class AddressAdapter(private val mContext: Context, private val mList : List<Add
     private fun setUpEvent(holder: AddressViewHolder, position: Int) {
 
         holder.btnDelete.setOnClickListener {
-
+            mList.removeAt(position)
+            notifyDataSetChanged()
         }
         holder.btnEdit.setOnClickListener {
-
+            val intent = Intent(mContext, EditAddressActivity::class.java)
+            intent.putExtra("id",mList[position].id)
+            intent.putExtra("addressName",mList[position].address_name)
+            intent.putExtra("addressNumber",mList[position].address_number)
+            intent.putExtra("addressLine",mList[position].address_line)
+            intent.putExtra("province",mList[position].province)
+            intent.putExtra("district",mList[position].district)
+            intent.putExtra("ward",mList[position].ward)
+            mContext.startActivity(intent)
         }
     }
+
 }

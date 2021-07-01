@@ -9,8 +9,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class AddressRepository {
-
     private val addressApi = ApiUtils.createAddressApi()
-
     suspend fun getListAddress() = addressApi.getAddress()
+    suspend fun createNewAddress(idUser:String,address_name:String,address_number:String,address_line:String,province:String,district:String,ward:String)=addressApi.createAddress(idUser,address_name,address_number,address_line,province,district,ward)
 }
