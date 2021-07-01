@@ -6,8 +6,8 @@
     
     $db = new db_connect();
 
-    // $idUser = $_POST['idUser'];
-    $idUser = "1";
+    $idUser = $_POST['idUser'];
+    // $idUser = "1";
     $result = mysqli_query($db->connect(),"SELECT * FROM cart WHERE idUser = '$idUser' AND state = '0'") or die(mysqli_error());
     
     if (mysqli_num_rows($result) > 0) {

@@ -7,6 +7,8 @@ class Order (
     val id: Int,
     @SerializedName("idUser")
     val idUser:Int,
+    @SerializedName("idAddress")
+    val idAddress:Int,
     @SerializedName("date")
     val date:String,
     @SerializedName("state")

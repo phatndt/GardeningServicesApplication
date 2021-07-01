@@ -1,6 +1,8 @@
 package com.example.gardeningservices.network.order
 
 import com.example.gardeningservices.model.Cart
+import com.example.gardeningservices.model.Order
+import com.example.gardeningservices.model.Products
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -23,4 +25,24 @@ interface OrderApi {
         @Field("idOrder") idOrder: Int,
         @Field("idProduct") idProduct: Int,
         @Field("quantity") quantity: Int): Boolean
+
+    @POST("get_order.php")
+    @FormUrlEncoded
+    suspend fun getOrder(
+        @Field("idUser") idUser: Int): List<Order>
+
+    @POST("get_items_order.php")
+    @FormUrlEncoded
+    suspend fun getItemsOrder(
+        @Field("idOrder") idOrder: String): List<Int>
+
+    @POST("get_order_by_id.php")
+    @FormUrlEncoded
+    suspend fun getOrderById(
+        @Field("idOrder") idOrder: Int): Order
+
+    @POST("get_product_by_order.php")
+    @FormUrlEncoded
+    suspend fun getProductByOrder(
+        @Field("idProduct") idProduct: String): List<Products>
 }

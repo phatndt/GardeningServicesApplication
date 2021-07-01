@@ -16,4 +16,12 @@ class OrderResponse {
     suspend fun postOrderDetail(idOrder: Int,
                                 idProduct: Int,
                                 quantity: Int) = orderApi.postOrderDetail(idOrder, idProduct, quantity)
+
+    suspend fun getOrder(idUser: Int) = orderApi.getOrder(idUser)
+
+    suspend fun getItemsOrder(idOrder: List<String>) = orderApi.getItemsOrder(idOrder.joinToString())
+
+    suspend fun getOrderById(idOrder: Int) = orderApi.getOrderById(idOrder)
+
+    suspend fun getProductByOrder(idProduct: String) = orderApi.getProductByOrder(idProduct)
 }

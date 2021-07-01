@@ -91,4 +91,23 @@
     <string name="titleCheckOutShipment">Ship to</string>
 
     <string name="product">Products</string>
+
+    <!--    Order-->
+    <string name="titleOrderHistory">Order History</string>
+    <string name="titleOrder">Order</string>
+    <string name="orderItems">Items</string>
+    <string name="orderPrice">Price</string>
+    <string name="orderState">Order Status</string>
+    <string name="orderId">Id</string>
+    <string name="orderDate">Date</string>
+    <string name="orderDetail">Order detail</string>
+    <string name="orderShippingDetail">Shipping Detail</string>
+    <string name="orderPaymentDetail">Payment Detail</string>
+    <string name="orderDateShipping">Date Shipping</string>
+    <string name="orderShippingName">Name</string>
+    <string name="orderShippingTelephone">Telephone</string>
+    <string name="orderShippingAddress">Address</string>
+    <string name="orderShippingProvince">Province</string>
+    <string name="orderShippingDistrict">District</string>
+    <string name="orderShippingWard">Ward</string>
 </resources>
