@@ -12,9 +12,10 @@
     // connecting to db
     $db = new db_connect();
 
-    $userMail = $_POST['username'];
-    $userPassword = $_POST['password'];
-
+    // $userMail = $_POST['username'];
+    // $userPassword = $_POST['password'];
+    $userMail = "1";
+    $userPassword = "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b";
     $result = mysqli_query($db->connect(),"SELECT * FROM users WHERE username = '$userMail' AND password = '$userPassword'") or die(mysqli_error());
 
     if (mysqli_num_rows($result) > 0) {
@@ -30,15 +31,15 @@
             $user["password"] = $row["password"];
             $user["name"] = $row["name"];
             $user["date"] = $row["date"];
-            $user["sex"] = $row["sex"];
+            $user["gender"] = $row["gender"];
             $user["telephone"] = $row["telephone"];
             $user["email"] = $row["email"];
             // push single product into final response array
             array_push($response, $user);
         }
-        echo json_encode($response);
+        echo json_encode($response, JSON_UNESCAPED_UNICODE);
     } else {
-        echo json_encode($response);
+        echo json_encode($response, JSON_UNESCAPED_UNICODE);
     }
     // if (mysqli_num_rows($control) > 0) {
        

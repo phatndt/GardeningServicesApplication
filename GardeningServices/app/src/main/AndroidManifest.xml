@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GardeningServices"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.CheckOutShipmentActivity"></activity>
+        <activity android:name=".activity.OrderDetailActivity"></activity>
+        <activity android:name=".activity.OrderActivity" />
+        <activity android:name=".activity.CheckOutCompleteActivity" />
+        <activity android:name=".activity.CheckOutShipmentActivity" />
         <activity android:name=".activity.EditProfileActivity" />
         <activity android:name=".activity.ProductDetailActivity" />
         <activity android:name=".activity.SeeAllGoodOfCategoryActivity" />

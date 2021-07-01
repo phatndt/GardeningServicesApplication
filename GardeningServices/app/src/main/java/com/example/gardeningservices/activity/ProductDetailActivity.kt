@@ -52,7 +52,6 @@ class ProductDetailActivity : AppCompatActivity() {
 
         val sharedPreferences: SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
         idUser = sharedPreferences.getInt("id", -1)
-        Toast.makeText(this@ProductDetailActivity, idUser.toString(), Toast.LENGTH_LONG).show()
         setUp(name!!, price!!, discount!!, image!!, quantity, rating!!, note!!)
         getCart();
         tv_back_product_detail_to_product.setOnClickListener {

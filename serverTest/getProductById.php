@@ -7,7 +7,7 @@
     $db = new db_connect();
 
     $idProduct = $_POST['idProduct'];
-
+    
     $result = mysqli_query($db->connect(),"SELECT * FROM product WHERE id = '$idProduct'") or die(mysqli_error());
     
     if (mysqli_num_rows($result) > 0) {
@@ -31,7 +31,7 @@
             array_push($response, $product);
         }
 
-        echo json_encode($response[0]);
+        echo json_encode($response[0], JSON_UNESCAPED_UNICODE);
 
     } else {
 

@@ -13,4 +13,6 @@ class AddressRepository {
     private val addressApi = ApiUtils.createAddressApi()
 
     suspend fun getListAddress() = addressApi.getAddress()
+
+    suspend fun getAddressById(idAddress: Int) = addressApi.getAddressById(idAddress)
 }

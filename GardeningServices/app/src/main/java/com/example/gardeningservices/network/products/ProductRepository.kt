@@ -14,6 +14,8 @@ class ProductRepository {
 
     suspend fun getProductDetail(idProduct: Int) = productApi.getProductDetail(idProduct)
 
+    suspend fun getProductListByCartDetail(idProduct: List<String>) = productApi.getProductListByCartDetail(idProduct.joinToString())
+
     fun postUpdateQuantityProduct(quantity:Int,idProduct: Int) {
         productApi.postUpdateQuantityProduct(quantity,idProduct).enqueue(object : Callback<CRUDresponse>{
             override fun onFailure(call: Call<CRUDresponse>, t: Throwable) {

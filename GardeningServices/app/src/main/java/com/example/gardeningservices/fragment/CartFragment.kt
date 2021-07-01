@@ -44,7 +44,7 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
     private  lateinit var productViewModel: ProductViewModel
     private var idCart: Int = 0
     private var mutableItemPrice: MutableLiveData<Int> = MutableLiveData()
-    private var mutableShippngPrice: MutableLiveData<Int> = MutableLiveData()
+    private var mutableShippingPrice: MutableLiveData<Int> = MutableLiveData()
     private var mutableChargePrice: MutableLiveData<Int> = MutableLiveData()
     private var mutableTotalPrice: MutableLiveData<Int> = MutableLiveData()
     private var listProduct: ArrayList<Products> = arrayListOf()
@@ -65,6 +65,7 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpObserver()
 
         val myValue = this.arguments?.getInt("id")
 
@@ -74,15 +75,15 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
         this.productViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
 
         getCart(myValue!!)
-//        cart_apply_discount.setOnClickListener {
-//            mutableItemPrice.value = mutableItemPrice.value?.plus(1)
-//            Toast.makeText(this.contextFragment, listCartDetail.size.toString(),Toast.LENGTH_LONG).show()
-//        }
+
         cart_btn_checkout.setOnClickListener {
             val intent = Intent(activity, CheckOutShipmentActivity::class.java)
+            intent.putExtra("total",mutableTotalPrice.value)
+            intent.putExtra("provision",mutableItemPrice.value)
+            intent.putExtra("shipping",mutableShippingPrice.value)
+            intent.putExtra("idCart",idCart)
             startActivity(intent)
         }
-        setUpObserver()
     }
     private fun getCart(myValue: Int) {
         listProduct.clear()
@@ -103,12 +104,13 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
         })
     }
     private fun getCartDetail(cart: Cart) {
+        this.idCart = cart.id
         this.cartViewModel.getCartDetailByCart(cart.id).observe(viewLifecycleOwner, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
                         cartViewModel.setListCartDetail(it.data!!)
-                        resource.data?.let { idc -> addListProduct(idc) }
+                        resource.data?.let { idc -> addListCartDetail(idc) }
                     }
                     Status.ERROR -> {
                         Toast.makeText(this.contextFragment, it.message, Toast.LENGTH_LONG).show()
@@ -119,33 +121,47 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
             }
         })
     }
-    private  fun addListProduct(list: List<CartDetail>) {
+    private  fun addListCartDetail(list: List<CartDetail>) {
         for (n in list) {
             this.listCartDetail.add(n)
-            getProduct(n.idProduct)
+        }
+        val listIdProduct: ArrayList<String> = arrayListOf()
+        for (n in list) {
+            listIdProduct.add(n.idProduct.toString())
+        }
+        if (listIdProduct.isEmpty()) {
+            return
+        } else {
+            getProduct(listIdProduct)
         }
     }
-    private fun getProduct(n: Int) {
-        this.productViewModel.getProductById(n).observe(viewLifecycleOwner, Observer {
+    private fun getProduct(idProduct: List<String>) {
+        this.productViewModel.getProductListByCartDetail(idProduct).observe(viewLifecycleOwner, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        listProduct.add(it.data!!)
-                        setUp()
+                        resource.data?.let { idc -> setListProduct(idc) }
                     }
                     Status.ERROR -> {
                         Toast.makeText(this.contextFragment, it.message, Toast.LENGTH_LONG).show()
                     }
                     Status.LOADING -> {
                     }
-                } }
+                }
+            }
         })
+    }
+    private  fun setListProduct(products: List<Products>) {
+        for (product in products) {
+            this.listProduct.add(product)
+        }
         setUp()
     }
     private fun setUp() {
         cartAdapter = CartAdapter(this.contextFragment,this.listCartDetail,this.listProduct,this)
         rvC_list_cart.adapter = cartAdapter
         calculateCartTotal()
+        updateTotal()
     }
     private fun calculateCartTotal() {
         if ( listProduct.isEmpty() && listCartDetail.isEmpty()) {
@@ -167,12 +183,28 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
         }
         mutableItemPrice.value = total
         val itemPrice = mutableItemPrice.value
-        mutableShippngPrice.value = itemPrice!! * 5 / 100
+        mutableShippingPrice.value = itemPrice!! * 5 / 100
         mutableChargePrice.value = itemPrice * 20 / 100
 
-        val shippingPrice = mutableShippngPrice.value
+        val shippingPrice = mutableShippingPrice.value
         val chargePrice = mutableChargePrice.value
         mutableTotalPrice.value = itemPrice + shippingPrice!! + chargePrice!!
+    }
+    private fun updateTotal() {
+        cartViewModel.postUpdateTotalCart(idCart, mutableTotalPrice.value!!).observe(viewLifecycleOwner, Observer {
+            it?.let { resource ->
+                when (resource.status) {
+                    Status.SUCCESS -> {
+
+                    }
+                    Status.ERROR -> {
+                        Toast.makeText(this.contextFragment, it.message, Toast.LENGTH_LONG).show()
+                    }
+                    Status.LOADING -> {
+                    }
+                }
+            }
+        })
     }
     private fun setUpObserver() {
         val nameObserver = Observer<Int> { newName ->
@@ -183,7 +215,7 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
         val shippingObserver = Observer<Int> { price ->
             cart_shipping_price.text = Converter.convertMoney(price)
         }
-        mutableShippngPrice.observe(viewLifecycleOwner,shippingObserver)
+        mutableShippingPrice.observe(viewLifecycleOwner,shippingObserver)
 
         val chargeObserver = Observer<Int> { price ->
             cart_import_charges_price.text = Converter.convertMoney(price)
@@ -192,6 +224,20 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
 
         val totalObserver = Observer<Int> { price ->
             cart_total_price.text = Converter.convertMoney(price)
+            cartViewModel.postUpdateTotalCart(price, idCart).observe(viewLifecycleOwner, Observer {
+                it?.let { resource ->
+                    when (resource.status) {
+                        Status.SUCCESS -> {
+
+                        }
+                        Status.ERROR -> {
+                            Toast.makeText(this.contextFragment, it.message, Toast.LENGTH_LONG).show()
+                        }
+                        Status.LOADING -> {
+                        }
+                    }
+                }
+            })
         }
         mutableTotalPrice.observe(viewLifecycleOwner,totalObserver)
     }

@@ -1,5 +1,6 @@
 package com.example.gardeningservices.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +8,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gardeningservices.R
 import com.example.gardeningservices.model.Address
 
-class AddressAdapter(private val mContext: Context, private val mList : List<Address>) : RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
+class AddressAdapter(private val mContext: Context, private val mList : List<Address>,private val addressInterface: AddressInterface) : RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
+
+    var checkPosition = 0
+    var idAddress: Int = 0
     class AddressViewHolder(view: View) : RecyclerView.ViewHolder (view){
         val name : TextView = view.findViewById(R.id.address_name)
         val number : TextView = view.findViewById(R.id.address_phone)
@@ -21,6 +27,7 @@ class AddressAdapter(private val mContext: Context, private val mList : List<Add
         val ward : TextView = view.findViewById(R.id.address_ward)
         val btnEdit : AppCompatButton = view.findViewById(R.id.address_btn_edit)
         val btnDelete : ImageView = view.findViewById(R.id.address_btn_delete)
+        val cv : ConstraintLayout = view.findViewById(R.id.address_cv)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
@@ -31,6 +38,7 @@ class AddressAdapter(private val mContext: Context, private val mList : List<Add
         return mList.size;
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
 
         holder.name.text = mList[position].address_name
@@ -39,6 +47,13 @@ class AddressAdapter(private val mContext: Context, private val mList : List<Add
         holder.province.text = mList[position].province
         holder.district.text = mList[position].district
         holder.ward.text = mList[position].ward
+
+        if (checkPosition == position) {
+            holder.cv.background = mContext.getDrawable(R.drawable.corner_address_select)
+            addressInterface.getIdAddress(mList[position].id)
+        } else {
+            holder.cv.background = mContext.getDrawable(R.drawable.corner_address)
+        }
 
         setUpEvent(holder, position)
     }
@@ -51,5 +66,17 @@ class AddressAdapter(private val mContext: Context, private val mList : List<Add
         holder.btnEdit.setOnClickListener {
 
         }
+        holder.cv.setOnClickListener {
+            val pre = checkPosition
+            checkPosition = position
+
+            addressInterface.getIdAddress(mList[position].id)
+
+            notifyItemChanged(pre)
+            notifyItemChanged(checkPosition)
+        }
+    }
+    public interface AddressInterface {
+        fun getIdAddress(idAddress: Int)
     }
 }

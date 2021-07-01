@@ -43,4 +43,14 @@ interface CartApi {
     suspend fun postAddProductToCart(
         @Field("idCart") idCart: Int,
         @Field("idProduct") idProduct: Int): CRUDresponse
+
+    @POST("post_update_total_cart.php")
+    @FormUrlEncoded
+    suspend fun postUpdateTotalCart(
+        @Field("total") total: Int,
+        @Field("idCart") idCart: Int)
+
+    @POST("    post_update_state_cart.php")
+    @FormUrlEncoded
+    suspend fun postUpdateStateCart(@Field("idCart") idCart: Int)
 }

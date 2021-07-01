@@ -1,6 +1,8 @@
 package com.example.gardeningservices
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private val cartFragment = CartFragment()
     private val notificationFragment = NotificationFragment()
     private val profileFragment = ProfileFragment()
+    private var idUser: Int = 0
     private var  id: Int? = null
     private var name:String?=null
     private var date:String?=null
@@ -27,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
         makeCurrentFragment(homeFragment)
+
+        val sharedPreferences: SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
+        idUser = sharedPreferences.getInt("id", -1)
 
         val intent: Intent = intent
         val id1 = intent.getIntExtra("idUser",-1)
@@ -47,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.home -> makeCurrentFragment(homeFragment)
                 R.id.favorite -> makeCurrentFragment(favoriteFragment)
-                R.id.shoppingCart -> makeCurrent(cartFragment,id1)
+                R.id.shoppingCart -> makeCurrent(cartFragment,idUser)
                 R.id.notification -> makeCurrentFragment(notificationFragment)
                 R.id.person -> makeCurrent2(profileFragment,id1,name1.toString(),date1.toString(),gender1.toString(),
                     telephone1.toString(),email1.toString())
@@ -63,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     private fun makeCurrent(fragment: Fragment,id: Int) {
         val transaction = supportFragmentManager.beginTransaction()
         val bundle = Bundle()
-        bundle.putInt("id", this.id!!)
+        bundle.putInt("id", this.idUser)
         fragment.arguments = bundle
         transaction.replace(R.id.fragment_container,fragment)
         transaction.commit()
