@@ -5,19 +5,19 @@ import java.util.*
 
 class Users (
     @SerializedName("id")
-    val id: Int,
+    var id: Int,
     @SerializedName("username")
-    val username: String,
+    var username: String,
     @SerializedName("password")
-    val password: String,
+    var password: String,
     @SerializedName("name")
-    val name: String,
+    var name: String,
     @SerializedName("date")
-    val date: String,
-    @SerializedName("sex")
-    val sex: String,
+    var date: String,
+    @SerializedName("gender")
+    var gender: String,
     @SerializedName("telephone")
-    val telephone: String,
+    var telephone: String,
     @SerializedName("email")
-    val email: String
+    var email: String
 )

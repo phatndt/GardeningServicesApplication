@@ -44,34 +44,51 @@
             android:gravity="center" />
     </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/profile_cv_calender"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp">
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/productNameTextView"
-            android:layout_height="match_parent"
-            android:text="Calender"
-            android:textAlignment="center"
-            android:gravity="center" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                style="@style/productNameTextView"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="Calender"
+                android:textAlignment="center"
+                android:gravity="center" />
+        </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/profile_cv_order_history"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp">
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/productNameTextView"
-            android:layout_height="match_parent"
-            android:text="Order history"
-            android:textAlignment="center"
-            android:gravity="center" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                style="@style/productNameTextView"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="Order"
+                android:textAlignment="center"
+                android:gravity="center" />
+        </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_address_management"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="40dp"
@@ -81,7 +98,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             style="@style/productNameTextView"
             android:layout_height="match_parent"
-            android:text="Favourite"
+            android:text="Address"
             android:textAlignment="center"
             android:gravity="center" />
     </com.google.android.material.card.MaterialCardView>
@@ -96,7 +113,7 @@
             android:id="@+id/tv_edit_profile"
             style="@style/productNameTextView"
             android:layout_height="match_parent"
-            android:text="Edit profle"
+            android:text="Profile"
             android:textAlignment="center"
             android:gravity="center" />
     </com.google.android.material.card.MaterialCardView>

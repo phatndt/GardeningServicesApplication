@@ -45,11 +45,38 @@ class CartViewModel: ViewModel() {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }
     }
+    fun postUpdateQuantityProductDeleteItem(idProduct: Int, quantity: Int) {
+        cartResponse.postUpdateQuantityProductDeleteItem(idProduct, quantity)
+    }
+
     fun postDeleteCartDetail(idCartDetail: Int) {
         cartResponse.postDeleteCartDetail(idCartDetail)
     }
-    fun postChangeQuantityItem(idProduct:Int, quantity: Int) {
-        cartResponse.postChangeQuantityItem(idProduct,quantity)
+    fun postChangeQuantityItem(idProduct:Int, quantity: Int, quantityUpdate: Int) {
+        cartResponse.postChangeQuantityItem(idProduct, quantity, quantityUpdate)
     }
-
+    fun postAddProductToCart(idCart: Int, idProduct: Int) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(data = null))
+        try {
+            emit(Resource.success(data = cartResponse.postAddProductToCart(idCart, idProduct)))
+        } catch (exception: Exception) {
+            emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
+        }
+    }
+    fun postUpdateTotalCart(total: Int, idCart: Int) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(data = null))
+        try {
+            emit(Resource.success(data = cartResponse.postUpdateTotalCart(total, idCart)))
+        } catch (exception: Exception) {
+            emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
+        }
+    }
+    fun postUpdateStateCart(idCart: Int) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(data = null))
+        try {
+            emit(Resource.success(data = cartResponse.postUpdateStateCart(idCart)))
+        } catch (exception: Exception) {
+            emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
+        }
+    }
 }

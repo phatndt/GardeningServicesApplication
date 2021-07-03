@@ -41,13 +41,13 @@
         // $response["success"] = 1;
     
         // echoing JSON response
-        echo json_encode($response);
+        echo json_encode($response, JSON_UNESCAPED_UNICODE);
     } else {
         // no products found
         // $response["success"] = 0;
         // $response["message"] = "No products found";
     
         // echo no users JSON
-        echo json_encode($response);
+        echo json_encode($response, JSON_UNESCAPED_UNICODE);
     }
 ?>

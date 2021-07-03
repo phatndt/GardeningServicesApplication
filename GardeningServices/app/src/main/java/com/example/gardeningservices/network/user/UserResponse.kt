@@ -10,8 +10,8 @@ import retrofit2.Response
 class UserResponse {
 
     private val loginApi = ApiUtils.createLoginApi()
-
+    private val profileApi= ApiUtils.createUpdateProfileApi()
     suspend fun login(username: String, password: String) = loginApi.dologin(username, password)
-
-    suspend fun getIdUser(username: String, password: String) = loginApi.getIdByUser(username, password)
+    suspend fun updateProfile(idUser:String,name: String, date: String,gender:String,telephone:String,email:String) = profileApi.updateProfile(idUser,name,date,gender,telephone,email)
+    suspend fun getUserById(idUser: Int) = loginApi.getUserById(idUser)
 }

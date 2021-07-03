@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25d0995d-3c48-409f-a169-0047628500db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/network/cart/CartApi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/drawable/border_cart_remove.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/drawable/corner_edt.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/drawable/ic_add_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/drawable/ic_baseline_remove_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/drawable/ic_delete_outline_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/layout/item_cart.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/SignInActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/SignInActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/viewmodel/UserViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/java/com/example/gardeningservices/viewmodel/UserViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/res/drawable/border.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/drawable/border_cart_add.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/res/layout/fragment_cart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/layout/fragment_cart.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GardeningServices/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GardeningServices/app/src/main/res/values/styles.xml" afterDir="false" />
-    </list>
+    <list default="true" id="25d0995d-3c48-409f-a169-0047628500db" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,9 +38,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1622427551916">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="592" y="218" key="FileChooserDialogImpl" timestamp="1625217624294">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="592" y="218" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1625217624294" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622427551916" />
   </component>
 </project>

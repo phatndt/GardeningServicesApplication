@@ -1,6 +1,8 @@
 package com.example.gardeningservices
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,33 +18,71 @@ class MainActivity : AppCompatActivity() {
     private val cartFragment = CartFragment()
     private val notificationFragment = NotificationFragment()
     private val profileFragment = ProfileFragment()
+    private var idUser: Int = 0
     private var  id: Int? = null
+    private var name:String?=null
+    private var date:String?=null
+    private var gender:String?=null
+    private var telephone:String?=null
+    private var email:String?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+        makeCurrentFragment(homeFragment)
+
+        val sharedPreferences: SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
+        idUser = sharedPreferences.getInt("id", -1)
 
         val intent: Intent = intent
         val id1 = intent.getIntExtra("idUser",-1)
         this.id = intent.getIntExtra("idUser",-1)
+        val name1= intent.getStringExtra("name")
+        this.name=intent.getStringExtra("name")
+        val date1= intent.getStringExtra("date")
+        this.date=intent.getStringExtra("date")
+        val gender1= intent.getStringExtra("gender")
+        this.gender=intent.getStringExtra("gender")
+        val telephone1=intent.getStringExtra("telephone")
+        this.telephone=intent.getStringExtra("telephone")
+        val email1=intent.getStringExtra("email")
+        this.email=intent.getStringExtra("email")
 
-        makeCurrentFragment(homeFragment)
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.btm_navigation)
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> makeCurrentFragment(homeFragment)
-                R.id.favorite -> makeCurrentFragment(favoriteFragment)
-                R.id.shoppingCart -> makeCurrentFragment(cartFragment)
+                R.id.favorite -> makeCurrent(favoriteFragment,idUser)
+                R.id.shoppingCart -> makeCurrent(cartFragment,idUser)
                 R.id.notification -> makeCurrentFragment(notificationFragment)
-                R.id.person -> makeCurrentFragment(profileFragment)
+                R.id.person -> makeCurrent2(profileFragment,id1,name1.toString(),date1.toString(),gender1.toString(),
+                    telephone1.toString(),email1.toString())
             }
             true
         }
     }
     private fun makeCurrentFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container,fragment)
+        transaction.commit()
+    }
+    private fun makeCurrent(fragment: Fragment,id: Int) {
+        val transaction = supportFragmentManager.beginTransaction()
+        val bundle = Bundle()
+        bundle.putInt("id", this.idUser)
+        fragment.arguments = bundle
+        transaction.replace(R.id.fragment_container,fragment)
+        transaction.commit()
+    }
+    private fun makeCurrent2(fragment: Fragment,id: Int,name :String,date:String,gender:String,telephone:String,email:String) {
+        val transaction = supportFragmentManager.beginTransaction()
         val bundle = Bundle()
         bundle.putInt("id", this.id!!)
+        bundle.putString("Name",this.name!!)
+        bundle.putString("Date",this.date!!)
+        bundle.putString("Gender",this.gender!!)
+        bundle.putString("Telephone",this.telephone!!)
+        bundle.putString("Email",this.email!!)
         fragment.arguments = bundle
         transaction.replace(R.id.fragment_container,fragment)
         transaction.commit()

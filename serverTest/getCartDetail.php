@@ -7,7 +7,7 @@
     $db = new db_connect();
 
     $idCart = $_POST['idCart'];
-
+    
     $result = mysqli_query($db->connect(),"SELECT * FROM cart_detail WHERE idCart = '$idCart'") or die(mysqli_error());
     
     if (mysqli_num_rows($result) > 0) {

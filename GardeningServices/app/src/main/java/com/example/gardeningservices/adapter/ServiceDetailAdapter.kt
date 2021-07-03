@@ -26,7 +26,7 @@ class ServiceDetailAdapter (private val mContext: Context, private val informati
         holder.servicesName.text=information.name
         holder.servicesPrice.text=information.price
         holder.servicesRating.numStars= information.rating.toInt()
-        holder.servicesStockIn.text=information.stock_in
+        //holder.servicesStockIn.text=information.stock_in
         holder.servicesPicture.setImageBitmap(Converter(information.image).DecodeToImage())
         holder.servicesPicture.setColorFilter(ContextCompat.getColor(mContext,R.color.Green1))
     }

@@ -12,18 +12,25 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.gardeningservices.R
 import com.example.gardeningservices.SignInActivity
+import com.example.gardeningservices.activity.AddressManagement
 import com.example.gardeningservices.activity.EditProfileActivity
+import com.example.gardeningservices.activity.OrderActivity
+import com.example.gardeningservices.viewmodel.CartViewModel
+import com.example.gardeningservices.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment: Fragment() {
     val TAG = "HomeFragment"
-    public  lateinit var contextFragment: Context
+    private  lateinit var contextFragment: Context
+    private lateinit var userViewModel: UserViewModel
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         this.contextFragment = context;
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -33,18 +40,32 @@ class ProfileFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val cvEditProfile: TextView = view.findViewById(R.id.tv_edit_profile)
-        cvEditProfile.setOnClickListener {
+
+        val id = this.arguments?.getInt("id")
+
+        tv_edit_profile.setOnClickListener {
             val intent = Intent(activity,EditProfileActivity::class.java)
+            intent.putExtra("idUser",id)
             startActivity(intent)
         }
-        val cvlogout: TextView = view.findViewById(R.id.tv_log_out)
-        cvlogout.setOnClickListener {
+        tv_log_out.setOnClickListener {
             val intent = Intent(activity,SignInActivity::class.java)
             startActivity(intent)
             activity?.finish()
         }
+        cv_address_management.setOnClickListener {
+            val intent = Intent(activity,AddressManagement::class.java)
+            intent.putExtra("idUser",id)
+            startActivity(intent)
+        }
+
+        profile_cv_order_history.setOnClickListener {
+            val intent = Intent(activity,OrderActivity::class.java)
+            intent.putExtra("idUser",id)
+            startActivity(intent)
+        }
     }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         Log.d(TAG, "onActivityCreated")
         super.onActivityCreated(savedInstanceState)

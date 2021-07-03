@@ -69,12 +69,17 @@
     <string name="profile"> Profile </string>
     <string name="sale">Flash Sales</string>
     <!--    cart-->
+    <string-array name="listGender">
+        <item>Female</item>
+        <item>Male</item>
+        <item>Other</item>
+    </string-array>
     <string name="titleCart">Cart</string>
     <string name="Items"> Items</string>
     <string name="Shipping"> Shipping</string>
     <string name="ImportCharges"> Import Charges (20%)</string>
     <string name="Total"> Total</string>
-    <string name="Number"> 10000</string>
+    <string name="Number"> 0</string>
     <string-array name="quantity_string_array">
         <item>1</item>
         <item>2</item>
@@ -84,4 +89,39 @@
     </string-array>
     <!--    check out shipment-->
     <string name="titleCheckOutShipment">Ship to</string>
+
+    <string name="product">Products</string>
+
+    <!--    Order-->
+    <string name="titleOrderHistory">Order History</string>
+    <string name="titleOrder">Order</string>
+    <string name="orderItems">Items</string>
+    <string name="orderPrice">Price</string>
+    <string name="orderState">Order Status</string>
+    <string name="orderId">Id</string>
+    <string name="orderDate">Date</string>
+    <string name="orderDetail">Order detail</string>
+    <string name="orderShippingDetail">Shipping Detail</string>
+    <string name="orderPaymentDetail">Payment Detail</string>
+    <string name="orderDateShipping">Date Shipping</string>
+    <string name="orderShippingName">Name</string>
+    <string name="orderShippingTelephone">Telephone</string>
+    <string name="orderShippingAddress">Address</string>
+    <string name="orderShippingProvince">Province</string>
+    <string name="orderShippingDistrict">District</string>
+    <string name="orderShippingWard">Ward</string>
+    <!--    Address-->
+    <string name="add_address">Add New Address</string>
+    <string name="fullName">Full Name</string>
+    <string name="create_address">Create New Address</string>
+    <string name="title_address_management">Address Management</string>
+    <string name="Province">Province</string>
+    <string name="District">District</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="ward">Ward</string>
+    <string name="save_new_address">Save New Address</string>
+    <string name="detailAddress">Address Details</string>
+    <string name="editAddress">Edit Address</string>
+    <string name="saveAddress">Save Address</string>
+    <string name="nextStep">Next</string>
 </resources>
