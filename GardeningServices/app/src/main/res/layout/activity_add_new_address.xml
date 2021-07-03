@@ -45,7 +45,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_full_name"
             android:layout_width="match_parent"
-            android:inputType="number"
             android:lines="1"
             android:layout_height="wrap_content"
             />
@@ -128,12 +127,15 @@
         android:hint="@string/phoneNumber"
         app:boxStrokeColor="@color/Green1"
         app:hintTextColor="@color/Green1"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_phoneNumber_address"
             android:layout_width="match_parent"
             android:lines="1"
+            android:inputType="number"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans"
             android:drawablePadding="10sp"
@@ -143,7 +145,7 @@
         android:id="@+id/til_detail_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="15sp"
         android:layout_marginRight="20sp"
         android:layout_marginLeft="20sp"
         android:fontFamily="@font/open_sans"
@@ -161,7 +163,7 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="20sp"
         android:layout_marginLeft="20sp"
         android:backgroundTint="@color/Green1"

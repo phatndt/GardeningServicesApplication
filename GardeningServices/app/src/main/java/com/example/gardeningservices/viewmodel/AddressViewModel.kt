@@ -13,10 +13,18 @@ class AddressViewModel:ViewModel() {
 
     private  var addressRepository = AddressRepository()
 
-    fun getListAddress()  = liveData(Dispatchers.IO) {
+    fun getListAddress(idUser: String)  = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            emit(Resource.success(data = addressRepository.getListAddress()))
+            emit(Resource.success(data = addressRepository.getListAddress(idUser)))
+        } catch (exception: Exception) {
+            emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
+        }
+    }
+    fun deleteAddress(id: String)  = liveData(Dispatchers.IO) {
+        emit(Resource.loading(data = null))
+        try {
+            emit(Resource.success(data = addressRepository.deleteAddress(id)))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }

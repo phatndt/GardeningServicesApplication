@@ -8,16 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat.startActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gardeningservices.R
 import com.example.gardeningservices.activity.AddNewAddress
 import com.example.gardeningservices.activity.CheckOutShipmentActivity
 import com.example.gardeningservices.activity.EditAddressActivity
 import com.example.gardeningservices.model.Address
+import com.example.gardeningservices.network.ApiUtils
+import com.example.gardeningservices.network.address.AddressApi
+import com.example.gardeningservices.viewmodel.AddressViewModel
 
-class AddressAdapter(private val mContext: Context, private val mList : ArrayList<Address>) : RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
+class AddressAdapter(private val mContext: Context, private val mList : ArrayList<Address>, private val addressInterface:AddressInterface) : RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
     class AddressViewHolder(view: View) : RecyclerView.ViewHolder (view){
         val name : TextView = view.findViewById(R.id.address_name)
         val number : TextView = view.findViewById(R.id.address_phone)
@@ -38,6 +43,7 @@ class AddressAdapter(private val mContext: Context, private val mList : ArrayLis
 
     override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
 
+
         holder.name.text = mList[position].address_name
         holder.number.text = mList[position].address_number
         holder.address.text = mList[position].address_line
@@ -48,9 +54,13 @@ class AddressAdapter(private val mContext: Context, private val mList : ArrayLis
         setUpEvent(holder, position)
     }
 
-    private fun setUpEvent(holder: AddressViewHolder, position: Int) {
 
+
+    private var addressViewModel = AddressViewModel()
+    private fun setUpEvent(holder: AddressViewHolder, position: Int) {
         holder.btnDelete.setOnClickListener {
+
+            addressInterface.deleteAddress(mList[position].id.toString())
             mList.removeAt(position)
             notifyDataSetChanged()
         }
@@ -65,6 +75,9 @@ class AddressAdapter(private val mContext: Context, private val mList : ArrayLis
             intent.putExtra("ward",mList[position].ward)
             mContext.startActivity(intent)
         }
+    }
+    public interface AddressInterface{
+        fun deleteAddress(id :String)
     }
 
 }

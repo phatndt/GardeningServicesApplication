@@ -79,9 +79,10 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp">
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_address_profile"
             style="@style/productNameTextView"
             android:layout_height="match_parent"
-            android:text="Favourite"
+            android:text="Address"
             android:textAlignment="center"
             android:gravity="center" />
     </com.google.android.material.card.MaterialCardView>
@@ -96,7 +97,7 @@
             android:id="@+id/tv_edit_profile"
             style="@style/productNameTextView"
             android:layout_height="match_parent"
-            android:text="Edit profle"
+            android:text="Profile"
             android:textAlignment="center"
             android:gravity="center" />
     </com.google.android.material.card.MaterialCardView>

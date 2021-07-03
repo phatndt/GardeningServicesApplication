@@ -14,7 +14,7 @@ import com.example.gardeningservices.utilities.Status
 import com.example.gardeningservices.viewmodel.AddressViewModel
 import kotlinx.android.synthetic.main.activity_check_out_shipment.*
 
-class CheckOutShipmentActivity : AppCompatActivity()  {
+class CheckOutShipmentActivity : AppCompatActivity(),AddressAdapter.AddressInterface {
 
     private lateinit var addressViewModel: AddressViewModel
     private var  id: Int? = null
@@ -24,22 +24,22 @@ class CheckOutShipmentActivity : AppCompatActivity()  {
         setContentView(R.layout.activity_check_out_shipment)
 
         this.addressViewModel = ViewModelProvider(this).get(AddressViewModel::class.java)
-        val id1 = intent.getIntExtra("idUser",-1)
-        this.id = intent.getIntExtra("idUser",-1)
+
 
         tv_back_checkout_shipping.setOnClickListener {
             super.onBackPressed()
         }
         rcV_checkout_address_shipping.layoutManager = GridLayoutManager(this,1, GridLayoutManager.VERTICAL,false)
         observeResponseData()
-        btn_add_address_shipping.setOnClickListener {
-            val intent = Intent(this@CheckOutShipmentActivity, AddNewAddress::class.java)
-            intent.putExtra("idUser",id1)
-            startActivity(intent)
+        btn_next_check_out.setOnClickListener {
         }
     }
     private fun observeResponseData() {
-        this.addressViewModel.getListAddress().observe(this, Observer {
+
+        val id1 = intent.getIntExtra("idUser",-1)
+        this.id = intent.getIntExtra("idUser",-1)
+
+        this.addressViewModel.getListAddress(id1.toString()).observe(this, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
@@ -54,7 +54,11 @@ class CheckOutShipmentActivity : AppCompatActivity()  {
         })
     }
     private  fun setUpCategoryHome(list: ArrayList<Address>) {
-        val addressAdapter = AddressAdapter(this@CheckOutShipmentActivity, list)
+        val addressAdapter = AddressAdapter(this@CheckOutShipmentActivity, list,this)
         rcV_checkout_address_shipping.adapter = addressAdapter
+    }
+
+    override fun deleteAddress(id: String) {
+        addressViewModel.deleteAddress(id)
     }
 }

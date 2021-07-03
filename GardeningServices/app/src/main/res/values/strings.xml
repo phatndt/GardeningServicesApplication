@@ -100,4 +100,5 @@
     <string name="detailAddress">Address Details</string>
     <string name="editAddress">Edit Address</string>
     <string name="saveAddress">Save Address</string>
+    <string name="nextStep">Next</string>
 </resources>

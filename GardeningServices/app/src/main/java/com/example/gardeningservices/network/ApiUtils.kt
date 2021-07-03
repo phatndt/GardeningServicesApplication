@@ -48,5 +48,8 @@ class ApiUtils {
         fun createAddressApi(): AddressApi {
             return Retrofit.getClient(URL).create(AddressApi::class.java)
         }
+        fun deleteAddressApi():AddressApi{
+            return Retrofit.getClient(URL).create(AddressApi::class.java)
+        }
     }
 }

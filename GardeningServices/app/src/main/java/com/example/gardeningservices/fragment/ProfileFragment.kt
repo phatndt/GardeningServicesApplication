@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.gardeningservices.R
 import com.example.gardeningservices.SignInActivity
+import com.example.gardeningservices.activity.AddNewAddress
 import com.example.gardeningservices.activity.EditProfileActivity
 import com.example.gardeningservices.viewmodel.CartViewModel
 import com.example.gardeningservices.viewmodel.UserViewModel
@@ -47,6 +48,8 @@ class ProfileFragment: Fragment() {
         val mGender=this.arguments?.getString("Gender")
         val mTelephone=this.arguments?.getString("Telephone")
         val mEmail=this.arguments?.getString("Email")
+
+
         val cvEditProfile: TextView = view.findViewById(R.id.tv_edit_profile)
         cvEditProfile.setOnClickListener {
             val intent = Intent(activity,EditProfileActivity::class.java)
@@ -59,9 +62,16 @@ class ProfileFragment: Fragment() {
             this.userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
             startActivity(intent)
         }
-        val cvlogout: TextView = view.findViewById(R.id.tv_log_out)
-        cvlogout.setOnClickListener {
+        val cvLogout: TextView = view.findViewById(R.id.tv_log_out)
+        cvLogout.setOnClickListener {
             val intent = Intent(activity,SignInActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+        }
+        val cvAddress:TextView =view.findViewById(R.id.tv_address_profile)
+        cvAddress.setOnClickListener {
+            val intent = Intent(activity,AddNewAddress::class.java)
+            intent.putExtra("idUser",mid)
             startActivity(intent)
             activity?.finish()
         }
