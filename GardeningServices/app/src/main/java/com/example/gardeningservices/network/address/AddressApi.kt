@@ -13,13 +13,24 @@ interface AddressApi {
     ): List<Address>
     @FormUrlEncoded
     @POST("post_delete_address.php")
-    suspend fun deleteAddress(
+    fun deleteAddress(
         @Field("id") id:String
     ):Call<CRUDresponse>
     @FormUrlEncoded
     @POST("post_new_address.php")
     suspend fun createAddress(
         @Field("idUser") idUser:String,
+        @Field("address_name") address_name:String,
+        @Field("address_number") address_number:String,
+        @Field("address_line") address_line :String,
+        @Field("province") province:String,
+        @Field("district") district:String,
+        @Field("ward") ward:String
+    ): Call<CRUDresponse>
+    @FormUrlEncoded
+    @POST("post_update_edit_address.php")
+    suspend fun updateAddress(
+        @Field("id") id:String,
         @Field("address_name") address_name:String,
         @Field("address_number") address_number:String,
         @Field("address_line") address_line :String,

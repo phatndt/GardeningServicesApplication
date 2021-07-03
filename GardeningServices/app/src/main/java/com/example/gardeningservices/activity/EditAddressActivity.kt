@@ -3,7 +3,12 @@ package com.example.gardeningservices.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.gardeningservices.R
+import com.example.gardeningservices.utilities.Status
+import com.example.gardeningservices.viewmodel.AddressViewModel
 import kotlinx.android.synthetic.main.activity_edit_address.*
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 
@@ -14,10 +19,16 @@ class EditAddressActivity : AppCompatActivity() {
     private  lateinit var provinceEdit: TextView
     private  lateinit var districtEdit: TextView
     private  lateinit var wardEdit: TextView
+    private lateinit var addressViewModel:AddressViewModel
+    private var  id: Int? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_address)
+
+        addressViewModel =ViewModelProvider(this@EditAddressActivity).get(AddressViewModel::class.java)
+
         nameEdit= findViewById(R.id.edt_Full_Name_edit)
         nameEdit.text=intent.getStringExtra("addressName")
         phoneEdit=findViewById(R.id.edt_phoneNumber_address_edit)
@@ -32,6 +43,37 @@ class EditAddressActivity : AppCompatActivity() {
         wardEdit.text= intent.getStringExtra("ward")
         iv_back_checkOut_edit_address.setOnClickListener {
             super.onBackPressed()
+        }
+        btn_save_address.setOnClickListener {
+            changeAddress()
+        }
+    }
+
+    private fun changeAddress() {
+        val addressName=nameEdit.text.toString().trim()
+        val addressPhone=phoneEdit.text.toString().trim()
+        val addressLine= lineEdit.text.toString().trim()
+        val addressProvince= provinceEdit.text.toString().trim()
+        val addressDistrict=districtEdit.text.toString().trim()
+        val addressWard = wardEdit.text.toString().trim()
+        val idAddress = intent.getIntExtra("id",-1)
+        this.id = intent.getIntExtra("id",-1)
+        if(addressName.isNotEmpty() && addressPhone.isNotEmpty() && addressLine.isNotEmpty() && addressProvince.isNotEmpty() && addressDistrict.isNotEmpty() &&addressWard.isNotEmpty())
+        {
+            addressViewModel.updateAddress(idAddress.toString(),addressName,addressPhone,addressLine,addressProvince,addressDistrict,addressWard).observe(this,
+                Observer {
+                    it?.let { resource ->
+                        when (resource.status) {
+                            Status.SUCCESS -> {
+                            }
+                            Status.ERROR -> {
+                                Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                            }
+                            Status.LOADING -> {
+                            }
+                        }
+                    }
+                })
         }
     }
 }

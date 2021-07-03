@@ -54,9 +54,6 @@ class AddressAdapter(private val mContext: Context, private val mList : ArrayLis
         setUpEvent(holder, position)
     }
 
-
-
-    private var addressViewModel = AddressViewModel()
     private fun setUpEvent(holder: AddressViewHolder, position: Int) {
         holder.btnDelete.setOnClickListener {
 

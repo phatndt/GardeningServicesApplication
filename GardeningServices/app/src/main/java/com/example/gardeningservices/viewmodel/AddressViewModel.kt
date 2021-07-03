@@ -21,13 +21,17 @@ class AddressViewModel:ViewModel() {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }
     }
-    fun deleteAddress(id: String)  = liveData(Dispatchers.IO) {
+    fun updateAddress(id:String,addressName:String,addressNumber:String,addressLine:String,Province:String,District:String,Ward:String)=liveData(Dispatchers.IO){
         emit(Resource.loading(data = null))
         try {
-            emit(Resource.success(data = addressRepository.deleteAddress(id)))
+            emit(Resource.success(data = addressRepository.updateAddress(id,addressName,addressNumber,addressLine,Province,District,Ward)))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }
+    }
+     fun deleteAddress(id: String) {
+        addressRepository.deleteAddress(id)
+
     }
     fun createNewAddress(idUser:String,addressName:String,addressNumber:String,addressLine:String,Province:String,District:String,Ward:String) = liveData(Dispatchers.IO){
         emit(Resource.loading(data = null))
@@ -37,4 +41,5 @@ class AddressViewModel:ViewModel() {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }
     }
+
 }

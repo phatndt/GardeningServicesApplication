@@ -58,7 +58,7 @@ class CheckOutShipmentActivity : AppCompatActivity(),AddressAdapter.AddressInter
         rcV_checkout_address_shipping.adapter = addressAdapter
     }
 
-    override fun deleteAddress(id: String) {
-        addressViewModel.deleteAddress(id)
+    override  fun deleteAddress(idAddress: String) {
+        addressViewModel.deleteAddress(idAddress)
     }
 }
