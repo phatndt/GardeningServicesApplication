@@ -78,6 +78,7 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
 
         cart_btn_checkout.setOnClickListener {
             val intent = Intent(activity, CheckOutShipmentActivity::class.java)
+            intent.putExtra("idUser",myValue)
             intent.putExtra("total",mutableTotalPrice.value)
             intent.putExtra("provision",mutableItemPrice.value)
             intent.putExtra("shipping",mutableShippingPrice.value)

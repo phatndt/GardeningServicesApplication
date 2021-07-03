@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.gardeningservices.R
 import com.example.gardeningservices.SignInActivity
+import com.example.gardeningservices.activity.AddressManagement
 import com.example.gardeningservices.activity.EditProfileActivity
 import com.example.gardeningservices.activity.OrderActivity
 import com.example.gardeningservices.viewmodel.CartViewModel
@@ -51,6 +52,11 @@ class ProfileFragment: Fragment() {
             val intent = Intent(activity,SignInActivity::class.java)
             startActivity(intent)
             activity?.finish()
+        }
+        cv_address_management.setOnClickListener {
+            val intent = Intent(activity,AddressManagement::class.java)
+            intent.putExtra("idUser",id)
+            startActivity(intent)
         }
 
         profile_cv_order_history.setOnClickListener {

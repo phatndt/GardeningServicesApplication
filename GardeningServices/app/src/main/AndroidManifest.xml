@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GardeningServices"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.OrderDetailActivity"></activity>
+        <activity android:name=".activity.EditAddressActivity"></activity>
+        <activity android:name=".activity.AddNewAddressActivity" />
+        <activity android:name=".activity.AddressManagement" />
+        <activity android:name=".activity.OrderDetailActivity" />
         <activity android:name=".activity.OrderActivity" />
         <activity android:name=".activity.CheckOutCompleteActivity" />
         <activity android:name=".activity.CheckOutShipmentActivity" />

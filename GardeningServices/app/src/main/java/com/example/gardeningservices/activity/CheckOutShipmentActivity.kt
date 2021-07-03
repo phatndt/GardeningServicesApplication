@@ -63,11 +63,12 @@ class CheckOutShipmentActivity : AppCompatActivity(), AddressAdapter.AddressInte
         }
     }
     private fun observeResponseData() {
-        this.addressViewModel.getListAddress().observe(this, Observer {
+        val id1 = intent.getIntExtra("idUser",-1)
+        this.addressViewModel.getListAddress(id1.toString()).observe(this, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        resource.data?.let { idc -> setUpCategoryHome(idc) }
+                        resource.data?.let { idc -> setUpCategoryHome(idc as ArrayList<Address>) }
                     }
                     Status.ERROR -> {
                         Toast.makeText(this@CheckOutShipmentActivity, it.message, Toast.LENGTH_LONG).show()
@@ -77,7 +78,7 @@ class CheckOutShipmentActivity : AppCompatActivity(), AddressAdapter.AddressInte
                 } }
         })
     }
-    private  fun setUpCategoryHome(list: List<Address>) {
+    private  fun setUpCategoryHome(list: ArrayList<Address>) {
         val addressAdapter = AddressAdapter(this@CheckOutShipmentActivity, list,this)
         rcV_checkout_address_shipping.adapter = addressAdapter
     }
@@ -197,5 +198,9 @@ class CheckOutShipmentActivity : AppCompatActivity(), AddressAdapter.AddressInte
 
     override fun getIdAddress(idAddress: Int) {
         this.idAddress = idAddress
+    }
+
+    override fun deleteAddress(idAddress: String) {
+        addressViewModel.deleteAddress(idAddress)
     }
 }
