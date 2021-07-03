@@ -2,6 +2,7 @@ package com.example.gardeningservices.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +13,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gardeningservices.R
+import com.example.gardeningservices.activity.EditAddressActivity
 import com.example.gardeningservices.model.Address
 
-class AddressAdapter(private val mContext: Context, private val mList : List<Address>,private val addressInterface: AddressInterface) : RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
+class AddressAdapter(private val mContext: Context, private val mList : ArrayList<Address>,private val addressInterface: AddressInterface) : RecyclerView.Adapter<AddressAdapter.AddressViewHolder>() {
 
     var checkPosition = 0
     var idAddress: Int = 0
@@ -54,16 +56,26 @@ class AddressAdapter(private val mContext: Context, private val mList : List<Add
         } else {
             holder.cv.background = mContext.getDrawable(R.drawable.corner_address)
         }
-
         setUpEvent(holder, position)
     }
 
     private fun setUpEvent(holder: AddressViewHolder, position: Int) {
 
         holder.btnDelete.setOnClickListener {
-
+            addressInterface.deleteAddress(mList[position].id.toString())
+            mList.removeAt(position)
+            notifyDataSetChanged()
         }
         holder.btnEdit.setOnClickListener {
+            val intent = Intent(mContext, EditAddressActivity::class.java)
+            intent.putExtra("id",mList[position].id)
+            intent.putExtra("addressName",mList[position].address_name)
+            intent.putExtra("addressNumber",mList[position].address_number)
+            intent.putExtra("addressLine",mList[position].address_line)
+            intent.putExtra("province",mList[position].province)
+            intent.putExtra("district",mList[position].district)
+            intent.putExtra("ward",mList[position].ward)
+            mContext.startActivity(intent)
 
         }
         holder.cv.setOnClickListener {
@@ -78,5 +90,6 @@ class AddressAdapter(private val mContext: Context, private val mList : List<Add
     }
     public interface AddressInterface {
         fun getIdAddress(idAddress: Int)
+        fun deleteAddress(id :String)
     }
 }
