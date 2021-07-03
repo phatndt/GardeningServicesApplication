@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> makeCurrentFragment(homeFragment)
-                R.id.favorite -> makeCurrentFragment(favoriteFragment)
+                R.id.favorite -> makeCurrent(favoriteFragment,idUser)
                 R.id.shoppingCart -> makeCurrent(cartFragment,idUser)
                 R.id.notification -> makeCurrentFragment(notificationFragment)
                 R.id.person -> makeCurrent2(profileFragment,id1,name1.toString(),date1.toString(),gender1.toString(),
