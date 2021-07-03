@@ -117,10 +117,23 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/open_sans_bold"
                 android:text="Stock In"/>
+            <TextView
+                android:id="@+id/product_detail_sale_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@id/product_detail_discount"
+                app:layout_constraintTop_toBottomOf="@id/product_detail_stock_sub"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="Sale"/>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:visibility="invisible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/product_detail_price">
                 <com.mikhaellopez.circularprogressbar.CircularProgressBar

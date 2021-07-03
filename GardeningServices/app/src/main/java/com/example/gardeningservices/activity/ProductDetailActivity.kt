@@ -77,7 +77,7 @@ class ProductDetailActivity : AppCompatActivity() {
             }
 
         }
-        setUpProfile(id, idCategory)
+        //setUpProfile(id, idCategory)
         setUpObserver()
     }
 

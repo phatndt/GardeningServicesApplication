@@ -48,42 +48,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/tx_welcome">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_marginStart="15dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginEnd="15dp"-->
+<!--                    android:background="@drawable/boarder_search_background"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent">-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/boarder_search_background"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+<!--                        android:id="@+id/tf_search"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@drawable/boarder_search_background"-->
+<!--                        android:hint="@string/Search"-->
+<!--                        android:imeOptions="actionSearch"-->
+<!--                        android:importantForAutofill="no"-->
+<!--                        android:inputType="text"-->
+<!--                        android:paddingStart="15dp"-->
+<!--                        android:paddingEnd="10dp"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:lines="1"/>-->
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tf_search"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/boarder_search_background"
-                        android:hint="@string/Search"
-                        android:imeOptions="actionSearch"
-                        android:importantForAutofill="no"
-                        android:inputType="text"
-                        android:paddingStart="15dp"
-                        android:paddingEnd="10dp"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:lines="1"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:backgroundTint="@color/Gray4"
-                        android:contentDescription="@string/app_name"
-                        android:padding="6dp"
-                        app:icon="@drawable/ic_baseline_search_24"
-                        app:iconTint="@color/Green1" />
-                </LinearLayout>
+<!--                    <com.google.android.material.button.MaterialButton-->
+<!--                        android:layout_width="40dp"-->
+<!--                        android:layout_height="40dp"-->
+<!--                        android:backgroundTint="@color/Gray4"-->
+<!--                        android:contentDescription="@string/app_name"-->
+<!--                        android:padding="6dp"-->
+<!--                        app:icon="@drawable/ic_baseline_search_24"-->
+<!--                        app:iconTint="@color/Green1" />-->
+<!--                </LinearLayout>-->
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -167,362 +166,12 @@
                 android:layout_marginEnd="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout_categories"
                 app:layout_constraintBottom_toBottomOf="parent"/>
-<!--            <GridLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:columnCount="3"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/relativeLayout_categories">-->
-
-<!--                <com.google.android.material.card.MaterialCardView-->
-<!--                    android:id="@+id/category1"-->
-<!--                    style="@style/categoryCardHome"-->
-<!--                    android:layout_column="0">-->
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="100dp"-->
-<!--                        android:layout_gravity="center_vertical|center_horizontal"-->
-<!--                        android:gravity="center"-->
-<!--                        android:orientation="vertical">-->
-<!--                        <RelativeLayout-->
-<!--                            android:layout_width="60dp"-->
-<!--                            android:layout_height="60dp"-->
-<!--                            android:layout_marginTop="5dp"-->
-<!--                            android:background="@drawable/boarder_category">-->
-<!--                            <androidx.appcompat.widget.AppCompatImageView-->
-<!--                                android:layout_centerVertical="true"-->
-<!--                                android:layout_centerHorizontal="true"-->
-<!--                                android:id="@+id/iv_image"-->
-<!--                                android:layout_width="40dp"-->
-<!--                                android:layout_height="40dp"-->
-<!--                                android:src="@drawable/ic_category_flower_24"/>-->
-<!--                        </RelativeLayout>-->
-<!--                        <com.google.android.material.textview.MaterialTextView-->
-<!--                            style="@style/categoryTextViewHome"-->
-<!--                            android:text="@string/flower"/>-->
-<!--                    </LinearLayout>-->
-<!--                </com.google.android.material.card.MaterialCardView>-->
-<!--                <com.google.android.material.card.MaterialCardView-->
-<!--                    android:id="@+id/category2"-->
-<!--                    style="@style/categoryCardHome"-->
-<!--                    android:layout_column="1">-->
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="100dp"-->
-<!--                        android:layout_gravity="center_vertical|center_horizontal"-->
-<!--                        android:gravity="center"-->
-<!--                        android:orientation="vertical">-->
-<!--                        <RelativeLayout-->
-<!--                            android:layout_width="60dp"-->
-<!--                            android:layout_height="60dp"-->
-<!--                            android:layout_marginTop="5dp"-->
-<!--                            android:background="@drawable/boarder_category">-->
-<!--                            <androidx.appcompat.widget.AppCompatImageView-->
-<!--                                android:layout_centerVertical="true"-->
-<!--                                android:layout_centerHorizontal="true"-->
-<!--                                android:id="@+id/iv_category_image_view_home"-->
-<!--                                android:layout_width="40dp"-->
-<!--                                android:layout_height="40dp"-->
-<!--                                android:src="@drawable/ic"/>-->
-<!--                        </RelativeLayout>-->
-<!--                        <com.google.android.material.textview.MaterialTextView-->
-<!--                            style="@style/categoryTextView"-->
-<!--                            android:text="@string/harvest"/>-->
-<!--                    </LinearLayout>-->
-<!--                </com.google.android.material.card.MaterialCardView>-->
-<!--                <com.google.android.material.card.MaterialCardView-->
-<!--                    android:id="@+id/category3"-->
-<!--                    style="@style/categoryCardHome"-->
-<!--                    android:layout_column="2">-->
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="100dp"-->
-<!--                        android:layout_gravity="center_vertical|center_horizontal"-->
-<!--                        android:gravity="center"-->
-<!--                        android:orientation="vertical">-->
-
-<!--                        <com.google.android.material.imageview.ShapeableImageView-->
-<!--                            android:layout_width="50dp"-->
-<!--                            android:layout_height="50dp"-->
-<!--                            android:src="@drawable/ic_category_vegetables_24"/>-->
-
-<!--                        <com.google.android.material.textview.MaterialTextView-->
-<!--                            style="@style/categoryTextView"-->
-<!--                            android:text="@string/vegetables"/>-->
-<!--                    </LinearLayout>-->
-<!--                </com.google.android.material.card.MaterialCardView>-->
-<!--            </GridLayout>-->
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_special_offers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/layout_categories">
-
-            <RelativeLayout
-                android:id="@+id/relativeLayout_special_offers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tx_special_offers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/SpecialOffers"
-                    android:textSize="20sp"
-                    app:fontFamily="@font/open_sans_bold" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tx_see_all_special_offers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignBottom="@id/tx_special_offers"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/SeeAll"
-                    android:textSize="16sp"
-                    android:textColor="@color/selector_see_all"
-                    app:fontFamily="@font/open_sans"
-                    android:clickable="true"/>
-            </RelativeLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcV_package_home"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                android:clipToPadding="false"
-                app:spanCount="2"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_special_offers"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-<!--            <GridLayout2
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:columnCount="2"
-                app:layout_constraintTop_toBottomOf="@id/relativeLayout_special_offers">
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cV_special_offer_1"
-                    style="@style/specialOfferCard"
-                    android:layout_column="0">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <LinearLayout
-                            android:id="@+id/view1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent">
-
-                            <com.google.android.material.imageview.ShapeableImageView
-
-                                android:layout_width="50dp"
-                                android:layout_height="100dp"
-                                android:layout_gravity="center"
-                                android:layout_marginHorizontal="10dp"
-                                android:layout_marginVertical="10dp"
-                                android:src="@drawable/ic_navigation_outline_profile_24" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="130dp"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <com.google.android.material.textview.MaterialTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="50%"/>
-                            <com.google.android.material.textview.MaterialTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/discount"/>
-                            <com.google.android.material.textview.MaterialTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:text="@string/getDiscountUntil"
-                                android:textAlignment="center" />
-                            <com.google.android.material.textview.MaterialTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="21 Feburary"
-                                android:textAlignment="center" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cV_special_offer_2"
-                    style="@style/specialOfferCard"
-                    android:layout_column="1">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <LinearLayout
-                            android:id="@+id/view2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent">
-                            <com.google.android.material.imageview.ShapeableImageView
-                                android:layout_width="50dp"
-                                android:layout_height="100dp"
-                                android:layout_gravity="center"
-                                android:layout_marginHorizontal="10dp"
-                                android:layout_marginVertical="10dp"
-                                android:src="@drawable/ic_navigation_outline_profile_24" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="130dp"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <com.google.android.material.textview.MaterialTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="50%"/>
-                            <com.google.android.material.textview.MaterialTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/discount"/>
-                            <com.google.android.material.textview.MaterialTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:text="@string/getDiscountUntil"
-                                android:textAlignment="center" />
-                            <com.google.android.material.textview.MaterialTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="21st September"
-                                android:textAlignment="center" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-<!                <com.google.android.material.card.MaterialCardView-->
-<!--                    android:id="@+id/cV_special_offer_1"-->
-<!--                    style="@style/specialOfferCard"-->
-<!--                    android:layout_column="0">-->
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="130dp">-->
-
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/view1"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent">-->
-
-<!--                            <com.google.android.material.imageview.ShapeableImageView-->
-
-<!--                                android:layout_width="50dp"-->
-<!--                                android:layout_height="100dp"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:layout_marginHorizontal="10dp"-->
-<!--                                android:layout_marginVertical="10dp"-->
-<!--                                android:src="@drawable/ic_outline_person_24" />-->
-<!--                        </LinearLayout>-->
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="130dp"-->
-<!--                            android:layout_gravity="center_vertical|center_horizontal"-->
-<!--                            android:gravity="center"-->
-<!--                            android:orientation="vertical"-->
-<!--                            app:layout_constraintStart_toEndOf="@+id/view1"-->
-<!--                            app:layout_constraintTop_toTopOf="parent">-->
-<!--                            <com.google.android.material.textview.MaterialTextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="50%"/>-->
-<!--                            <com.google.android.material.textview.MaterialTextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="@string/discount"/>-->
-<!--                            <com.google.android.material.textview.MaterialTextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginTop="5dp"-->
-<!--                                android:text="@string/getDiscountUntil"-->
-<!--                                android:textAlignment="center" />-->
-<!--                            <com.google.android.material.textview.MaterialTextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="21st September"-->
-<!--                                android:textAlignment="center" />-->
-<!--                        </LinearLayout>-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--                </com.google.android.material.card.MaterialCardView>-->
-<!--                <com.google.android.material.card.MaterialCardView-->
-<!--                    android:id="@+id/cV_special_offer_2"-->
-<!--                    style="@style/specialOfferCard"-->
-<!--                    android:layout_column="1">-->
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="130dp">-->
-
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/view2"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent">-->
-
-<!--                            <com.google.android.material.imageview.ShapeableImageView-->
-
-<!--                                android:layout_width="50dp"-->
-<!--                                android:layout_height="100dp"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:layout_marginHorizontal="10dp"-->
-<!--                                android:layout_marginVertical="10dp"-->
-<!--                                android:src="@drawable/ic_outline_person_24" />-->
-<!--                        </LinearLayout>-->
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:layout_gravity="center_vertical|center_horizontal"-->
-<!--                            android:gravity="center"-->
-<!--                            android:orientation="vertical"-->
-<!--                            app:layout_constraintStart_toEndOf="@+id/view2"-->
-<!--                            app:layout_constraintTop_toTopOf="parent">-->
-<!--                            <com.google.android.material.textview.MaterialTextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="50%"/>-->
-<!--                            <com.google.android.material.textview.MaterialTextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="@string/discount"/>-->
-<!--                            <com.google.android.material.textview.MaterialTextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginTop="5dp"-->
-<!--                                android:text="@string/getDiscountUntil"-->
-<!--                                android:textAlignment="center" />-->
-<!--                            <com.google.android.material.textview.MaterialTextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="21st September"-->
-<!--                                android:textAlignment="center" />-->
-<!--                        </LinearLayout>-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--                </com.google.android.material.card.MaterialCardView>-->
-<!--        </GridLayout> -->
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_service"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/layout_special_offers">
+            app:layout_constraintTop_toBottomOf="@+id/layout_categories">
 
             <RelativeLayout
             android:id="@+id/relativeLayout_service"

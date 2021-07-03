@@ -73,10 +73,7 @@ public class HomeFragment: Fragment(){
             val intent=Intent(activity,SeeAllServicesActivity::class.java)
             startActivity(intent)
         }
-        tx_see_all_special_offers.setOnClickListener {
-            val intent = Intent(activity, SeeAllSpecialPackageActivity::class.java)
-            startActivity(intent)
-        }
+
         rcV_category_home.layoutManager = GridLayoutManager(contextFragment,3,GridLayoutManager.VERTICAL,false)
         categoryViewModel.CallCategoryHome()
         observeResponseCategory()
