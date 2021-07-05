@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
     private val favoriteFragment = FavoriteFragment()
     private val cartFragment = CartFragment()
-    private val notificationFragment = NotificationFragment()
+//    private val notificationFragment = NotificationFragment()
     private val profileFragment = ProfileFragment()
     private var idUser: Int = 0
     private var  id: Int? = null
@@ -52,17 +52,19 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> makeCurrentFragment(homeFragment)
-                R.id.favorite -> makeCurrent(favoriteFragment,idUser)
-                R.id.shoppingCart -> makeCurrent(cartFragment,idUser)
-                R.id.notification -> makeCurrentFragment(notificationFragment)
-                R.id.person -> makeCurrent2(profileFragment,id1,name1.toString(),date1.toString(),gender1.toString(),
-                    telephone1.toString(),email1.toString())
+                R.id.favorite -> makeCurrentFragment(favoriteFragment)
+                R.id.shoppingCart -> makeCurrentFragment(cartFragment)
+//                R.id.notification -> makeCurrentFragment(notificationFragment)
+                R.id.person -> makeCurrentFragment(profileFragment)
             }
             true
         }
     }
     private fun makeCurrentFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
+        val bundle = Bundle()
+        bundle.putInt("id", this.idUser)
+        fragment.arguments = bundle
         transaction.replace(R.id.fragment_container,fragment)
         transaction.commit()
     }
@@ -74,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.fragment_container,fragment)
         transaction.commit()
     }
-    private fun makeCurrent2(fragment: Fragment,id: Int,name :String,date:String,gender:String,telephone:String,email:String) {
+    private fun makeCurrent2(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         val bundle = Bundle()
         bundle.putInt("id", this.id!!)

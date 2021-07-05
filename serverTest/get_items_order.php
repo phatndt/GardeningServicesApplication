@@ -6,8 +6,8 @@
     
     $db = new db_connect();
 
-    // $idOrderList = $_POST['idOrder'];
-    $idOrderList = "1,2";
+    $idOrderList = $_POST['idOrder'];
+    // $idOrderList = "1,2";
     $idOrderList = explode(",", $idOrderList);
     $response = array();
     
@@ -18,7 +18,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
 
             $list = array();
-            $list[] = $row["total"];
+            $list = $row["total"];
 
             array_push($response, $list);
         }

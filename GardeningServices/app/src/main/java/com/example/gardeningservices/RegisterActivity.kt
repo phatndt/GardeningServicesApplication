@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.example.gardeningservices.model.CRUDresponse
 import com.example.gardeningservices.network.ApiUtils
 import com.example.gardeningservices.utilities.Converter
+import es.dmoral.toasty.Toasty
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -55,9 +56,10 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.makeText(this@RegisterActivity, t.toString(), Toast.LENGTH_LONG).show()
                     }
                     override fun onResponse(call: Call<CRUDresponse>, response: Response<CRUDresponse>) {
-                        if (response.body()!!.success == 2)
-                            Toast.makeText(this@RegisterActivity, response.body()!!.message, Toast.LENGTH_SHORT).show()
+                        if (response.body()!!.success == 0)
+                            Toasty.info(this@RegisterActivity, response.body()!!.message, Toast.LENGTH_SHORT).show()
                         if (response.body()!!.success == 1) {
+                            Toasty.success(this@RegisterActivity, response.body()!!.message, Toast.LENGTH_SHORT).show()
                             startActivity(Intent( this@RegisterActivity,SignInActivity::class.java)
                             )
                         }

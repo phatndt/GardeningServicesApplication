@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.gardeningservices.R
 import com.example.gardeningservices.utilities.Status
 import com.example.gardeningservices.viewmodel.AddressViewModel
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_add_new_address.*
 import kotlinx.android.synthetic.main.activity_address_management.*
 import kotlinx.android.synthetic.main.activity_edit_address.*
@@ -53,6 +54,8 @@ class AddNewAddressActivity : AppCompatActivity() {
                 it?.let { resource ->
                     when (resource.status) {
                         Status.SUCCESS -> {
+                            resource.data?.let { idc -> Toasty.success(this@AddNewAddressActivity,idc.message).show()}
+                            super.onBackPressed()
                         }
                         Status.ERROR -> {
                             Toast.makeText(

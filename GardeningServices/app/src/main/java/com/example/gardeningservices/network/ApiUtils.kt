@@ -15,7 +15,7 @@ class ApiUtils {
 
         //private val URL = "http://" + IP + ":8080/serverTest/"
 
-        private val URL = "https://gardeningserviceapp.000webhostapp.com/"
+        private val URL = "http://thanhphat219.xyz/"
 
         fun getCategoryApi(): CategoryApi {
             return Retrofit.getClient(URL).create(CategoryApi::class.java)

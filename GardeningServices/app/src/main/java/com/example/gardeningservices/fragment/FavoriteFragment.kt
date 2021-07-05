@@ -144,7 +144,7 @@ class FavoriteFragment: Fragment() {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 val message = snapshot.getValue(Message::class.java)
                 message!!.idKey = snapshot.key!!
-                if (message.idSend == idUser && message.idReceive == 0 || message.idReceive == idUser && message.idSend == 0 ) {
+                if (message.idSend == idUser && message.idReceive == 1 || message.idReceive == idUser && message.idSend == 1 ) {
                     messageList.add(message)
                     messageAdapter.notifyDataSetChanged()
                     chat_rcV.scrollToPosition(messageAdapter.itemCount -1)

@@ -52,7 +52,7 @@ class MessageAdapter(private val mContext: Context, private val mList:ArrayList<
 //            Toasty.error(mContext,"False").show()
 //        }
 
-        if (mList[position].idReceive == 0) {
+        if (mList[position].idReceive == 1) {
             return right
         } else {
             return left
