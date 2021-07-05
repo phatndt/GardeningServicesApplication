@@ -36,7 +36,7 @@ interface AddressApi {
         @Field("province") province:String,
         @Field("district") district:String,
         @Field("ward") ward:String
-    ): Call<CRUDresponse>
+    ): CRUDresponse
 
     @FormUrlEncoded
     @POST("post_update_edit_address.php")
@@ -48,5 +48,5 @@ interface AddressApi {
         @Field("province") province:String,
         @Field("district") district:String,
         @Field("ward") ward:String
-    ): Call<CRUDresponse>
+    ): CRUDresponse
 }

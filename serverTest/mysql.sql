@@ -106,4 +106,4 @@ INSERT INTO `product`(`id`, `idCategory`, `name`, `price`, `discount`, `image`, 
 
 INSERT INTO `user_address` (`idUser`, `address_name`, `address_number`, `address_line`, `province`, `district`, `ward`) VALUES (1, 'Phát', '0783249260', 'câu lâu đông', 'quảng nam', 'duy xuyên', 'duy phước');
 
-INSERT INTO `users`( `username`, `password`, `name`, `date`, `gender`, `telephone`, `email`) VALUES ('tp','314f04b30f62e0056bd059354a5536fb2e302107eed143b5fa2aa0bbba07f608','kim','2001-09-21','Nu','0783249260','phat01283249260@gmai.com');
+INSERT INTO `users`( `username`, `password`, `name`, `date`, `gender`, `telephone`, `email`) VALUES ('tp','314f04b30f62e0056bd059354a5536fb2e302107eed143b5fa2aa0bbba07f608','kim','2001-09-21','Nu','0783249260','phat01283249260@gmai.com')

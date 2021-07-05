@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.*
@@ -60,6 +61,7 @@ class EditProfileActivity : AppCompatActivity() {
             val mon = month +1;
             val s = "$year-$mon-$dayOfMonth"
             this.date.value = s
+            Log.d("EditProfile",s)
         },
             calendar[Calendar.YEAR],
             calendar[Calendar.MONTH],
@@ -72,7 +74,8 @@ class EditProfileActivity : AppCompatActivity() {
         val profileFullName = edit_profile_name.text.toString().trim()
         val profileGender = auto_tv_gender.text.toString().trim()
         val profileMail = edt_profile_email.text.toString().trim()
-        val profileDate = Converter.convertYMD(edt_profile_date.text.toString().trim())
+//        val profileDate = Converter.convertYMD(edt_profile_date.text.toString().trim())
+        val profileDate = "Converter.convertYMD(edt_profile_date.text.toString().trim())"
         val profileTelephone = edt_profile_telephone.text.toString().trim()
 
         if (profileFullName.isNotEmpty() && profileGender.isNotEmpty() && profileMail.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(profileMail).matches() && profileTelephone.length == 10 && profileDate.isNotEmpty() && profileTelephone.isNotEmpty())
@@ -130,6 +133,7 @@ class EditProfileActivity : AppCompatActivity() {
         this.date.value = users.date
         this.telephone.value = users.telephone
         this.email.value = users.email
+
     }
     private fun setUpObserver() {
         val nameObserver = Observer<String> { ob ->
@@ -159,6 +163,8 @@ class EditProfileActivity : AppCompatActivity() {
 
         val dateObserver = Observer<String> { ob ->
             edt_profile_date.setText(Converter.convertDate(ob))
+
+            Log.d("EditProfile",Converter.convertDate(ob))
         }
         this.date.observe(this,dateObserver)
     }

@@ -5,8 +5,9 @@
     require_once __DIR__ . '/db_connect.php';
     
     $db = new db_connect();
+    $userId = $_POST['idUser'];
     
-    $result = mysqli_query($db->connect(),"SELECT * FROM user_address") or die(mysqli_error());
+    $result = mysqli_query($db->connect(),"SELECT * FROM user_address WHERE idUser='$userId'") or die(mysqli_error());
     
     if (mysqli_num_rows($result) > 0) {
 

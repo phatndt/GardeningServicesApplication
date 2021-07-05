@@ -6,8 +6,8 @@
     
     $db = new db_connect();
 
-    // $idOrder = $_POST['idOrder'];
-    $idOrder = "1";
+    $idOrder = $_POST['idOrder'];
+    
     $result = mysqli_query($db->connect(),"SELECT * FROM order_ WHERE id = '$idOrder'") or die(mysqli_error());
     
     if (mysqli_num_rows($result) > 0) {
