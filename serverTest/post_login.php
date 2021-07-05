@@ -14,6 +14,7 @@
 
     $userMail = $_POST['username'];
     $userPassword = $_POST['password'];
+
     $result = mysqli_query($db->connect(),"SELECT * FROM users WHERE username = '$userMail' AND password = '$userPassword'") or die(mysqli_error());
 
     if (mysqli_num_rows($result) > 0) {

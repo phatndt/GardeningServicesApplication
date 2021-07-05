@@ -6,8 +6,8 @@
     
     $db = new db_connect();
 
-    // $idAddress = $_POST['idAddress'];
-    $idAddress = "1";
+    $idAddress = $_POST['idAddress'];
+
     $result = mysqli_query($db->connect(),"SELECT * FROM user_address WHERE id = '$idAddress'") or die(mysqli_error());
     
     if (mysqli_num_rows($result) > 0) {

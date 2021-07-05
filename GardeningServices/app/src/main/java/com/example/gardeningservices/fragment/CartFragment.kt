@@ -34,6 +34,7 @@ import com.example.gardeningservices.utilities.Status.SUCCESS
 import com.example.gardeningservices.utilities.Status.ERROR
 import com.example.gardeningservices.utilities.Status.LOADING
 import com.example.gardeningservices.viewmodel.ProductViewModel
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_cart.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -77,13 +78,17 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
         getCart(myValue!!)
 
         cart_btn_checkout.setOnClickListener {
-            val intent = Intent(activity, CheckOutShipmentActivity::class.java)
-            intent.putExtra("idUser",myValue)
-            intent.putExtra("total",mutableTotalPrice.value)
-            intent.putExtra("provision",mutableItemPrice.value)
-            intent.putExtra("shipping",mutableShippingPrice.value)
-            intent.putExtra("idCart",idCart)
-            startActivity(intent)
+            if (listCartDetail.isNotEmpty()) {
+                val intent = Intent(activity, CheckOutShipmentActivity::class.java)
+                intent.putExtra("idUser",myValue)
+                intent.putExtra("total",mutableTotalPrice.value)
+                intent.putExtra("provision",mutableItemPrice.value)
+                intent.putExtra("shipping",mutableShippingPrice.value)
+                intent.putExtra("idCart",idCart)
+                startActivity(intent)
+            } else {
+                Toasty.info(this.contextFragment, "No product", Toasty.LENGTH_SHORT).show()
+            }
         }
     }
     private fun getCart(myValue: Int) {
