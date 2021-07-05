@@ -66,4 +66,9 @@ class AddressManagement : AppCompatActivity(),AddressAdapter.AddressInterface  {
     override fun deleteAddress(idAddress: String) {
         addressViewModel.deleteAddress(idAddress)
     }
+
+    override fun onResume() {
+        super.onResume()
+        loadData()
+    }
 }
