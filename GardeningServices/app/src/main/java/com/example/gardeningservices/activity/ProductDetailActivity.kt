@@ -28,6 +28,7 @@ class ProductDetailActivity : AppCompatActivity() {
     private lateinit var cartViewModel: CartViewModel
     private var idUser: Int = 0
     private var idCart: Int = 0
+    private var idCartDetail: Int = 0
     private var quantity: Int = 0
     private var observerQuantity : MutableLiveData<Int> = MutableLiveData()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,7 +76,7 @@ class ProductDetailActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Out of Stock", Toast.LENGTH_LONG).show()
             }
-
+//            Toast.makeText(this, idUser.toString() + "-" + idCart.toString(), Toast.LENGTH_LONG).show()
         }
         //setUpProfile(id, idCategory)
         setUpObserver()

@@ -56,7 +56,7 @@ class CartAdapter(private val mContext: Context, private val mList:ArrayList<Car
     private fun setUp(holder: CartViewHolder, positionList: Int) {
         holder.imageVDelete.setOnClickListener {
             cartInterface.updateQuantityProductDeleteItem(mListProduct[positionList].id, holder.spinner.selectedItemPosition + 1)
-            cartInterface.deleteItem(mListProduct[positionList].id)
+            cartInterface.deleteItem(mList[positionList].id)
             mList.removeAt(positionList)
             mListProduct.removeAt(positionList)
             notifyDataSetChanged()
@@ -78,13 +78,13 @@ class CartAdapter(private val mContext: Context, private val mList:ArrayList<Car
                     return
                 }
                 mList[positionList].quantity = quantity
-                cartInterface.changeQuantity(mListProduct[positionList].id, quantity, mList[positionList].quantity)
+                cartInterface.changeQuantity(mList[positionList].id,mListProduct[positionList].id, quantity, mList[positionList].quantity)
             }
         }
     }
     public interface CartInterface {
         fun deleteItem(idCartDetail: Int)
-        fun changeQuantity(position: Int, quantity: Int, quantityUpdate: Int)
+        fun changeQuantity(idCartDetail: Int,idProduct: Int, quantity: Int, quantityUpdate: Int)
         fun updateQuantityProductDeleteItem(idProduct: Int, quantity: Int)
     }
 }

@@ -10,6 +10,7 @@ import com.example.gardeningservices.R
 import com.example.gardeningservices.adapter.ProductOrderAdapter
 import com.example.gardeningservices.model.Address
 import com.example.gardeningservices.model.Order
+import com.example.gardeningservices.model.OrderDetail
 import com.example.gardeningservices.model.Products
 import com.example.gardeningservices.utilities.Converter
 import com.example.gardeningservices.utilities.Status
@@ -32,7 +33,9 @@ class OrderDetailActivity : AppCompatActivity() {
 
         setUp()
 
-        getProduct()
+//        getProduct()
+
+        getIdProduct()
 
         getShipping()
 
@@ -55,9 +58,35 @@ class OrderDetailActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
-
-    private fun getProduct() {
-        this.orderViewModel.getProductByOrder(this.listorderDetail!!).observe(this, Observer {
+    private fun getIdProduct() {
+        this.orderViewModel.getIdProductByOrder(this.idOrder).observe(this, Observer {
+            it?.let { resource ->
+                when (resource.status) {
+                    Status.SUCCESS -> {
+                        resource.data?.let { list -> setListOrderDetail(list) }
+                    }
+                    Status.ERROR -> {
+                        Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                    }
+                    Status.LOADING -> {
+                    }
+                }
+            }
+        })
+    }
+    private fun setListOrderDetail(list: List<OrderDetail>) {
+        val listIdOder: ArrayList<String> = arrayListOf()
+        for (order in list) {
+            listIdOder.add(order.idProduct.toString())
+        }
+        if (listIdOder.isEmpty()) {
+            return
+        } else {
+            getProduct(listIdOder)
+        }
+    }
+    private fun getProduct(list: List<String>) {
+        this.orderViewModel.getProductByOrder(list.joinToString()).observe(this, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {

@@ -24,4 +24,7 @@ class OrderResponse {
     suspend fun getOrderById(idOrder: Int) = orderApi.getOrderById(idOrder)
 
     suspend fun getProductByOrder(idProduct: String) = orderApi.getProductByOrder(idProduct)
+
+    suspend fun getIdProductByOrder(idOrder: Int) = orderApi.getIdProductByOrder(idOrder)
+
 }

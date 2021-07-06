@@ -45,8 +45,8 @@ class CartRepository {
 
         })
     }
-    fun postChangeQuantityItem(idProduct:Int,quantity: Int, quantityUpdate: Int) {
-        cartApi.postChangeQuantityItem(idProduct, quantity, quantityUpdate).enqueue(object : Callback<CRUDresponse>{
+    fun postChangeQuantityItem(idCartDetail: Int,idProduct: Int,quantity: Int, quantityUpdate: Int) {
+        cartApi.postChangeQuantityItem(idCartDetail, idProduct, quantity, quantityUpdate).enqueue(object : Callback<CRUDresponse>{
             override fun onFailure(call: Call<CRUDresponse>, t: Throwable) {
 
             }
