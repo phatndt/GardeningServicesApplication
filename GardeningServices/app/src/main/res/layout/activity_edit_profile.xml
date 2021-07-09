@@ -66,8 +66,7 @@
             android:layout_marginBottom="10sp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             app:boxStrokeColor="@color/Green1"
-            app:hintTextColor="@color/Green1"
-            >
+            app:hintTextColor="@color/Green1">
             <AutoCompleteTextView
                 android:id="@+id/auto_tv_gender"
                 android:layout_width="match_parent"
@@ -80,8 +79,7 @@
                 android:paddingLeft="15dp"
                 android:drawablePadding="10dp"
                 android:hint="Gender"
-                android:text="Gender"
-                />
+                android:text="Gender" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_edit_profile_date"

@@ -132,7 +132,7 @@ class CheckOutShipmentActivity : AppCompatActivity(), AddressAdapter.AddressInte
     private fun insert() {
         val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd")
 
-        val state = "dat hang"
+        val state = "Order"
         val dateOrder = dateFormat.format(date)
 
         orderViewModel.postOrder(idUser, idAddress, dateOrder, state, provision, shipping, total).observe(this, Observer {
