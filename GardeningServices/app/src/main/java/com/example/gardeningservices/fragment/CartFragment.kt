@@ -172,6 +172,10 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
     private fun calculateCartTotal() {
         if ( listProduct.isEmpty() && listCartDetail.isEmpty()) {
             Log.d(TAG, "null")
+            mutableItemPrice.value = 0
+            mutableShippingPrice.value  = 0
+            mutableChargePrice.value  = 0
+            mutableTotalPrice.value  = 0
             return
         }
         Log.d(TAG, listCartDetail.size.toString() + listProduct.size.toString())

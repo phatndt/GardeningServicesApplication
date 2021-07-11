@@ -62,10 +62,13 @@ class CheckOutShipmentActivity : AppCompatActivity(), AddressAdapter.AddressInte
         cart_btn_next_shipping.setOnClickListener {
             insert()
         }
+        tv_back_checkout_add.setOnClickListener {
+            addNewAddress()
+        }
     }
     private fun observeResponseData() {
         val id1 = intent.getIntExtra("idUser",-1)
-        this.addressViewModel.getListAddress(id1.toString()).observe(this, Observer {
+        this.addressViewModel.getListAddress(this.idUser.toString()).observe(this, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
@@ -100,6 +103,8 @@ class CheckOutShipmentActivity : AppCompatActivity(), AddressAdapter.AddressInte
         idCart = intent.getIntExtra("idCart",-1)
 
         getCartDetail(idCart)
+
+        Log.d("idUser", this.idUser.toString())
     }
 
     private fun getCartDetail(idCart: Int) {
@@ -193,5 +198,16 @@ class CheckOutShipmentActivity : AppCompatActivity(), AddressAdapter.AddressInte
 
     override fun deleteAddress(idAddress: String) {
         addressViewModel.deleteAddress(idAddress)
+    }
+    private fun addNewAddress() {
+        val intent = Intent(this, AddNewAddressActivity::class.java)
+        intent.putExtra("idUser",this.idUser)
+
+        startActivity(intent)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        observeResponseData()
     }
 }

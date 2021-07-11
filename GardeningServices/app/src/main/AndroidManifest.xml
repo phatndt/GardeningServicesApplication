@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GardeningServices"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.EditAddressActivity"></activity>
+        <activity android:name=".activity.ChangePasswordActivity"></activity>
+        <activity android:name=".activity.ResetPasswordActivity" />
+        <activity android:name=".activity.EditAddressActivity" />
         <activity android:name=".activity.AddNewAddressActivity" />
         <activity android:name=".activity.AddressManagement" />
         <activity android:name=".activity.OrderDetailActivity" />

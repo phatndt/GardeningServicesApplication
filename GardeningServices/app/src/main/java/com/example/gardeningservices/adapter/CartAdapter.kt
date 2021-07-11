@@ -25,7 +25,7 @@ import com.example.gardeningservices.viewmodel.CartViewModel
 import es.dmoral.toasty.Toasty
 import kotlinx.coroutines.Dispatchers
 
-class CartAdapter(private val mContext: Context, private val mList:ArrayList<CartDetail>, private  val mListProduct:ArrayList<Products>, private  val cartInterface: CartInterface): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private val mContext: Context, private var mList:ArrayList<CartDetail>, private  var mListProduct:ArrayList<Products>, private  val cartInterface: CartInterface): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
 
     class CartViewHolder(view: View): RecyclerView.ViewHolder(view) {
@@ -55,11 +55,16 @@ class CartAdapter(private val mContext: Context, private val mList:ArrayList<Car
     }
     private fun setUp(holder: CartViewHolder, positionList: Int) {
         holder.imageVDelete.setOnClickListener {
-            cartInterface.updateQuantityProductDeleteItem(mListProduct[positionList].id, holder.spinner.selectedItemPosition + 1)
-            cartInterface.deleteItem(mList[positionList].id)
+            val idProduct = mListProduct[positionList].id
+            val idCartDetail = mList[positionList].id
+            val quantity = holder.spinner.selectedItemPosition + 1
             mList.removeAt(positionList)
             mListProduct.removeAt(positionList)
             notifyDataSetChanged()
+//            cartInterface.updateQuantityProductDeleteItem(mListProduct[positionList].id, holder.spinner.selectedItemPosition + 1)
+//            cartInterface.deleteItem(mList[positionList].id)
+            cartInterface.updateQuantityProductDeleteItem(idProduct, quantity)
+            cartInterface.deleteItem(idCartDetail)
         }
         holder.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {

@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.gardeningservices.R
 import com.example.gardeningservices.SignInActivity
 import com.example.gardeningservices.activity.AddressManagement
+import com.example.gardeningservices.activity.ChangePasswordActivity
 import com.example.gardeningservices.activity.EditProfileActivity
 import com.example.gardeningservices.activity.OrderActivity
 import com.example.gardeningservices.viewmodel.CartViewModel
@@ -62,6 +63,10 @@ class ProfileFragment: Fragment() {
         profile_cv_order_history.setOnClickListener {
             val intent = Intent(activity,OrderActivity::class.java)
             intent.putExtra("idUser",id)
+            startActivity(intent)
+        }
+        tv_change_password.setOnClickListener {
+            val intent = Intent(activity,ChangePasswordActivity::class.java)
             startActivity(intent)
         }
     }
