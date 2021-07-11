@@ -29,6 +29,7 @@ interface CartApi {
     @POST("post_change_quantity_cart.php")
     @FormUrlEncoded
     fun postChangeQuantityItem(
+        @Field("idCartDetail") idCartDetail: Int,
         @Field("idProduct") idProduct: Int,
         @Field("quantity") quantity: Int,
         @Field("quantityUpdate") quantityUpdate: Int): Call<CRUDresponse>
@@ -50,7 +51,7 @@ interface CartApi {
         @Field("total") total: Int,
         @Field("idCart") idCart: Int)
 
-    @POST("    post_update_state_cart.php")
+    @POST("post_update_state_cart.php")
     @FormUrlEncoded
     suspend fun postUpdateStateCart(@Field("idCart") idCart: Int)
 }

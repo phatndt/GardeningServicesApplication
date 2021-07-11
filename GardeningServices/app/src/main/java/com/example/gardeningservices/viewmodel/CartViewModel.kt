@@ -52,8 +52,8 @@ class CartViewModel: ViewModel() {
     fun postDeleteCartDetail(idCartDetail: Int) {
         cartResponse.postDeleteCartDetail(idCartDetail)
     }
-    fun postChangeQuantityItem(idProduct:Int, quantity: Int, quantityUpdate: Int) {
-        cartResponse.postChangeQuantityItem(idProduct, quantity, quantityUpdate)
+    fun postChangeQuantityItem(idCartDetail: Int,idProduct: Int, quantity: Int, quantityUpdate: Int) {
+        cartResponse.postChangeQuantityItem(idCartDetail, idProduct, quantity, quantityUpdate)
     }
     fun postAddProductToCart(idCart: Int, idProduct: Int) = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))

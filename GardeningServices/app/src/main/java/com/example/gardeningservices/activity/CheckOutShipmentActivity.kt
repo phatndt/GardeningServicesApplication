@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -131,7 +132,7 @@ class CheckOutShipmentActivity : AppCompatActivity(), AddressAdapter.AddressInte
     private fun insert() {
         val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd")
 
-        val state = "Đặt hàng"
+        val state = "Order"
         val dateOrder = dateFormat.format(date)
 
         orderViewModel.postOrder(idUser, idAddress, dateOrder, state, provision, shipping, total).observe(this, Observer {
@@ -166,10 +167,11 @@ class CheckOutShipmentActivity : AppCompatActivity(), AddressAdapter.AddressInte
                 it?.let { resource ->
                     when (resource.status) {
                         Status.SUCCESS -> {
-
+                            Log.d("Tag", "++")
                         }
                         Status.ERROR -> {
-                            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, it.message + "Error", Toast.LENGTH_LONG).show()
+                            Log.d("Tag", "loi cart detail")
                         }
                         Status.LOADING -> {
                         }
@@ -177,22 +179,11 @@ class CheckOutShipmentActivity : AppCompatActivity(), AddressAdapter.AddressInte
                 }
             })
         }
-        this.cartViewModel.postUpdateStateCart(idCart).observe(this, Observer {
-            it?.let { resource ->
-                when (resource.status) {
-                    Status.SUCCESS -> {
-                    }
-                    Status.ERROR -> {
-                        Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-                    }
-                    Status.LOADING -> {
-                    }
-                }
-            }
-        })
+
         val intent = Intent(this, CheckOutCompleteActivity::class.java)
         intent.putExtra("total", total)
         intent.putExtra("idOrder", idOrder)
+        intent.putExtra("idCart",idCart)
         startActivity(intent)
     }
 

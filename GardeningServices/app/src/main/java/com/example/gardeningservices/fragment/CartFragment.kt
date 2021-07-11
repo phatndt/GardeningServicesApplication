@@ -286,8 +286,8 @@ class CartFragment: Fragment(), CartAdapter.CartInterface  {
         calculateCartTotal()
     }
 
-    override fun changeQuantity(position: Int, quantity: Int, quantityUpdate: Int) {
-        cartViewModel.postChangeQuantityItem(position, quantity, quantityUpdate)
+    override fun changeQuantity(idCartDetail: Int,idProduct: Int, quantity: Int, quantityUpdate: Int) {
+        cartViewModel.postChangeQuantityItem(idCartDetail, idProduct, quantity, quantityUpdate)
         calculateCartTotal()
     }
 
