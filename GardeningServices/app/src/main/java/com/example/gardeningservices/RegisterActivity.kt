@@ -65,11 +65,11 @@ class RegisterActivity : AppCompatActivity() {
 
 
             }else {
-                Toast.makeText(this@RegisterActivity,"Password is not correct", Toast.LENGTH_LONG).show()
+                Toasty.info(this@RegisterActivity,"Password is not correct", Toast.LENGTH_SHORT).show()
             }
         }
         else {
-            Toast.makeText(this@RegisterActivity,"Please enter full information", Toast.LENGTH_LONG).show()
+            Toasty.info(this@RegisterActivity,"Please enter full information", Toast.LENGTH_SHORT).show()
         }
     }
     private  fun addUserFirebase(signUpUsername: String,signUpMail: String, convertPass: String) {

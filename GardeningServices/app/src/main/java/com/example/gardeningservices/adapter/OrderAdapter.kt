@@ -42,7 +42,7 @@ class OrderAdapter(private val mContext: Context, private val mList : ArrayList<
         holder.date.text = Converter.convertDate(mList[position].date)
         holder.status.text = mList[position].state
         holder.item.text = mListItemsOrder[position].toString()
-        holder.price.text = mList[position].total.toString()
+        holder.price.text = Converter.convertMoney(mList[position].total)
 
         holder.cv.setOnClickListener {
             val intent = Intent(mContext,OrderDetailActivity::class.java)

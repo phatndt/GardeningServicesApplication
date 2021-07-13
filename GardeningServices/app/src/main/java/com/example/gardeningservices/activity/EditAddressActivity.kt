@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.gardeningservices.R
 import com.example.gardeningservices.utilities.Status
 import com.example.gardeningservices.viewmodel.AddressViewModel
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_edit_address.*
 
 class EditAddressActivity : AppCompatActivity() {
@@ -61,6 +62,8 @@ class EditAddressActivity : AppCompatActivity() {
                     it?.let { resource ->
                         when (resource.status) {
                             Status.SUCCESS -> {
+                                Toasty.success(this,"Success", Toast.LENGTH_LONG).show()
+                                super.onBackPressed()
                             }
                             Status.ERROR -> {
                                 Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()

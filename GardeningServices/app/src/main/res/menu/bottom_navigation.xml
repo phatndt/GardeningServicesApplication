@@ -5,7 +5,7 @@
         android:icon="@drawable/selector_navigation_home"
         />
     <item android:id="@+id/favorite"
-        android:title="Favorite"
+        android:title="Chat"
         android:icon="@drawable/selector_navigation_favorite"/>
     <item android:id="@+id/shoppingCart"
         android:title="Cart"

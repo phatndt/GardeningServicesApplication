@@ -26,7 +26,7 @@ class ProductAdapter(private val mContext: Context, private val mList:List<Produ
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         holder.productName.text = mList[position].name
-        holder.productPrice.text = mList[position].price
+        holder.productPrice.text = Converter.convertMoney(mList[position].price.toInt())
         Glide.with(mContext).load(mList[position].image).into(holder.productNamePicture)
         holder.productCard.setOnClickListener {
             val intent = Intent(mContext, ProductDetailActivity::class.java)

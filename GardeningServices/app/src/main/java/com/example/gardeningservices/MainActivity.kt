@@ -67,8 +67,6 @@ class MainActivity : AppCompatActivity() {
         fragment.arguments = bundle
         transaction.replace(R.id.fragment_container,fragment)
         transaction.commit()
-        Toast.makeText(this, this.idUser.toString(),
-            Toast.LENGTH_SHORT).show()
     }
     private fun makeCurrent(fragment: Fragment,id: Int) {
         val transaction = supportFragmentManager.beginTransaction()

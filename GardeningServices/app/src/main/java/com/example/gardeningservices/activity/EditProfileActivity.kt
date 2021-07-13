@@ -75,7 +75,7 @@ class EditProfileActivity : AppCompatActivity() {
         val profileGender = auto_tv_gender.text.toString().trim()
         val profileMail = edt_profile_email.text.toString().trim()
 //        val profileDate = Converter.convertYMD(edt_profile_date.text.toString().trim())
-        val profileDate = "Converter.convertYMD(edt_profile_date.text.toString().trim())"
+        val profileDate = Converter.convertYMD(edt_profile_date.text.toString().trim())
         val profileTelephone = edt_profile_telephone.text.toString().trim()
 
         if (profileFullName.isNotEmpty() && profileGender.isNotEmpty() && profileMail.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(profileMail).matches() && profileTelephone.length == 10 && profileDate.isNotEmpty() && profileTelephone.isNotEmpty())

@@ -23,6 +23,7 @@ import com.example.gardeningservices.utilities.Status
 import com.example.gardeningservices.viewmodel.AddressViewModel
 import com.example.gardeningservices.viewmodel.CartViewModel
 import com.example.gardeningservices.viewmodel.OrderViewModel
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_check_out_shipment.*
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import java.text.DateFormat
@@ -139,21 +140,22 @@ class CheckOutShipmentActivity : AppCompatActivity(), AddressAdapter.AddressInte
 
         val state = "Order"
         val dateOrder = dateFormat.format(date)
-
-        orderViewModel.postOrder(idUser, idAddress, dateOrder, state, provision, shipping, total).observe(this, Observer {
-            it?.let { resource ->
-                when (resource.status) {
-                    Status.SUCCESS -> {
-                        resource.data?.let { id -> getIdOrder(id) }
-                    }
-                    Status.ERROR -> {
-                        Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-                    }
-                    Status.LOADING -> {
+        if (idAddress != 0) {
+            orderViewModel.postOrder(idUser, idAddress, dateOrder, state, provision, shipping, total).observe(this, Observer {
+                it?.let { resource ->
+                    when (resource.status) {
+                        Status.SUCCESS -> {
+                            resource.data?.let { id -> getIdOrder(id) }
+                        }
+                        Status.ERROR -> {
+                            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                        }
+                        Status.LOADING -> {
+                        }
                     }
                 }
-            }
-        })
+            })
+        } else Toasty.info(this, "No address selected", Toast.LENGTH_SHORT).show()
     }
 
     private fun getIdOrder(int: Int) {

@@ -152,10 +152,10 @@ class OrderDetailActivity : AppCompatActivity() {
     }
 
     private fun setUpOrder(order: Order) {
-        order_detail_item_price.text = order.provisional_money.toString()
-        order_detail_shipping_price.text = order.shipping.toString()
+        order_detail_item_price.text = Converter.convertMoney(order.provisional_money)
+        order_detail_shipping_price.text = Converter.convertMoney(order.shipping)
         val charge = order.provisional_money * 20 / 100
-        order_detail_import_charges_price.text = charge.toString()
-        order_detail_total_price.text = order.total.toString()
+        order_detail_import_charges_price.text = Converter.convertMoney(charge)
+        order_detail_total_price.text = Converter.convertMoney(order.total)
     }
 }

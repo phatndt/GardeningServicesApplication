@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.gardeningservices.MainActivity
 import com.example.gardeningservices.R
+import com.example.gardeningservices.utilities.Converter
 import com.example.gardeningservices.utilities.Status
 import com.example.gardeningservices.viewmodel.CartViewModel
 import com.example.gardeningservices.viewmodel.OrderViewModel
@@ -44,7 +45,8 @@ class CheckOutCompleteActivity : AppCompatActivity() {
         if (idOrder != 0 && idOrder != -1) {
             complete_state.text = "Order Success"
             complete_image.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_24))
-            complete_total.text = "Please prepare $total to pay"
+            val convert = Converter.convertMoney(total)
+            complete_total.text = "Prepare $convert to pay"
             changestate(idCart)
         }
 

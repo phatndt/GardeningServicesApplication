@@ -45,7 +45,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_Full_Name_edit"
             android:layout_width="match_parent"
-            android:inputType="number"
             android:lines="1"
             android:layout_height="wrap_content"
             />
